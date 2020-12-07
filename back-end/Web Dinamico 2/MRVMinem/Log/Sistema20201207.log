@@ -1,0 +1,342 @@
+07/12/2020 00:12:34: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:34: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:34: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:34: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:34: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:34: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:12:35: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:39: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 00:38:40: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:26: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 01:33:27: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 02:06:53: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:04: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:05: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:15: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:16: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:43:29: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:23: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:24: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:27: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:28: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:37: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:47:38: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:54: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:48:55: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:01: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:49:02: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:15: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:50:16: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:56:15: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 10:57:16: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:02:02: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:10:26: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:28: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:11:42: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:13:05: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:18:32: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:23:10: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:25:39: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:28: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:28:32: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:45: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:29:46: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:53: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:33:54: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2298] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:45:22: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2252] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:47:19: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:49:58: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 11:55:29: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:01:03: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:03:48: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: System.Decimal Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:06:13: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+07/12/2020 12:07:47: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:07:47: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:07:47: [Método: System.Decimal Parse(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:07:47: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:07:47: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:07:47: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: System.Decimal Parse(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:08:34: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: System.Decimal Parse(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:11:50: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: System.Decimal ParseDecimal(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: System.Decimal Parse(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - El valor no puede ser nulo.
+Nombre del parámetro: String
+07/12/2020 12:13:11: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 0] - El valor no puede ser nulo.
+Nombre del parámetro: String

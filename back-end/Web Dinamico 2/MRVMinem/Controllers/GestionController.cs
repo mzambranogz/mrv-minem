@@ -2239,7 +2239,8 @@ namespace MRVMinem.Controllers
                     p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
                     if (Convert.ToString(valores_det[3]) == "0")
                     {
-                        p.VALOR = "";
+                        //p.VALOR = "";
+                        p.VALOR = Convert.ToString(valores_det[3]);
                     }
                     else
                     {
@@ -2285,7 +2286,8 @@ namespace MRVMinem.Controllers
                     p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
                     if (Convert.ToString(valores_det[3]) == "0")
                     {
-                        p.VALOR = "";
+                        //p.VALOR = "";
+                        p.VALOR = Convert.ToString(valores_det[3]);
                     }
                     else
                     {
