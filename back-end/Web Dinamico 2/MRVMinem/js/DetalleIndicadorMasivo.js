@@ -3967,3 +3967,18 @@ var asignarMontos = () => {
     });
 }
 
+$(document).on("keyup", ".formato-num", function (event) {
+
+    $(event.target).val(function (index, value) {
+        if (value.length <= 2) {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{1})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        } else {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        }
+    });
+});
+
