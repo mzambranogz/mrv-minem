@@ -415,6 +415,7 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("PI_PARAMETRO", entidad.ID_PARAMETRO);
                     p.Add("PI_DETALLE", entidad.ID_DETALLE);
+                    p.Add("PI_ID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("PO_RF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     entidad = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }

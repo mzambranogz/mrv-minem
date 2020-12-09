@@ -6602,6 +6602,7 @@ $(document).on('change', '.filtrar-opcion', function (e) {
     let item = {
         ID_PARAMETRO: param,
         ID_DETALLE: $(id).val(),
+        ID_ENFOQUE: $("#cbo-enfoque").val(),
     }
     var url = baseUrl + 'Gestion/FiltrarOpcion';
     $.ajax({

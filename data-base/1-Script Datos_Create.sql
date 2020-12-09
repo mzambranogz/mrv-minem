@@ -1269,12 +1269,13 @@ create table T_MAE_USUARIO_ROL
 
 prompt Creating T_MAED_PARAMETRO_RELACION...
 CREATE TABLE T_MAED_PARAMETRO_RELACION(
+ID_ENFOQUE NUMBER,
 ID_PARAMETRO NUMBER,
 ID_DETALLE NUMBER,
 PARAMETROS VARCHAR2(100),
 DETALLES VARCHAR2(100),
 FLAG_ESTADO VARCHAR2(1) DEFAULT '1',
-PRIMARY KEY (ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES)
+PRIMARY KEY (ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES)
 );
 
 prompt Creating T_GEND_INICIATIVA_INVERSION...
@@ -2146,7 +2147,7 @@ values (95, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, '(Fotovoltaicos)'
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (96, 2, 2, 'Energía ahorrada', '0', '0', '1', null, null, null, '(MWh)', null, 'Reducción de energía total en megavatios hora, atribuida a la implementación de la acción.', null, null, null, null, null, null, '1', '1', '1', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (97, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad de la refrigeradora en litros', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (97, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad de la refrigeradora en litros', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (98, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
@@ -2180,15 +2181,15 @@ values (112, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, 
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (113, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (114, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad de la congeladora en litros', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (114, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad de la congeladora en litros', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (115, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(kg)', null, 'Especificación del equipo (split, ventana)', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (115, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(kg)', null, 'Especificación del equipo (split, ventana)', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (116, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(kg)', null, 'Especificación del equipo (split, ventana)', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (116, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(kg)', null, 'Especificación del equipo (split, ventana)', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (117, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(BTU)', null, 'Capacidad de los equipos de aire acondicionado', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (117, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(BTU)', null, 'Capacidad de los equipos de aire acondicionado', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (118, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad del calentador', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (118, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Capacidad del calentador', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (119, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
@@ -2217,7 +2218,7 @@ values (130, 2, 2, 'Emisiones GEI línea base', '0', '0', '1', null, null, null,
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (131, 1, 3, 'Combustible acción', '1', '1', '1', null, null, null, null, null, '', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (132, 1, 3, 'Potencia', '1', '1', '1', null, null, null, null, null, 'Especificación de la potencia del equipo', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (132, 1, 3, 'Potencia', '1', '1', '1', null, null, null, null, null, 'Especificación de la potencia del equipo', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 
 commit;
 prompt 120 records loaded
@@ -27302,33 +27303,81 @@ values (5, 5, '1', null);
 commit;
 prompt 5 records loaded
 
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 1, '78', '1');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 2, '78', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 3, '78', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 4, '78', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 5, '78', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 6, '78', '4');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 7, '78', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 8, '78', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 9, '78', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 10, '78', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 11, '78', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 12, '78', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 13, '78', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 1, '78', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 2, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 3, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 4, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 5, '78', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 6, '78', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 7, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 8, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 9, '78', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 10, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 11, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 12, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 13, '78', '4');
 
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 1, '86', '1');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 2, '86', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 3, '86', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 4, '86', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 5, '86', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 6, '86', '4');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 7, '86', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 8, '86', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 9, '86', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 10, '86', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 11, '86', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 12, '86', '5');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 13, '86', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 1, '86', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 2, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 3, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 4, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 5, '86', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 6, '86', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 7, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 8, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 9, '86', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 10, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 11, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 12, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 84, 13, '86', '4');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (16, 97, 1, '98', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (16, 97, 2, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (16, 97, 3, '98', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (16, 97, 4, '98', '6');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (17, 114, 1, '98', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (17, 114, 2, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (17, 114, 3, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (17, 114, 4, '98', '5');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (18, 115, 1, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (18, 115, 2, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (18, 115, 3, '98', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (18, 115, 4, '98', '2');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (19, 116, 1, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (19, 116, 2, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (19, 116, 3, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (19, 116, 4, '98', '1');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 1, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 2, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 3, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 4, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 5, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (20, 117, 6, '98', '4');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (21, 118, 1, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (21, 118, 2, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (21, 118, 3, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (21, 118, 4, '98', '2');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (22, 118, 1, '98', '6');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (22, 118, 2, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (22, 118, 3, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (22, 118, 4, '98', '4');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 1, '98', '7');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 2, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 3, '98', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 4, '98', '4');
+
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 1, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 2, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 3, '98', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 4, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 5, '98', '2');
 commit;
 
 prompt
