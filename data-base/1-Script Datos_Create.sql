@@ -366,7 +366,8 @@ create table T_GENM_INICIATIVA
   asignar_ini            NUMBER,
   estado_ficha           NUMBER,
   nombre_ficha           VARCHAR2(150),
-  auditor		 NUMBER DEFAULT '0'	
+  auditor		 NUMBER DEFAULT '0',
+  ndc 			 VARCHAR2(1)	
 )
 ;
 alter table T_GENM_INICIATIVA
