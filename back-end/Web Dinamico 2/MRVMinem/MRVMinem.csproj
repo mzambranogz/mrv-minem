@@ -465,16 +465,10 @@
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_electrico.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Documentos\1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx">
@@ -573,6 +567,7 @@
     <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm" />
     <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm" />
     <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm" />
+    <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_GLP.xlsx" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />

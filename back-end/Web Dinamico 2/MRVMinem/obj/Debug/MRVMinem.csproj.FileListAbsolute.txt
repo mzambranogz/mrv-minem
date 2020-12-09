@@ -1961,10 +1961,8 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.1 Plantilla Coccion limpia_vales_fise.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_electrico.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx
