@@ -1948,7 +1948,6 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_m
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Log\LEEME.txt
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Temp\LEEME.txt
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.3 Plantilla_Eficiencia_energetica_comercial.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.5 Plantilla_Iluminacion_residencial.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx

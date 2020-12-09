@@ -165,6 +165,7 @@ namespace datos.minem.gob.pe
                     p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA); //add 16-03-2020
+                    p.Add("pNDC", entidad.NDC);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -210,6 +211,7 @@ namespace datos.minem.gob.pe
                     p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA); //add 16-03-2020
+                    p.Add("pNDC", entidad.NDC);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

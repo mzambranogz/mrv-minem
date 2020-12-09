@@ -164,6 +164,8 @@ function fn_cargarIniciativa() {
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
+
+                        $('#chk-ndc').prop('checked', data[i]["NDC"] == '1' ? true : false);
                         validarmodal();
                     }
                 }
@@ -196,6 +198,11 @@ function validarCampo() {
     if ($("#txa-descripcion-medida").val().trim() === ""){
         return false;
     }
+
+    if (!($('#chk-ndc').prop('checked'))) {
+        return false;
+    }
+
     //if ($("#cbo-moneda").val() == 0){
     //    return false;
     //}
@@ -440,7 +447,8 @@ function fn_procesoIniciativa(url, estado) {
             ENERGETICO: energetico,
             GEI: gei,
             UBICACION: ubicacion,
-            ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val()
+            ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val(),
+            NDC: $('#chk-ndc').prop('checked') ? '1' : '0',
         };
         var mensaje = "";
         var respuesta = MRV.Ajax(url, item, false);
@@ -1180,6 +1188,7 @@ $(document).ready(function () {
     
     $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
     $('.solicita').parent().parent().removeAttr('data-toggle');
+    $('#chk-ndc').on('change', (e) => validarmodal());
     $('#listaUbicacion').on('change', (e) => validarmodal());
     $('#txt-fecha-inicio').on('blur', (e) => validarmodal());
     $('#cbo-tipo-iniciativa-mitigacion').on('change', (e) => validarmodal());
@@ -1354,6 +1363,7 @@ var validarmodal = () => {
     //if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
     if ($('#txa-nombre-iniciativa').val().trim() == "") return;
     if ($('#txa-descripcion-medida').val().trim() == "") return;
+    if (!($('#chk-ndc').prop('checked'))) return;
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
     $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
 }
