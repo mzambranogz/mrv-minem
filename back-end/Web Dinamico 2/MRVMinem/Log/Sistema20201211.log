@@ -1,0 +1,693 @@
+11/12/2020 00:21:29: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:44: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:21:58: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:10: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:22:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:36: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:23:40: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:47: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:24:59: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:10: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:22: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:31: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:25:35: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:02: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:06: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:17: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:28:38: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:02: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:17: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
+11/12/2020 00:29:30: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 872] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1338
+ORA-06512: en línea 1
