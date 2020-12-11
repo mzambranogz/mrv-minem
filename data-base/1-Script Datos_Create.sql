@@ -3118,124 +3118,6 @@ prompt 123 records loaded
 
 prompt Loading T_MAEM_ENFOQUE_FACTOR...
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 43, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 45, 5, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 46, 6, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (5, 7, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (6, 8, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (7, 9, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (7, 10, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (8, 18, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (8, 19, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (8, 20, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (9, 20, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (10, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (10, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 10, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 11, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 12, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 13, 5, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (18, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (18, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (18, 21, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (18, 22, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (19, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (19, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (19, 23, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (19, 24, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (20, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (20, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (20, 25, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (20, 26, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (21, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (21, 27, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (21, 28, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 36, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 37, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (21, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 35, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 38, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 39, 5, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 40, 6, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 41, 7, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (15, 42, 8, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (13, 19, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (22, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (22, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (22, 29, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (22, 30, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 31, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 32, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (24, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (24, 11, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (24, 33, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (24, 34, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (4, 1, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (4, 3, 2, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (4, 5, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (17, 2, 1, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (17, 16, 3, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (17, 17, 4, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (1, 1, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (1, 2, 2, '1');
@@ -3244,11 +3126,19 @@ values (1, 3, 3, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (1, 4, 4, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (1, 60, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (2, 1, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (2, 2, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (2, 4, 3, '1');
+values (2, 3, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (2, 4, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (2, 47, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (2, 60, 6, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (3, 1, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
@@ -3257,6 +3147,44 @@ insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (3, 3, 3, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (3, 6, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (3, 60, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 1, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 2, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 3, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 4, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 47, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 48, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 60, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (4, 61, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (5, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (5, 7, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (6, 8, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (7, 9, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (7, 59, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (8, 19, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (8, 20, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (9, 20, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (10, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (10, 11, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (11, 2, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
@@ -3270,23 +3198,187 @@ values (13, 2, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (13, 11, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (14, 112, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (14, 113, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (14, 114, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (14, 115, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 112, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 113, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 114, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 115, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 116, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 117, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 118, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (15, 119, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (16, 2, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (16, 11, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (16, 14, 3, '1');
+values (16, 62, 3, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (16, 15, 4, '1');
+values (16, 63, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (16, 64, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (16, 65, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (16, 66, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (16, 67, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (17, 2, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (17, 11, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (23, 44, 4, '1');
+values (17, 68, 3, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (2, 47, 4, '1');
+values (17, 69, 4, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (4, 48, 4, '1');
+values (17, 70, 5, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (18, 39, 5, '1');
+values (17, 71, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (17, 72, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (17, 73, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 74, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 75, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 76, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 77, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 78, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (18, 79, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 80, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 81, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 82, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 83, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 84, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (19, 85, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 86, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 87, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 88, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 89, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 90, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (20, 91, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 92, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 93, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 94, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 95, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 96, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (21, 97, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 98, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 99, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 100, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 101, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 102, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 103, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (22, 104, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 105, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 106, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 107, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 108, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 109, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 110, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (23, 111, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (24, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (24, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (24, 120, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (24, 121, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (24, 122, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 2, 1, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 11, 2, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 49, 3, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 50, 4, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 51, 5, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 52, 6, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 53, 7, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 54, 8, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 55, 9, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 56, 10, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 57, 11, '1');
+insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+values (25, 58, 12, '1');
 commit;
 prompt 85 records loaded
 
