@@ -3974,6 +3974,8 @@ var ordenarIndicadorFile = (idIniciativa) => {
 }
 
 var loadMoneda = () => {
+    var anio = (new Date).getFullYear();
+    deshabilitarMontos(anio);
     let opciones = '';
     var Item = {};
     $.ajax({
@@ -4034,4 +4036,10 @@ $(document).on("keyup", ".formato-num", function (event) {
         }
     });
 });
+
+var deshabilitarMontos = (anio) => {
+    for (var i = anio; i <= 2030; i++) {
+        $(`#ms-${i}`).parent().parent().addClass('d-none');
+    }
+}
 

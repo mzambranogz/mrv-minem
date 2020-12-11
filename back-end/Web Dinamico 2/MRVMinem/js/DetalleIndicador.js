@@ -6632,7 +6632,6 @@ var resumenPotencial = () => {
 
 var loadMoneda = () => {
     var anio = (new Date).getFullYear();
-    debugger;
     deshabilitarMontos(anio);
     let opciones = '';
     var Item = {};
