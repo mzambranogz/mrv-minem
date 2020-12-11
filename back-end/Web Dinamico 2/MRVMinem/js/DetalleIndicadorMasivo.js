@@ -2943,7 +2943,10 @@ function CargarDatosGuardados() {
     var item = {
         ID_INICIATIVA: iniciativa,
         ID_MEDMIT: medida,
-        ID_ENFOQUE: enfoque
+        ID_ENFOQUE: enfoque,
+        ID_PARAMETRO: $("#parametro").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
     }
     //$('#modal-acumulado').modal('show');//add 28-09-20
 
