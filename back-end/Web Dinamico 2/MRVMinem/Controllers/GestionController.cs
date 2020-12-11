@@ -3752,6 +3752,20 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult DescripcionTipoAuditoria(IniciativaBE entidad)
+        {
+            string descripcion = "";
+            if (entidad.TIPO_AUDITORIA == "1")
+                descripcion = WebConfigurationManager.AppSettings.Get("Tipo1");
+            else if (entidad.TIPO_AUDITORIA == "2")
+                descripcion = WebConfigurationManager.AppSettings.Get("Tipo2");
+            else if (entidad.TIPO_AUDITORIA == "3")
+                descripcion = WebConfigurationManager.AppSettings.Get("Tipo3");
+
+            var jsonResult = Json(descripcion, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
 
     }    
 }

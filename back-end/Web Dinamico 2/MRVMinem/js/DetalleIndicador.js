@@ -4455,15 +4455,15 @@ $(document).ready(function () {
         armarAcumulado(); //add 17-05-2020
 
     } else {
+        
         loadMoneda();
-
         CargarDatosCabecera();
         CargarDatosGuardados();
-
         CargarDatosIniciativa();
         fn_cargarUbicacion();
         fn_cargarEnergetico();
         fn_cargarGei();
+        $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
@@ -6287,12 +6287,13 @@ var armarTablaAuditor = () => {
     let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled':''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
     let body2 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body3 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-tipo_auditoria" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Tipo 1</option><option value="2">Tipo 2</option><option value="3">Tipo 3</option></select></div></td>`;
-    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="500" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
-    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">EMSE</option><option value="2">Auditor acreditado</option></select></div></td>`;
+    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="800" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Empresa de servicio energético (EMSE)</option><option value="2">Auditor acreditado</option></select></div></td>`;
     let body6 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body7 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     $('#tablaAuditor').find('tbody').html(`<tr id="detalles-1" data-ind="1" data-rev="0">${body1}${body2}${body3}${body4}${body5}${body6}${body7}</tr>`);
 }
+
 
 var verificarFecha = () => {
     let validar = false;
@@ -6683,4 +6684,28 @@ var deshabilitarMontos = (anio) => {
     for (var i = anio; i <= 2030; i++) {
         $(`#ms-${i}`).parent().parent().addClass('d-none');
     }
+}
+
+var cambiarTipo = () => {
+    if ($('#cbo-tipo_auditoria').val() == 0) { $('#txt-descripcion-tipo-auditoria').val(""); return; }
+    var Item = {
+        TIPO_AUDITORIA: $('#cbo-tipo_auditoria').val(),
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/DescripcionTipoAuditoria",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                debugger;
+                $('#txt-descripcion-tipo-auditoria').val(data);
+            } else {
+                $('#txt-descripcion-tipo-auditoria').val("");
+            }
+        } else {
+            $('#txt-descripcion-tipo-auditoria').val("");
+        }
+    });
 }
