@@ -499,7 +499,7 @@ namespace logica.minem.gob.pe
                         IndicadorDataBE itemF = listaEntidad.Find(A => A.ID_PARAMETRO.Equals(int.Parse(WebConfigurationManager.AppSettings["ParametroFR"])));
                         if (itemF != null)
                         {
-                            if (!string.IsNullOrEmpty(itemF.VALOR))
+                            if (!string.IsNullOrEmpty(itemF.VALOR) && itemF.VALOR != "0.00" && itemF.VALOR != "0")
                             {
                                 lde_importecida = decimal.Parse(itemF.VALOR);
                             }

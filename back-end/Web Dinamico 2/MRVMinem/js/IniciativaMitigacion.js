@@ -1,4 +1,5 @@
-﻿function fn_cargarUbicacion() {
+﻿var accion_asociado = 0;
+function fn_cargarUbicacion() {
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -108,7 +109,7 @@ function fn_cargarEnergetico() {
 }
 
 function fn_cargarIniciativa() {
-     
+    accion_asociado = 0;
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -122,6 +123,7 @@ function fn_cargarIniciativa() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
+                        accion_asociado = data[i]["ASOCIADO_ACCION"];
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
                         $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);    
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
@@ -166,6 +168,7 @@ function fn_cargarIniciativa() {
                         }
 
                         $('#chk-ndc').prop('checked', data[i]["NDC"] == '1' ? true : false);
+                        
                         validarmodal();
                     }
                 }
@@ -449,7 +452,9 @@ function fn_procesoIniciativa(url, estado) {
             UBICACION: ubicacion,
             ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val(),
             NDC: $('#chk-ndc').prop('checked') ? '1' : '0',
+            ASOCIADO_ACCION: $("#cbo-accion-asociado").val(),
         };
+        
         var mensaje = "";
         var respuesta = MRV.Ajax(url, item, false);
         if (respuesta.success) {
@@ -679,6 +684,7 @@ function fn_ObtenerMedidaMitigacion(id) {
                         $("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span>' + data[i]["NOMBRE_MEDMIT"] + '</span>');
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_MEDMIT"]); //add
+                        listaAccion();
                     }
                 }
             }
@@ -719,6 +725,7 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
+                        accion_asociado = 0;
                         //$("#nombreMedida span").remove();
                         $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
@@ -727,6 +734,7 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
                         $("#nombreMedida").append('<span id="medida">' + data[i]["NOMBRE_MEDMIT"] + '</span>');
                         $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val());
                         $('#txa-nombre-iniciativa').val(data[i]["NOMBRE_MEDMIT"]); //add 03-12-20
+                        listaAccion();
                     }
                 }
             }
@@ -987,7 +995,7 @@ function fn_revisarIniciativaMitigacion() {
         ENERGETICO: energetico, //add
         GEI: gei, //add
         DESCRIPCION_GEI: descripcion_gei,
-        DESCRIPCION_ENERG: descripcion_energ
+        DESCRIPCION_ENERG: descripcion_energ,        
     }
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1207,7 +1215,7 @@ $(document).ready(function () {
     } else {
         $("#Control").data("mitigacion", $("#identificador").val());
     }    
-    $("#Control").data("revision", $("#revision").val());
+    $("#Control").data("revision", $("#revision").val());    
     fn_ListarMedidaMitigacion();
     CorreoAdmin();    
 });
@@ -1320,7 +1328,6 @@ function fn_habilitarTodo() {
     } else {
         $('#chk-send-im').prop("checked", false);
     }
-    debugger;
 
     for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
 
@@ -1366,4 +1373,37 @@ var validarmodal = () => {
     if (!($('#chk-ndc').prop('checked'))) return;
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
     $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
+}
+
+var listaAccion = () => {
+    $('#cbo-accion-asociado').html('<option value="0">-Seleccione la acción de mitigación principal-</option>');
+    var item = {
+        ID_USUARIO: $("#Control").data("usuario"),
+        ID_MEDMIT: $("#Control").data("mitigacion"),
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+    };
+    vurl = baseUrl + "Gestion/ListarAcciones";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $('#cbo-accion-asociado').parent().parent().parent().parent().removeClass('d-none');
+                        $('#cbo-accion-asociado').append(`<option value="${data[i]['ID_INICIATIVA']}">COD: ${data[i]['ID_INICIATIVA']} - ${data[i]['NOMBRE_INICIATIVA']}</option>`);
+                    }
+                } else {
+                    $('#cbo-accion-asociado').parent().parent().parent().parent().addClass('d-none');
+                }
+            } else {
+                $('#cbo-accion-asociado').parent().parent().parent().parent().addClass('d-none');
+            }
+            //
+            if ($("#Control").data("iniciativa") > 0)
+                $('#cbo-accion-asociado').val(accion_asociado);
+        }
+    });
 }

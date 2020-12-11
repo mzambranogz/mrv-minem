@@ -3744,6 +3744,14 @@ namespace MRVMinem.Controllers
             List<MontoInversionBE> lista = IniciativaLN.ListarMontos(entidad);
             return Json(lista);
         }
+        public JsonResult ListarAcciones(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListarAcciones(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
 
     }    
 }

@@ -6631,6 +6631,9 @@ var resumenPotencial = () => {
 }
 
 var loadMoneda = () => {
+    var anio = (new Date).getFullYear();
+    debugger;
+    deshabilitarMontos(anio);
     let opciones = '';
     var Item = {};
     $.ajax({
@@ -6675,4 +6678,10 @@ var asignarMontos = () => {
             }
         }
     });
+}
+
+var deshabilitarMontos = (anio) => {
+    for (var i = anio; i <= 2030; i++) {
+        $(`#ms-${i}`).parent().parent().addClass('d-none');
+    }
 }

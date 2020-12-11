@@ -724,5 +724,12 @@ namespace logica.minem.gob.pe
             lista = iniciativaDA.ListarMontos(entidad);
             return lista;
         }
+
+        public static List<IniciativaBE> ListarAcciones(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            lista = iniciativaDA.ListarAcciones(entidad);
+            return lista;
+        }
     }
 }

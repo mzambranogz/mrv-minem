@@ -83,6 +83,7 @@ namespace entidad.minem.gob.pe
         public string SECTOR_INST { get; set; }
         public string INSTITUCION_AUDITADA { get; set; }
         public string DESCRIPCION_TIPO_AUDITORIA { get; set; }
+        public int ASOCIADO_ACCION { get; set; }
         public List<MontoInversionBE> listaMonto { get; set; }
     }
 }

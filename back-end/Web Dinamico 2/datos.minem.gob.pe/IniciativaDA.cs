@@ -166,6 +166,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA); //add 16-03-2020
                     p.Add("pNDC", entidad.NDC);
+                    p.Add("pASOCIADO_ACCION", entidad.ASOCIADO_ACCION);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -212,6 +213,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA); //add 16-03-2020
                     p.Add("pNDC", entidad.NDC);
+                    p.Add("pASOCIADO_ACCION", entidad.ASOCIADO_ACCION);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -2900,6 +2902,30 @@ namespace datos.minem.gob.pe
                     p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     lista = db.Query<MontoInversionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public List<IniciativaBE> ListarAcciones(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_ACCION_MEDIDA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("PI_ID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
             catch (Exception ex)
