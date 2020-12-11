@@ -167,7 +167,7 @@ function fn_cargarIniciativa() {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
 
-                        $('#chk-ndc').prop('checked', data[i]["NDC"] == '1' ? true : false);
+                        //$('#chk-ndc').prop('checked', data[i]["NDC"] == '1' ? true : false);
                         
                         validarmodal();
                     }
@@ -202,9 +202,9 @@ function validarCampo() {
         return false;
     }
 
-    if (!($('#chk-ndc').prop('checked'))) {
+    /*if (!($('#chk-ndc').prop('checked'))) {
         return false;
-    }
+    }*/
 
     //if ($("#cbo-moneda").val() == 0){
     //    return false;
@@ -1196,7 +1196,7 @@ $(document).ready(function () {
     
     $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
     $('.solicita').parent().parent().removeAttr('data-toggle');
-    $('#chk-ndc').on('change', (e) => validarmodal());
+    //$('#chk-ndc').on('change', (e) => validarmodal());
     $('#listaUbicacion').on('change', (e) => validarmodal());
     $('#txt-fecha-inicio').on('blur', (e) => validarmodal());
     $('#cbo-tipo-iniciativa-mitigacion').on('change', (e) => validarmodal());
@@ -1370,7 +1370,7 @@ var validarmodal = () => {
     //if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
     if ($('#txa-nombre-iniciativa').val().trim() == "") return;
     if ($('#txa-descripcion-medida').val().trim() == "") return;
-    if (!($('#chk-ndc').prop('checked'))) return;
+    //if (!($('#chk-ndc').prop('checked'))) return;
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
     $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
 }
