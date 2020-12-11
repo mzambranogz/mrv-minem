@@ -2220,7 +2220,8 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (131, 1, 3, 'Combustible acción', '1', '1', '1', null, null, null, null, null, '', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (132, 1, 3, 'Potencia', '1', '1', '1', null, null, null, null, null, 'Especificación de la potencia del equipo', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
-
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (133, 1, 3, 'Etiqueta línea base', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 commit;
 prompt 120 records loaded
 
@@ -2673,41 +2674,17 @@ INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_EST
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('98','5','E','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('98','6','F','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('98','7','G','1');
+
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','1','A','1');
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','2','B','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','3','C','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','4','D','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','5','E','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','7','G','1');*/
---INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','2','B','1');
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','3','C','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','4','D','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','5','E','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','7','G','1');*/
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','2','B','1');*/
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','3','C','1');
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','4','D','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','5','E','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','7','G','1');*/
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','2','B','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','3','C','1');*/
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','4','D','1');
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','5','E','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','7','G','1');*/
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','2','B','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','3','C','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','4','D','1');*/
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','5','E','1');
-/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','7','G','1');*/
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','1','B','1');
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','1','C','1');
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','1','D','1');
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','1','E','1');
+
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('109','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('110','1','B','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('111','1','C','1');
@@ -2755,6 +2732,10 @@ INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_EST
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('132','3','26.1 KW','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('132','4','74.57 KW','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('132','5','149.14 KW','1');
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','1','A','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','2','B','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','3','C','1');
 commit;
 prompt 186 records loaded
 prompt Loading T_MAE_ENERG...
@@ -6618,287 +6599,47 @@ values (62, 28, '97|98', '4|7', 992.4736, '1', null, null, null, null, null, nul
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (63, 1, '97|99', '1|1', 195.68848, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 2, '97|99', '1|2', 244.6106, '1', null, null, null, null, null, null);
+values (63, 2, '97|99', '2|1', 232.6909, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 3, '97|99', '1|3', 319.8754, '1', null, null, null, null, null, null);
+values (63, 3, '97|99', '3|1', 285.5515, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 4, '97|99', '1|4', 385.7321, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 5, '97|99', '1|5', 442.1807, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 6, '97|99', '1|6', 517.4455, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 7, '97|99', '1|7', 602.1184, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 8, '97|99', '2|1', 232.6909, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 9, '97|99', '2|2', 290.863625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 10, '97|99', '2|3', 380.360125, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 11, '97|99', '2|4', 458.6695625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 12, '97|99', '2|5', 525.7919375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 13, '97|99', '2|6', 615.2884375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 14, '97|99', '2|7', 715.972, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 15, '97|99', '3|1', 285.5515, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 16, '97|99', '3|2', 356.939375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 17, '97|99', '3|3', 466.766875, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 18, '97|99', '3|4', 562.8659375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 19, '97|99', '3|5', 645.2365625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 20, '97|99', '3|6', 755.0640625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 21, '97|99', '3|7', 878.62, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 22, '97|99', '4|1', 322.55392, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 23, '97|99', '4|2', 403.1924, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 24, '97|99', '4|3', 527.2516, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 25, '97|99', '4|4', 635.8034, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 26, '97|99', '4|5', 728.8478, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 27, '97|99', '4|6', 852.907, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (63, 28, '97|99', '4|7', 992.4736, '1', null, null, null, null, null, null);
+values (63, 4, '97|99', '4|1', 322.55392, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 1, '97|101', '1|1', 195.68848, '1', null, null, null, null, null, null);
+values (64, 1, '97|101', '1|1', 244.6106, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 2, '97|101', '1|2', 244.6106, '1', null, null, null, null, null, null);
+values (64, 2, '97|101', '2|1', 290.863625, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 3, '97|101', '1|3', 319.8754, '1', null, null, null, null, null, null);
+values (64, 3, '97|101', '3|1', 356.939375, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 4, '97|101', '1|4', 385.7321, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 5, '97|101', '1|5', 442.1807, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 6, '97|101', '1|6', 517.4455, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 7, '97|101', '1|7', 602.1184, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 8, '97|101', '2|1', 232.6909, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 9, '97|101', '2|2', 290.863625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 10, '97|101', '2|3', 380.360125, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 11, '97|101', '2|4', 458.6695625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 12, '97|101', '2|5', 525.7919375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 13, '97|101', '2|6', 615.2884375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 14, '97|101', '2|7', 715.972, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 15, '97|101', '3|1', 285.5515, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 16, '97|101', '3|2', 356.939375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 17, '97|101', '3|3', 466.766875, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 18, '97|101', '3|4', 562.8659375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 19, '97|101', '3|5', 645.2365625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 20, '97|101', '3|6', 755.0640625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 21, '97|101', '3|7', 878.62, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 22, '97|101', '4|1', 322.55392, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 23, '97|101', '4|2', 403.1924, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 24, '97|101', '4|3', 527.2516, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 25, '97|101', '4|4', 635.8034, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 26, '97|101', '4|5', 728.8478, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 27, '97|101', '4|6', 852.907, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (64, 28, '97|101', '4|7', 992.4736, '1', null, null, null, null, null, null);
+values (64, 4, '97|101', '4|1', 403.1924, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 1, '97|103', '1|1', 195.68848, '1', null, null, null, null, null, null);
+values (65, 1, '97|103', '1|1', 319.8754, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 2, '97|103', '1|2', 244.6106, '1', null, null, null, null, null, null);
+values (65, 2, '97|103', '2|1', 380.360125, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 3, '97|103', '1|3', 319.8754, '1', null, null, null, null, null, null);
+values (65, 3, '97|103', '3|1', 466.766875, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 4, '97|103', '1|4', 385.7321, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 5, '97|103', '1|5', 442.1807, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 6, '97|103', '1|6', 517.4455, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 7, '97|103', '1|7', 602.1184, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 8, '97|103', '2|1', 232.6909, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 9, '97|103', '2|2', 290.863625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 10, '97|103', '2|3', 380.360125, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 11, '97|103', '2|4', 458.6695625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 12, '97|103', '2|5', 525.7919375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 13, '97|103', '2|6', 615.2884375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 14, '97|103', '2|7', 715.972, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 15, '97|103', '3|1', 285.5515, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 16, '97|103', '3|2', 356.939375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 17, '97|103', '3|3', 466.766875, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 18, '97|103', '3|4', 562.8659375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 19, '97|103', '3|5', 645.2365625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 20, '97|103', '3|6', 755.0640625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 21, '97|103', '3|7', 878.62, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 22, '97|103', '4|1', 322.55392, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 23, '97|103', '4|2', 403.1924, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 24, '97|103', '4|3', 527.2516, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 25, '97|103', '4|4', 635.8034, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 26, '97|103', '4|5', 728.8478, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 27, '97|103', '4|6', 852.907, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (65, 28, '97|103', '4|7', 992.4736, '1', null, null, null, null, null, null);
+values (65, 4, '97|103', '4|1', 527.2516, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 1, '97|105', '1|1', 195.68848, '1', null, null, null, null, null, null);
+values (66, 1, '97|105', '1|1', 385.7321, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 2, '97|105', '1|2', 244.6106, '1', null, null, null, null, null, null);
+values (66, 2, '97|105', '2|1', 458.6695625, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 3, '97|105', '1|3', 319.8754, '1', null, null, null, null, null, null);
+values (66, 3, '97|105', '3|1', 562.8659375, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 4, '97|105', '1|4', 385.7321, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 5, '97|105', '1|5', 442.1807, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 6, '97|105', '1|6', 517.4455, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 7, '97|105', '1|7', 602.1184, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 8, '97|105', '2|1', 232.6909, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 9, '97|105', '2|2', 290.863625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 10, '97|105', '2|3', 380.360125, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 11, '97|105', '2|4', 458.6695625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 12, '97|105', '2|5', 525.7919375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 13, '97|105', '2|6', 615.2884375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 14, '97|105', '2|7', 715.972, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 15, '97|105', '3|1', 285.5515, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 16, '97|105', '3|2', 356.939375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 17, '97|105', '3|3', 466.766875, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 18, '97|105', '3|4', 562.8659375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 19, '97|105', '3|5', 645.2365625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 20, '97|105', '3|6', 755.0640625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 21, '97|105', '3|7', 878.62, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 22, '97|105', '4|1', 322.55392, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 23, '97|105', '4|2', 403.1924, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 24, '97|105', '4|3', 527.2516, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 25, '97|105', '4|4', 635.8034, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 26, '97|105', '4|5', 728.8478, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 27, '97|105', '4|6', 852.907, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (66, 28, '97|105', '4|7', 992.4736, '1', null, null, null, null, null, null);
+values (66, 4, '97|105', '4|1', 635.8034, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 1, '97|107', '1|1', 195.68848, '1', null, null, null, null, null, null);
+values (67, 1, '97|107', '1|1', 442.1807, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 2, '97|107', '1|2', 244.6106, '1', null, null, null, null, null, null);
+values (67, 2, '97|107', '2|1', 525.7919375, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 3, '97|107', '1|3', 319.8754, '1', null, null, null, null, null, null);
+values (67, 3, '97|107', '3|1', 645.2365625, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 4, '97|107', '1|4', 385.7321, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 5, '97|107', '1|5', 442.1807, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 6, '97|107', '1|6', 517.4455, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 7, '97|107', '1|7', 602.1184, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 8, '97|107', '2|1', 232.6909, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 9, '97|107', '2|2', 290.863625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 10, '97|107', '2|3', 380.360125, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 11, '97|107', '2|4', 458.6695625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 12, '97|107', '2|5', 525.7919375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 13, '97|107', '2|6', 615.2884375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 14, '97|107', '2|7', 715.972, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 15, '97|107', '3|1', 285.5515, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 16, '97|107', '3|2', 356.939375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 17, '97|107', '3|3', 466.766875, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 18, '97|107', '3|4', 562.8659375, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 19, '97|107', '3|5', 645.2365625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 20, '97|107', '3|6', 755.0640625, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 21, '97|107', '3|7', 878.62, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 22, '97|107', '4|1', 322.55392, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 23, '97|107', '4|2', 403.1924, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 24, '97|107', '4|3', 527.2516, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 25, '97|107', '4|4', 635.8034, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 26, '97|107', '4|5', 728.8478, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 27, '97|107', '4|6', 852.907, '1', null, null, null, null, null, null);
-insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (67, 28, '97|107', '4|7', 992.4736, '1', null, null, null, null, null, null);
+values (67, 4, '97|107', '4|1', 728.8478, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (68, 1, '114|98', '1|1', 221.10816, '1', null, null, null, null, null, null);
@@ -7753,35 +7494,35 @@ insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, fact
 values (119, 4, '131', '4', 0.0000006, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 1, '132|98', '1|1', 2108.00646786937, '1', null, null, null, null, null, null);
+values (120, 1, '132|133', '1|1', 2108.00646786937, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 2, '132|98', '1|2', 2288.29649472662, '1', null, null, null, null, null, null);
+values (120, 2, '132|133', '1|2', 2288.29649472662, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 3, '132|98', '1|3', 0, '1', null, null, null, null, null, null);
+values (120, 3, '132|133', '1|3', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 4, '132|98', '2|1', 10470.7674751447, '1', null, null, null, null, null, null);
+values (120, 4, '132|133', '2|1', 10470.7674751447, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 5, '132|98', '2|2', 10744.9714955048, '1', null, null, null, null, null, null);
+values (120, 5, '132|133', '2|2', 10744.9714955048, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 6, '132|98', '2|3', 11019.1755158649, '1', null, null, null, null, null, null);
+values (120, 6, '132|133', '2|3', 11019.1755158649, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 7, '132|98', '3|1', 25253.6063644701, '1', null, null, null, null, null, null);
+values (120, 7, '132|133', '3|1', 25253.6063644701, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 8, '132|98', '3|2', 26490.0130408211, '1', null, null, null, null, null, null);
+values (120, 8, '132|133', '3|2', 26490.0130408211, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 9, '132|98', '3|3', 27726.4197171721, '1', null, null, null, null, null, null);
+values (120, 9, '132|133', '3|3', 27726.4197171721, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 10, '132|98', '4|1', 64212.1152145484, '1', null, null, null, null, null, null);
+values (120, 10, '132|133', '4|1', 64212.1152145484, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 11, '132|98', '4|2', 0, '1', null, null, null, null, null, null);
+values (120, 11, '132|133', '4|2', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 12, '132|98', '4|3', 0, '1', null, null, null, null, null, null);
+values (120, 12, '132|133', '4|3', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 13, '132|98', '5|1', 138564.629836936, '1', null, null, null, null, null, null);
+values (120, 13, '132|133', '5|1', 138564.629836936, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 14, '132|98', '5|2', 0, '1', null, null, null, null, null, null);
+values (120, 14, '132|133', '5|2', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (120, 15, '132|98', '5|3', 0, '1', null, null, null, null, null, null);
+values (120, 15, '132|133', '5|3', 0, '1', null, null, null, null, null, null);
 
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (121, 1, '132|109', '1|1', 2108.00646786937, '1', null, null, null, null, null, null);
@@ -8961,7 +8702,7 @@ values (24, 2, 6, 3, 1, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 132, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (24, 2, 98, 3, 3, '1');
+values (24, 2, 133, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -9809,7 +9550,7 @@ values (119, 100, 2, 2, 'Factor (kgN2O/MJ)', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (120, 1, 1, null, 'Potencia', 132, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (120, 2, 1, null, 'Etiqueta Bau', 98, 2, '1');
+values (120, 2, 1, null, 'Etiqueta Bau', 133, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (120, 100, 2, 2, 'Factor (kWh)', null, 100, '1');
 
@@ -27466,11 +27207,11 @@ INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARA
 INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 3, '98', '4');
 INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (23, 118, 4, '98', '4');
 
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 1, '98', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 2, '98', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 3, '98', '3');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 4, '98', '2');
-INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 5, '98', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 1, '133', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 2, '133', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 3, '133', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 4, '133', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (24, 132, 5, '133', '2');
 commit;
 
 prompt
