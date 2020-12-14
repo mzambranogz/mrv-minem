@@ -2764,7 +2764,7 @@ function fn_procesoDetalleIndicador(url, estado) {
 
     let validar_fecha_imple = false;
     if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFecha();
-    if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la implementación de la acción de mitigación debe ingresar la fecha de implementación', '#mensajeModalRegistrar'); return; }
+    if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la verificación de la acción de mitigación debe ingresar la fecha de implementación', '#mensajeModalRegistrar'); return; }
 
     if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFechaVerificacion();
     if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la verificación de la acción de mitigación debe ingresar la fecha de verificación', '#mensajeModalRegistrar'); return; }

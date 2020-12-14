@@ -16925,6 +16925,10 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         --================================================================================
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
 
+	--===================
+        UPDATE T_MAEM_INDICADOR_DATA SET FLAG_REVISION = '1' WHERE ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
+        --============================================
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA
             (id_detalle_iniciativa, ID_INICIATIVA,
              ID_REMITENTE,
@@ -17113,7 +17117,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         SELECT GEI_TOTAL INTO vTotalGei FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
         
         --===================
-        UPDATE T_MAEM_INDICADOR_DATA SET FLAG_REVISION = '1' WHERE ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
+        --UPDATE T_MAEM_INDICADOR_DATA SET FLAG_REVISION = '1' WHERE ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
         --============================================
 
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;

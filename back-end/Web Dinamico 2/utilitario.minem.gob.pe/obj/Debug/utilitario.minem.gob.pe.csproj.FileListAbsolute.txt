@@ -81,3 +81,4 @@ C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\utilitario.minem.gob.pe\
 C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
 C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
