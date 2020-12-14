@@ -18042,7 +18042,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
 
     END USP_SEL_INI_DET_ACUMULADO;
 
- PROCEDURE USP_INS_ACUMULADO_DETALLE(
+PROCEDURE USP_INS_ACUMULADO_DETALLE(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
@@ -18059,7 +18059,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         VCONT NUMBER;
         vsql VARCHAR2(4000);
     BEGIN
-            VERF := 1;
+            VERF := 5;
             FOR CURINI IN (
                 SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
                 FROM    T_MAEM_INDICADOR_DATA D
@@ -18067,13 +18067,13 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
                         D.ID_ENFOQUE = pID_ENFOQUE AND
                         D.ID_MEDMIT = pID_MEDMIT AND
                         D.ID_INDICADOR = pID_INDICADOR AND
-                        D.ID_PARAMETRO IN (6,9,10,11,90,93,96) AND
+                        D.ID_PARAMETRO IN (6,9,10,11,90,91,96) AND
                         D.FLAG_ESTADO = 1
             )
             LOOP
-                IF CURINI.ID_PARAMETRO = 93 THEN
+                IF CURINI.ID_PARAMETRO = 91 THEN
                     IF CURINI.VALOR IS NULL THEN
-                        VERF := 2;
+                        VERF := 0;
                     ELSE
                         VERF := CURINI.VALOR;
                     END IF;                    
@@ -18120,7 +18120,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
           ID_INDICADOR = pID_INDICADOR AND
           ANNO = V6;
 
-    IF VERF = 1 THEN
+    IF VERF > 1 THEN
         IF VCONT = 0 THEN
             INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO, ENERGIA, ENERGIA_TOTAL)
             VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, V6, V9, V10, V11, V96, V90);
