@@ -2227,6 +2227,69 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (121, 1, 3, 'Combustible BAU', '1', '1', '1', null, null, null, null, null, 'Combustible que consumía la anterior caldera', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (122, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(BHP)', null, 'Capacidad de la caldera en BHP.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (134, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de congeladoras con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (135, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de congeladoras con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (136, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de congeladoras con etiqueta C', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (137, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de congeladoras con etiqueta D', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (138, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de congeladoras con etiqueta E', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (139, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de lavadoras con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (140, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de lavadoras con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (141, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de lavadoras con etiqueta C', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (142, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de lavadoras con etiqueta D', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (143, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de lavadoras con etiqueta E', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (144, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de secadoras con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (145, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de secadoras con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (146, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de secadoras con etiqueta C', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (147, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de secadoras con etiqueta D', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (148, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de secadoras con etiqueta E', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (149, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de aire acondicionado con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (150, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de aire acondicionado con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (151, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de aire acondicionado con etiqueta C', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (152, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de aire acondicionado con etiqueta D', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (153, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de aire acondicionado con etiqueta E', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (154, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (155, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (156, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta C', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (157, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta D', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (158, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta E', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (159, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de calentadores con etiqueta F', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (160, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de motores con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (161, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de motores con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+
 commit;
 prompt 133 records loaded
 
@@ -7753,49 +7816,49 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (90, 16, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 17, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F68])-([P100]*[F69]+[P102]*[F70]+[P104]*[F71]+[P106]*[F72]+[P108]*[F73]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F68]|)|-|(|[P100]|*|[F69]|+|[P102]|*|[F70]|+|[P104]|*|[F71]|+|[P106]|*|[F72]|+|[P108]|*|[F73]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 17, 1, '=', 0, '((([P134]+[P135]+[P136]+[P137]+[P138])*[F68])-([P134]*[F69]+[P135]*[F70]+[P136]*[F71]+[P137]*[F72]+[P138]*[F73]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P134]|+|[P135]|+|[P136]|+|[P137]|+|[P138]|)|*|[F68]|)|-|(|[P134]|*|[F69]|+|[P135]|*|[F70]|+|[P136]|*|[F71]|+|[P137]|*|[F72]|+|[P138]|*|[F73]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 17, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F68])-([P100]*[F69]+[P102]*[F70]+[P104]*[F71]+[P106]*[F72]+[P108]*[F73]))/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F68]|)|-|(|[P100]|*|[F69]|+|[P102]|*|[F70]|+|[P104]|*|[F71]|+|[P106]|*|[F72]|+|[P108]|*|[F73]|)|)|/|[C1000]', '1');
+values (96, 17, 1, '=', 0, '((([P134]+[P135]+[P136]+[P137]+[P138])*[F68])-([P134]*[F69]+[P135]*[F70]+[P136]*[F71]+[P137]*[F72]+[P138]*[F73]))/[C1000]', '(|(|(|[P134]|+|[P135]|+|[P136]|+|[P137]|+|[P138]|)|*|[F68]|)|-|(|[P134]|*|[F69]|+|[P135]|*|[F70]|+|[P136]|*|[F71]|+|[P137]|*|[F72]|+|[P138]|*|[F73]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 17, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 18, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F74])-([P100]*[F75]+[P102]*[F76]+[P104]*[F77]+[P106]*[F78]+[P108]*[F79]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F74]|)|-|(|[P100]|*|[F75]|+|[P102]|*|[F76]|+|[P104]|*|[F77]|+|[P106]|*|[F78]|+|[P108]|*|[F79]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 18, 1, '=', 0, '((([P139]+[P140]+[P141]+[P142]+[P143])*[F74])-([P139]*[F75]+[P140]*[F76]+[P141]*[F77]+[P142]*[F78]+[P143]*[F79]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P139]|+|[P140]|+|[P141]|+|[P142]|+|[P143]|)|*|[F74]|)|-|(|[P139]|*|[F75]|+|[P140]|*|[F76]|+|[P141]|*|[F77]|+|[P142]|*|[F78]|+|[P143]|*|[F79]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 18, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F74])-([P100]*[F75]+[P102]*[F76]+[P104]*[F77]+[P106]*[F78]+[P108]*[F79]))/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F74]|)|-|(|[P100]|*|[F75]|+|[P102]|*|[F76]|+|[P104]|*|[F77]|+|[P106]|*|[F78]|+|[P108]|*|[F79]|)|)|/|[C1000]', '1');
+values (96, 18, 1, '=', 0, '((([P139]+[P140]+[P141]+[P142]+[P143])*[F74])-([P139]*[F75]+[P140]*[F76]+[P141]*[F77]+[P142]*[F78]+[P143]*[F79]))/[C1000]', '(|(|(|[P139]|+|[P140]|+|[P141]|+|[P142]|+|[P143]|)|*|[F74]|)|-|(|[P139]|*|[F75]|+|[P140]|*|[F76]|+|[P141]|*|[F77]|+|[P142]|*|[F78]|+|[P143]|*|[F79]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 18, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 19, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F80])-([P100]*[F81]+[P102]*[F82]+[P104]*[F83]+[P106]*[F84]+[P108]*[F85]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F80]|)|-|(|[P100]|*|[F81]|+|[P102]|*|[F82]|+|[P104]|*|[F83]|+|[P106]|*|[F84]|+|[P108]|*|[F85]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 19, 1, '=', 0, '((([P144]+[P145]+[P146]+[P147]+[P148])*[F80])-([P144]*[F81]+[P145]*[F82]+[P146]*[F83]+[P147]*[F84]+[P148]*[F85]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P144]|+|[P145]|+|[P146]|+|[P147]|+|[P148]|)|*|[F80]|)|-|(|[P144]|*|[F81]|+|[P145]|*|[F82]|+|[P146]|*|[F83]|+|[P147]|*|[F84]|+|[P148]|*|[F85]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 19, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F80])-([P100]*[F81]+[P102]*[F82]+[P104]*[F83]+[P106]*[F84]+[P108]*[F85]))/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F80]|)|-|(|[P100]|*|[F81]|+|[P102]|*|[F82]|+|[P104]|*|[F83]|+|[P106]|*|[F84]|+|[P108]|*|[F85]|)|)|/|[C1000]', '1');
+values (96, 19, 1, '=', 0, '((([P144]+[P145]+[P146]+[P147]+[P148])*[F80])-([P144]*[F81]+[P145]*[F82]+[P146]*[F83]+[P147]*[F84]+[P148]*[F85]))/[C1000]', '(|(|(|[P144]|+|[P145]|+|[P146]|+|[P147]|+|[P148]|)|*|[F80]|)|-|(|[P144]|*|[F81]|+|[P145]|*|[F82]|+|[P146]|*|[F83]|+|[P147]|*|[F84]|+|[P148]|*|[F85]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 19, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 20, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F86])-([P100]*[F87]+[P102]*[F88]+[P104]*[F89]+[P106]*[F90]+[P108]*[F91]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F86]|)|-|(|[P100]|*|[F87]|+|[P102]|*|[F88]|+|[P104]|*|[F89]|+|[P106]|*|[F90]|+|[P108]|*|[F91]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 20, 1, '=', 0, '((([P149]+[P150]+[P151]+[P152]+[P153])*[F86])-([P149]*[F87]+[P150]*[F88]+[P151]*[F89]+[P152]*[F90]+[P153]*[F91]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P149]|+|[P150]|+|[P151]|+|[P152]|+|[P153]|)|*|[F86]|)|-|(|[P149]|*|[F87]|+|[P150]|*|[F88]|+|[P151]|*|[F89]|+|[P152]|*|[F90]|+|[P153]|*|[F91]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 20, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F86])-([P100]*[F87]+[P102]*[F88]+[P104]*[F89]+[P106]*[F90]+[P108]*[F91]))/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F86]|)|-|(|[P100]|*|[F87]|+|[P102]|*|[F88]|+|[P104]|*|[F89]|+|[P106]|*|[F90]|+|[P108]|*|[F91]|)|)|/|[C1000]', '1');
+values (96, 20, 1, '=', 0, '((([P149]+[P150]+[P151]+[P152]+[P153])*[F86])-([P149]*[F87]+[P150]*[F88]+[P151]*[F89]+[P152]*[F90]+[P153]*[F91]))/[C1000]', '(|(|(|[P149]|+|[P150]|+|[P151]|+|[P152]|+|[P153]|)|*|[F86]|)|-|(|[P149]|*|[F87]|+|[P150]|*|[F88]|+|[P151]|*|[F89]|+|[P152]|*|[F90]|+|[P153]|*|[F91]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 20, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 21, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F92])-([P100]*[F93]+[P102]*[F94]+[P104]*[F95]+[P106]*[F96]+[P108]*[F97]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F92]|)|-|(|[P100]|*|[F93]|+|[P102]|*|[F94]|+|[P104]|*|[F95]|+|[P106]|*|[F96]|+|[P108]|*|[F97]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 21, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158])*[F92])-([P154]*[F93]+[P155]*[F94]+[P156]*[F95]+[P157]*[F96]+[P158]*[F97]))/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|)|*|[F92]|)|-|(|[P154]|*|[F93]|+|[P155]|*|[F94]|+|[P156]|*|[F95]|+|[P157]|*|[F96]|+|[P158]|*|[F97]|)|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 21, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108])*[F92])-([P100]*[F93]+[P102]*[F94]+[P104]*[F95]+[P106]*[F96]+[P108]*[F97]))/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|)|*|[F92]|)|-|(|[P100]|*|[F93]|+|[P102]|*|[F94]|+|[P104]|*|[F95]|+|[P106]|*|[F96]|+|[P108]|*|[F97]|)|)|/|[C1000]', '1');
+values (96, 21, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158])*[F92])-([P154]*[F93]+[P155]*[F94]+[P156]*[F95]+[P157]*[F96]+[P158]*[F97]))/[C1000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|)|*|[F92]|)|-|(|[P154]|*|[F93]|+|[P155]|*|[F94]|+|[P156]|*|[F95]|+|[P157]|*|[F96]|+|[P158]|*|[F97]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 21, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 22, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108]+[P120])*[F98])-([P100]*[F99]+[P102]*[F100]+[P104]*[F101]+[P106]*[F102]+[P108]*[F103]+[P120]*[F104]))*[C0.0000360369684]*([C56126.2633461206]+[C1]*[C30]+[C0.1]*[C265])/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|+|[P120]|)|*|[F98]|)|-|(|[P100]|*|[F99]|+|[P102]|*|[F100]|+|[P104]|*|[F101]|+|[P106]|*|[F102]|+|[P108]|*|[F103]|+|[P120]|*|[F104]|)|)|*|[C0.0000360369684]|*|(|[C56126.2633461206]|+|[C1]|*|[C30]|+|[C0.1]|*|[C265]|)|/|[C1000]', '1');
+values (11, 22, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158]+[P159])*[F98])-([P154]*[F99]+[P155]*[F100]+[P156]*[F101]+[P157]*[F102]+[P158]*[F103]+[P159]*[F104]))*[C0.0000360369684]*([C56126.2633461206]+[C1]*[C30]+[C0.1]*[C265])/[C1000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|+|[P159]|)|*|[F98]|)|-|(|[P154]|*|[F99]|+|[P155]|*|[F100]|+|[P156]|*|[F101]|+|[P157]|*|[F102]|+|[P158]|*|[F103]|+|[P159]|*|[F104]|)|)|*|[C0.0000360369684]|*|(|[C56126.2633461206]|+|[C1]|*|[C30]|+|[C0.1]|*|[C265]|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (90, 22, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108]+[P120])*[F98])-([P100]*[F99]+[P102]*[F100]+[P104]*[F101]+[P106]*[F102]+[P108]*[F103]+[P120]*[F104]))*[C0.0000360369684]*[C1000000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|+|[P120]|)|*|[F98]|)|-|(|[P100]|*|[F99]|+|[P102]|*|[F100]|+|[P104]|*|[F101]|+|[P106]|*|[F102]|+|[P108]|*|[F103]|+|[P120]|*|[F104]|)|)|*|[C0.0000360369684]|*|[C1000000]', '1');
+values (90, 22, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158]+[P159])*[F98])-([P154]*[F99]+[P155]*[F100]+[P156]*[F101]+[P157]*[F102]+[P158]*[F103]+[P159]*[F104]))*[C0.0000360369684]*[C1000000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|+|[P159]|)|*|[F98]|)|-|(|[P154]|*|[F99]|+|[P155]|*|[F100]|+|[P156]|*|[F101]|+|[P157]|*|[F102]|+|[P158]|*|[F103]|+|[P159]|*|[F104]|)|)|*|[C0.0000360369684]|*|[C1000000]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 23, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108]+[P120])*[F105])-([P100]*[F106]+[P102]*[F107]+[P104]*[F108]+[P106]*[F109]+[P108]*[F110]+[P120]*[F111]))*[C0.0000473051901]*([C63100]+[C1]*[C30]+[C0.1]*[C265])/[C1000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|+|[P120]|)|*|[F105]|)|-|(|[P100]|*|[F106]|+|[P102]|*|[F107]|+|[P104]|*|[F108]|+|[P106]|*|[F109]|+|[P108]|*|[F110]|+|[P120]|*|[F111]|)|)|*|[C0.0000473051901]|*|(|[C63100]|+|[C1]|*|[C30]|+|[C0.1]|*|[C265]|)|/|[C1000]', '1');
+values (11, 23, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158]+[P159])*[F105])-([P154]*[F106]+[P155]*[F107]+[P156]*[F108]+[P157]*[F109]+[P158]*[F110]+[P159]*[F111]))*[C0.0000473051901]*([C63100]+[C1]*[C30]+[C0.1]*[C265])/[C1000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|+|[P159]|)|*|[F105]|)|-|(|[P154]|*|[F106]|+|[P155]|*|[F107]|+|[P156]|*|[F108]|+|[P157]|*|[F109]|+|[P158]|*|[F110]|+|[P159]|*|[F111]|)|)|*|[C0.0000473051901]|*|(|[C63100]|+|[C1]|*|[C30]|+|[C0.1]|*|[C265]|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (90, 23, 1, '=', 0, '((([P100]+[P102]+[P104]+[P106]+[P108]+[P120])*[F105])-([P100]*[F106]+[P102]*[F107]+[P104]*[F108]+[P106]*[F109]+[P108]*[F110]+[P120]*[F111]))*[C0.0000473051901]*[C1000000]', '(|(|(|[P100]|+|[P102]|+|[P104]|+|[P106]|+|[P108]|+|[P120]|)|*|[F105]|)|-|(|[P100]|*|[F106]|+|[P102]|*|[F107]|+|[P104]|*|[F108]|+|[P106]|*|[F109]|+|[P108]|*|[F110]|+|[P120]|*|[F111]|)|)|*|[C0.0000473051901]|*|[C1000000]', '1');
+values (90, 23, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158]+[P159])*[F105])-([P154]*[F106]+[P155]*[F107]+[P156]*[F108]+[P157]*[F109]+[P158]*[F110]+[P159]*[F111]))*[C0.0000473051901]*[C1000000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|+|[P159]|)|*|[F105]|)|-|(|[P154]|*|[F106]|+|[P155]|*|[F107]|+|[P156]|*|[F108]|+|[P157]|*|[F109]|+|[P158]|*|[F110]|+|[P159]|*|[F111]|)|)|*|[C0.0000473051901]|*|[C1000000]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (124, 14, 2, '=', 0, '[P123]*[F112]', '[P123]|*|[F112]', '1');
@@ -7836,9 +7899,9 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (90, 15, 2, '=', 0, '[P128]-[P124]', '[P128]|-|[P124]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 24, 2, '=', 0, '(([P100]+[P102])*[F120]-([P100]*[F121]+[P102]*[F122]))*[C1]/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|[P100]|+|[P102]|)|*|[F120]|-|(|[P100]|*|[F121]|+|[P102]|*|[F122]|)|)|*|[C1]|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
+values (11, 24, 2, '=', 0, '(([P160]+[P161])*[F120]-([P160]*[F121]+[P161]*[F122]))*[C1]/([C1]-[F2])*[C1]/[C1000]*[F11]', '(|(|[P160]|+|[P161]|)|*|[F120]|-|(|[P160]|*|[F121]|+|[P161]|*|[F122]|)|)|*|[C1]|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (96, 24, 2, '=', 0, '(([P100]+[P102])*[F120]-([P100]*[F121]+[P102]*[F122]))/[C1000]', '(|(|[P100]|+|[P102]|)|*|[F120]|-|(|[P100]|*|[F121]|+|[P102]|*|[F122]|)|)|/|[C1000]', '1');
+values (96, 24, 2, '=', 0, '(([P160]+[P161])*[F120]-([P160]*[F121]+[P161]*[F122]))/[C1000]', '(|(|[P160]|+|[P161]|)|*|[F120]|-|(|[P160]|*|[F121]|+|[P161]|*|[F122]|)|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 24, 2, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
 
@@ -8409,7 +8472,6 @@ values (16, 1, 96, 3, 15, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (16, 1, 90, 3, 16, '1');
 
------
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 6, 3, 1, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8419,23 +8481,23 @@ values (17, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (17, 1, 100, 3, 5, '1');
+values (17, 1, 134, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (17, 1, 102, 3, 7, '1');
+values (17, 1, 135, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (17, 1, 104, 3, 9, '1');
+values (17, 1, 136, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (17, 1, 106, 3, 11, '1');
+values (17, 1, 137, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (17, 1, 108, 3, 13, '1');
+values (17, 1, 138, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8452,23 +8514,23 @@ values (18, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (18, 1, 100, 3, 5, '1');
+values (18, 1, 139, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (18, 1, 102, 3, 7, '1');
+values (18, 1, 140, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (18, 1, 104, 3, 9, '1');
+values (18, 1, 141, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (18, 1, 106, 3, 11, '1');
+values (18, 1, 142, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (18, 1, 108, 3, 13, '1');
+values (18, 1, 143, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (18, 1, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8485,23 +8547,23 @@ values (19, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (19, 1, 100, 3, 5, '1');
+values (19, 1, 144, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (19, 1, 102, 3, 7, '1');
+values (19, 1, 145, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (19, 1, 104, 3, 9, '1');
+values (19, 1, 146, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (19, 1, 106, 3, 11, '1');
+values (19, 1, 147, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (19, 1, 108, 3, 13, '1');
+values (19, 1, 148, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (19, 1, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8518,23 +8580,23 @@ values (20, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (20, 1, 100, 3, 5, '1');
+values (20, 1, 149, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (20, 1, 102, 3, 7, '1');
+values (20, 1, 150, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (20, 1, 104, 3, 9, '1');
+values (20, 1, 151, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (20, 1, 106, 3, 11, '1');
+values (20, 1, 152, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (20, 1, 108, 3, 13, '1');
+values (20, 1, 153, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (20, 1, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8551,23 +8613,23 @@ values (21, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (21, 1, 100, 3, 5, '1');
+values (21, 1, 154, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (21, 1, 102, 3, 7, '1');
+values (21, 1, 155, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (21, 1, 104, 3, 9, '1');
+values (21, 1, 156, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (21, 1, 106, 3, 11, '1');
+values (21, 1, 157, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (21, 1, 108, 3, 13, '1');
+values (21, 1, 158, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (21, 1, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8584,27 +8646,27 @@ values (22, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 100, 3, 5, '1');
+values (22, 1, 154, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 102, 3, 7, '1');
+values (22, 1, 155, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 104, 3, 9, '1');
+values (22, 1, 156, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 106, 3, 11, '1');
+values (22, 1, 157, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 108, 3, 13, '1');
+values (22, 1, 158, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 119, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (22, 1, 120, 3, 15, '1');
+values (22, 1, 159, 3, 15, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (22, 1, 11, 3, 16, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8619,27 +8681,27 @@ values (23, 1, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 100, 3, 5, '1');
+values (23, 1, 154, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 102, 3, 7, '1');
+values (23, 1, 155, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 111, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 104, 3, 9, '1');
+values (23, 1, 156, 3, 9, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 112, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 106, 3, 11, '1');
+values (23, 1, 157, 3, 11, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 113, 3, 12, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 108, 3, 13, '1');
+values (23, 1, 158, 3, 13, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 119, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (23, 1, 120, 3, 15, '1');
+values (23, 1, 159, 3, 15, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 11, 3, 16, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -8706,15 +8768,15 @@ values (24, 2, 6, 3, 1, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 132, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (24, 2, 133, 3, 3, '1');
+values (24, 2, 98, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 109, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (24, 2, 100, 3, 5, '1');
+values (24, 2, 160, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 110, 3, 6, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (24, 2, 102, 3, 7, '1');
+values (24, 2, 161, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (24, 2, 11, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
