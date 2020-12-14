@@ -2186,7 +2186,7 @@ function CargarDatosExcel(data) {
     }
 
     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
-    if (medida == 4) {
+    if ($("#Control").data("mitigacion") == 4) {
         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
             let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
             let energia = $(y).parent().parent().parent().find('.energia-total').val();
