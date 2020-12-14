@@ -281,7 +281,13 @@ function CargarDatosIniciativa() {
                             $("#txt-monto-inversion").val("------");//add 030620
                         }
 
+                        if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                        }
 
+                        if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
+                        }
 
                         if ($("#Control").data("revision") == 0) {
                             //$("#cbo-moneda").val(data[i]["ID_MONEDA"]);
@@ -292,13 +298,13 @@ function CargarDatosIniciativa() {
                                 $("#txt-moneda").val("------");
                             }
 
-                            if (data[i]["FECHA"].toString() != "01/01/0001") {
-                                $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
-                                //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
-                            }
-                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
-                                $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
-                            }
+                            //if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
+                            //    //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
+                            //}
+                            //if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
+                            //}
                         } else {
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             //$("#txt-moneda").val(data[i]["MONEDA"]);
@@ -309,12 +315,12 @@ function CargarDatosIniciativa() {
                                 $("#txt-moneda").val("------");
                             }
 
-                            if (data[i]["FECHA"].toString() != "01/01/0001") {
-                                $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
-                            }
-                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
-                                $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
-                            }
+                            //if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            //}
+                            //if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
+                            //}
                         }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
                             $("#chk-publicar").prop("checked", true);

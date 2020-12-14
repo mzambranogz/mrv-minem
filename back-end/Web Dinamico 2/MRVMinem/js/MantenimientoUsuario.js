@@ -32,9 +32,9 @@ function fn_CargaUsuarios() {
                         tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
                         tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
                         if (data[i]["TELEFONO_USUARIO"] == null) {
-                            tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                            tr = tr + `<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ${data[i]["CELULAR_USUARIO"] == null ? '' : data[i]["CELULAR_USUARIO"]}</td>`;
                         } else if (data[i]["CELULAR_USUARIO"] == null) {
-                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
+                            tr = tr + `<td data-encabezado="Dirección">${data[i]["TELEFONO_USUARIO"]} - </td>`;
                         } else {
                             tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
                         }
