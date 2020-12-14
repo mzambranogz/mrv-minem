@@ -2182,18 +2182,16 @@ function CargarDatosExcel(data) {
     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            //let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-            //let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
             let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
             let energia = $(y).parent().parent().parent().find('.energia-total').val();
             emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
             energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-            //resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
-            //resumen_energia_total += $(y).val() == null ? 0 : energia;
             resumen_emisiones_potencial += emision;
             resumen_energia_total += energia;
-            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+            //resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+            //resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+            resumen_total += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
         });
         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
@@ -3054,18 +3052,16 @@ function CargarDatosGuardados() {
                     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
                     if (medida == 4) {
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            //let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            //let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
                             let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
                             let energia = $(y).parent().parent().parent().find('.energia-total').val();
                             emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                             energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            //resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
-                            //resumen_energia_total += $(y).val() == null ? 0 : energia;
                             resumen_emisiones_potencial += emision;
                             resumen_energia_total += energia;
-                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                            //resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                            //resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
                         });
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));

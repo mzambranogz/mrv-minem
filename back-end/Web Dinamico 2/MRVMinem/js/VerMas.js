@@ -297,8 +297,10 @@ function generarAcumulado() {
                             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
                             resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
                             resumen_energia_total += $(y).val() == null ? 0 : energia;
-                            resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
-                            resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
+                            //resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
+                            //resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
+                            resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? emision : 0;
+                            resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? energia : 0;
                         });
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
