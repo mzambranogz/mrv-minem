@@ -2981,6 +2981,17 @@ CREATE OR REPLACE  PACKAGE MRVMM."PKG_MRV_REPORTES" AS
         pCursor out SYS_REFCURSOR
   );
   
+  FUNCTION FN_GET_V90 (
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO NUMBER,
+        pID_V96 NUMBER,
+        pANNO NUMBER
+    )RETURN NUMBER;
+  
+  
   PROCEDURE USP_UPD_PRC_ACUMULADO_DETALLE(
         VALIDAR NUMBER
     );
@@ -3304,6 +3315,123 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
   END USP_SEL_ESCENARIOS_RPT_GEN;
  
  
+ 
+ 
+ FUNCTION FN_GET_V90 (
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO NUMBER,
+        pID_V96 NUMBER,
+        pANNO NUMBER --add
+    ) RETURN NUMBER
+    AS
+        VDATA VARCHAR2(4000);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVARPARAM NUMBER(36,16);
+        vsql VARCHAR2(4000);
+        VRESULTADO NUMBER(38,18);
+    BEGIN
+
+        SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO
+        WHERE ID_PARAMETRO = pID_PARAMETRO AND ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT;
+
+        FOR CUR_IND IN(
+            select distinct
+                  regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                 , level
+            from   DUAL
+            connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null
+            order by level ASC
+        )
+        LOOP
+            SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL;
+
+            IF VTAM =1 THEN
+                VDATA := VDATA || '' || CUR_IND.VALORES || '';
+            ELSE
+                SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                IF VVAR = 'P' THEN
+                    IF VTAM = 4 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;                        
+                        VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                    END IF;
+
+                    IF VTAM = 5 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+
+                        IF VVAR = '17' THEN
+                            VVARPARAM := 0;
+                        ELSE
+                            IF VVAR = '96' THEN
+                                VVARPARAM := pID_V96;
+                            ELSE
+                                VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                            END IF;                            
+                        END IF;
+
+                    END IF;
+
+                    IF VTAM = 6 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+
+                        VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                    END IF;
+
+                    VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    VDATA := VDATA || '' || VVAR || '';
+                END IF;
+
+                IF VVAR = 'F' THEN
+                    IF VTAM = 4 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                        IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                            VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, '13');
+                        ELSE
+                            VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+                        END IF;
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+
+                    IF VTAM = 5 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                        VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+
+                    IF VTAM = 6 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                        VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+                    VDATA := VDATA || '' || TRIM(VVAR) || '';
+                END IF;
+
+                IF VVAR = 'V' THEN
+                    VDATA := VDATA || '365';
+                END IF;
+
+                IF VVAR = 'C' THEN
+                    SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;
+                    VDATA := VDATA || '' || VVAR || '';
+                END IF;
+            END IF;
+        END LOOP;    
+        vsql := 'SELECT ROUND('|| '100' ||'*('|| VDATA ||'))/100 FROM DUAL';
+        EXECUTE IMMEDIATE vsql INTO VRESULTADO;
+        Return (VRESULTADO);
+    END;
+	
+	
+	
+ 
  PROCEDURE USP_UPD_PRC_ACUMULADO_DETALLE(
         VALIDAR NUMBER
     )
@@ -3372,19 +3500,22 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         V90 NUMBER;
         V96 NUMBER;
         vsql VARCHAR2(4000);
-        VALIDAR_ACUM NUMBER; --- ADD
-
+        VALIDAR_ACUM NUMBER;
+        VALIDAR_ENERG NUMBER;
         VFACTOR VARCHAR(1000);
     BEGIN
 
-            FOR CURINI IN (
+            FOR CURINI IN (                        
                 SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
                 FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
                 WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
                         D.ID_ENFOQUE = pID_ENFOQUE AND
                         D.ID_MEDMIT = pID_MEDMIT AND
                         D.ID_INDICADOR = pID_INDICADOR AND
                         D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
             )
             
             LOOP
@@ -3507,7 +3638,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                             END LOOP;
                             vsql := 'SELECT '|| VDATA ||' FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO VDATA;
-                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999990.0000000000000000')) || '|';
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '9999999999990.0000000000000000')) || '|';
 
                             --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
                         END IF;
@@ -3554,17 +3685,23 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                 END IF;
                             END IF;
                             
-                            IF VVAR = '90' THEN
-                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
-                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
-                                EXECUTE IMMEDIATE vsql INTO V90;
-                            END IF;
-                            
                             IF VVAR = '96' THEN
                                 SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
-                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                vsql := 'SELECT '|| VVAR ||' FROM DUAL';
                                 EXECUTE IMMEDIATE vsql INTO V96;
+                                VALIDAR_ENERG := 1;
                             END IF;
+                            
+                            IF VVAR = '90' THEN
+                              IF VALIDAR_ENERG = 1 THEN
+                                  V90 := FN_GET_V90 (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, 90, V96, pANNO);
+                              ELSE
+                                  SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                  vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                  EXECUTE IMMEDIATE vsql INTO V96;
+                              END IF;
+                            END IF;
+                            
                         END IF;
 
                     END LOOP;
@@ -4605,19 +4742,22 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         V90 NUMBER;
         V96 NUMBER;
         vsql VARCHAR2(4000);
-        VALIDAR_ACUM NUMBER; --- ADD
-
+        VALIDAR_ACUM NUMBER;
+        VALIDAR_ENERG NUMBER;
         VFACTOR VARCHAR(1000);
     BEGIN
 
             FOR CURINI IN (
                 SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
                 FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
                 WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
                         D.ID_ENFOQUE = pID_ENFOQUE AND
                         D.ID_MEDMIT = pID_MEDMIT AND
                         D.ID_INDICADOR = pID_INDICADOR AND
                         D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
             )
             LOOP
                         VDATA := '';
@@ -4786,16 +4926,21 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                 END IF;
                             END IF;
                             
-                            IF VVAR = '90' THEN
-                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
-                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
-                                EXECUTE IMMEDIATE vsql INTO V90;
-                            END IF;
-                            
                             IF VVAR = '96' THEN
                                 SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
-                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                vsql := 'SELECT '|| VVAR ||' FROM DUAL';
                                 EXECUTE IMMEDIATE vsql INTO V96;
+                                VALIDAR_ENERG := 1;
+                            END IF;
+                            
+                            IF VVAR = '90' THEN
+                              IF VALIDAR_ENERG = 1 THEN
+                                  V90 := FN_GET_V90 (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, 90, V96, pANNO);
+                              ELSE
+                                  SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                  vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                  EXECUTE IMMEDIATE vsql INTO V96;
+                              END IF;
                             END IF;
                         END IF;
 
@@ -4825,7 +4970,6 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         AND ID_INDICADOR = pID_INDICADOR
                         AND ANNO = pANNO;
                     END IF;
-
 
     END USP_PRC_ACUMULADO;
 	
@@ -4945,7 +5089,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
     END USP_SEL_ACUMULADOR;
 
 
-    PROCEDURE USP_PRC_MOSTRAR_ACUMULADOR(
+   PROCEDURE USP_PRC_MOSTRAR_ACUMULADOR(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
@@ -4978,11 +5122,14 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
             FOR CURINI IN (
                 SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
                 FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
                 WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
                         D.ID_ENFOQUE = pID_ENFOQUE AND
                         D.ID_MEDMIT = pID_MEDMIT AND
                         D.ID_INDICADOR = pID_INDICADOR AND
                         D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
             )
             LOOP
                         VDATA := '';
