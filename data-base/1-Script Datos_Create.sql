@@ -2674,14 +2674,14 @@ INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,F
 INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','5','Cambio de motores eléctricos','1');
 INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','6','Cambio de equipos de aire acondicionado','1');
 INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','7','Cambio de calentadores de agua','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','8','Cambio de lámparas','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','9','Mantenimiento de sistemas térmicos','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','10','Cambio o mantenimiento de las calderas','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','11','Mantenimiento de aire acondicionado','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','12','Mantenimiento de sistemas de refrigeración','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','13','Cambio o mantenimiento del torre de enfriamiento','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','14','Cambio o mantenimiento de otros equipos','1');
-INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','15','Buenas prácticas','1');
+--INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','8','Cambio de lámparas','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','8','Mantenimiento de sistemas térmicos','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','9','Cambio o mantenimiento de las calderas','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','10','Mantenimiento de aire acondicionado','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','11','Mantenimiento de sistemas de refrigeración','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','12','Cambio o mantenimiento del torre de enfriamiento','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','13','Cambio o mantenimiento de otros equipos','1');
+INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','14','Buenas prácticas','1');
 --INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('73','16','Sistemas de gestión de energía','1');
 
 INSERT INTO MRVMM.T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('76','1','Electricidad','1');
@@ -8397,8 +8397,8 @@ insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indi
 values (25, 4, 92, 3, 28, '1');
 --insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 --values (25, 4, 93, 3, 29, '1');
---insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
---values (25, 4, 94, 3, 30, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (25, 4, 94, 3, 30, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (11, 6, 96, 3, 10, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
