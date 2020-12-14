@@ -3686,7 +3686,7 @@ namespace MRVMinem.Controllers
                 String strCarpeta = WebConfigurationManager.AppSettings["Detalle"];
 
                 IndicadorArchivoBE encontrado = null;
-                if (cargosesion == "1")
+                if (cargosesion == "1" && MisArchivos.Count > 0) //add
                 {
                     //Buscamos si esta en la sesión (si esta cambiando de archivo)
                     //int i = MisArchivos.FindIndex(A => A.ADJUNTO.Contains(IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-"));
