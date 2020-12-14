@@ -2289,7 +2289,8 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (160, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de motores con etiqueta A', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (161, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de equipos de motores con etiqueta B', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
-
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (162, 1, 3, 'Combustible (Línea base y acción)', '1', '1', '1', null, null, null, null, null, 'combustible que consume la caldera', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 commit;
 prompt 133 records loaded
 
@@ -2803,6 +2804,11 @@ INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_EST
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','2','B','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('133','3','C','1');
+
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('162','1','Residual','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('162','2','Diesel','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('162','3','Gas natural','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('162','4','Diesel DB5','1');
 commit;
 prompt 186 records loaded
 prompt Loading T_MAE_ENERG...
@@ -3161,6 +3167,15 @@ insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (122, 'Factor Motores eléctricos trifásicos Ini2');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (123, 'Factor Motores eléctricos trifásicos Ini3');
+
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (124, 'Factor VCN EESI línea base y acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (125, 'FE por defecto kgCO2 línea base y acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (126, 'FE por defecto kgCH4 línea base y acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (127, 'FE por defecto kgN2O línea base y acción');
 commit;
 prompt 123 records loaded
 
@@ -3246,13 +3261,13 @@ values (13, 2, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (13, 11, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 112, 1, '1');
+values (14, 124, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 113, 2, '1');
+values (14, 125, 2, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 114, 3, '1');
+values (14, 126, 3, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (14, 115, 4, '1');
+values (14, 127, 4, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (15, 112, 1, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
@@ -7623,6 +7638,42 @@ insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, fact
 values (123, 4, '132|111', '4|1', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (123, 5, '132|111', '5|1', 0, '1', null, null, null, null, null, null);
+
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (124, 1, '162', '1', 151.324864234924, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (124, 2, '162', '2', 134.504386990494, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (124, 3, '162', '3', 36.0369684168923, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (124, 4, '162', '4', 132.301788365124, '1', null, null, null, null, null, null);
+
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (125, 1, '162', '1', 0.0774, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (125, 2, '162', '2', 0.0741, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (125, 3, '162', '3', 0.056126263346, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (125, 4, '162', '4', 0.073935, '1', null, null, null, null, null, null);
+
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (126, 1, '162', '1', 0.000003, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (126, 2, '162', '2', 0.000003, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (126, 3, '162', '3', 0.000001, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (126, 4, '162', '4', 0.000003, '1', null, null, null, null, null, null);
+
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (127, 1, '162', '1', 0.0000006, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (127, 2, '162', '2', 0.0000006, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (127, 3, '162', '3', 0.0000001, '1', null, null, null, null, null, null);
+insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
+values (127, 4, '162', '4', 0.0000006, '1', null, null, null, null, null, null);
 commit;
 prompt 1571 records loaded
 
@@ -7861,19 +7912,19 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (90, 23, 1, '=', 0, '((([P154]+[P155]+[P156]+[P157]+[P158]+[P159])*[F105])-([P154]*[F106]+[P155]*[F107]+[P156]*[F108]+[P157]*[F109]+[P158]*[F110]+[P159]*[F111]))*[C0.0000473051901]*[C1000000]', '(|(|(|[P154]|+|[P155]|+|[P156]|+|[P157]|+|[P158]|+|[P159]|)|*|[F105]|)|-|(|[P154]|*|[F106]|+|[P155]|*|[F107]|+|[P156]|*|[F108]|+|[P157]|*|[F109]|+|[P158]|*|[F110]|+|[P159]|*|[F111]|)|)|*|[C0.0000473051901]|*|[C1000000]', '1');
 
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (124, 14, 2, '=', 0, '[P123]*[F112]', '[P123]|*|[F112]', '1');
+values (124, 14, 2, '=', 0, '[P123]*[F124]', '[P123]|*|[F124]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (125, 14, 2, '=', 0, '[P124]*[C0.8]', '[P124]|*|[C0.8]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (126, 14, 2, '=', 0, '[P124]*([F113]+[F114]*[C30]+[F115]*[C265])/[C1000]', '[P124]|*|(|[F113]|+|[F114]|*|[C30]|+|[F115]|*|[C265]|)|/|[C1000]', '1');
+values (126, 14, 2, '=', 0, '[P124]*([F125]+[F126]*[C30]+[F127]*[C265])/[C1000]', '[P124]|*|(|[F125]|+|[F126]|*|[C30]|+|[F127]|*|[C265]|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (127, 14, 2, '=', 0, '[P123]*[C0.8]/[C0.74]', '[P123]|*|[C0.8]|/|[C0.74]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (128, 14, 2, '=', 0, '[P127]*[F112]', '[P127]|*|[F112]', '1');
+values (128, 14, 2, '=', 0, '[P127]*[F124]', '[P127]|*|[F124]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (129, 14, 2, '=', 0, '[P128]*[C0.74]', '[P128]|*|[C0.74]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (130, 14, 2, '=', 0, '[P128]*([F113]+[F114]*[C30]+[F115]*[C265])/[C1000]', '[P128]|*|(|[F113]|+|[F114]|*|[C30]|+|[F115]|*|[C265]|)|/|[C1000]', '1');
+values (130, 14, 2, '=', 0, '[P128]*([F125]+[F126]*[C30]+[F127]*[C265])/[C1000]', '[P128]|*|(|[F125]|+|[F126]|*|[C30]|+|[F127]|*|[C265]|)|/|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 14, 2, '=', 0, '[P130]-[P126]', '[P130]|-|[P126]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
@@ -8710,7 +8761,7 @@ values (23, 1, 90, 3, 17, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (14, 2, 6, 3, 1, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (14, 2, 121, 3, 2, '1');
+values (14, 2, 162, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (14, 2, 122, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -9640,6 +9691,26 @@ insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control,
 values (123, 2, 1, null, 'Etiqueta Ini3', 111, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (123, 100, 2, 2, 'Factor (kWh)', null, 100, '1');
+
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (124, 1, 1, null, 'Tipo combustible', 162, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (124, 100, 2, 2, 'Factor', null, 100, '1');
+
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (125, 1, 1, null, 'Tipo combustible', 162, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (125, 100, 2, 2, 'Factor (kgCO2/MJ)', null, 100, '1');
+
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (126, 1, 1, null, 'Tipo combustible', 162, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (126, 100, 2, 2, 'Factor (kgCH4/MJ)', null, 100, '1');
+
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (127, 1, 1, null, 'Tipo combustible', 162, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (127, 100, 2, 2, 'Factor (kgN2O/MJ)', null, 100, '1');
 commit;
 prompt 150 records loaded
 
