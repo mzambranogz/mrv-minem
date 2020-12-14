@@ -4059,8 +4059,10 @@ $(document).on("change", "#cbo-enfoque", function () {
     });
     CargarDatosCabecera();
     CargarDatosGuardados();
-
-
+    if ($('#cbo-enfoque').val() == 24)
+        $('#msj-equipo').removeClass('d-none');
+    else
+        $('#msj-equipo').addClass('d-none');
 
 });
 
@@ -4468,6 +4470,8 @@ $(document).ready(function () {
         //CargarDetalleIndicador();        
     }
     
+    if ($("#Control").data("mitigacion") == 1 || $('#cbo-enfoque').val() == 24)
+        $('#msj-equipo').removeClass('d-none');
 
     var monto = $("#txt-monto-inversion").val();
     if (monto != '------')
