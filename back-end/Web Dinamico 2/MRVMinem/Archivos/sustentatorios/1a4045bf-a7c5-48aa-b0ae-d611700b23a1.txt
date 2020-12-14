@@ -1,0 +1,924 @@
+PKG RPEORTES
+
+ACTUALZIAR BODY
+
+PROCEDURE USP_PRC_UPD_ACUMULADO(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER,
+        pANNO NUMBER--,
+        --PO OUT SYS_REFCURSOR
+    )
+    AS
+        VDATA VARCHAR2(4000);
+        VNUM NUMBER(36,16);
+        VDATO NUMBER(36,16);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
+        VVARFAC VARCHAR2(1000);
+        VVARFACTOR NUMBER(36,16);
+        VVARPARAM NUMBER(36,16);
+        VRES VARCHAR(4000);
+        VID NUMBER;
+        V9 NUMBER;
+        V10 NUMBER;
+        V11 NUMBER;
+        V90 NUMBER;
+        V96 NUMBER;
+        vsql VARCHAR2(4000);
+        VALIDAR_ACUM NUMBER;
+        VALIDAR_ENERG NUMBER;
+        VFACTOR VARCHAR(1000);
+    BEGIN
+
+            FOR CURINI IN (                        
+                SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
+                FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
+                WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                        D.ID_ENFOQUE = pID_ENFOQUE AND
+                        D.ID_MEDMIT = pID_MEDMIT AND
+                        D.ID_INDICADOR = pID_INDICADOR AND
+                        D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
+            )
+            
+            LOOP
+                        VDATA := '';
+                        SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO
+                        WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                        IF VDATO > 0 THEN
+                            SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO
+                            WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                            FOR CUR_IND IN(
+                                select distinct
+                                      regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                                     , level
+                                from   DUAL
+                                connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null
+                                order by level ASC
+                            )
+                            LOOP
+                                SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL;
+
+                                IF VTAM =1 THEN
+                                    VDATA := VDATA || '' || CUR_IND.VALORES || '';
+                                ELSE
+                                    SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                                    IF VVAR = 'P' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '17' THEN
+                                                VVARPARAM := 0;
+                                            ELSE
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            END IF;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                           --VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                        END IF;
+
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                        --VDATA := VDATA || '' || VVARPARAM || '';
+
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    IF VVAR = 'F' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, '13');
+                                            ELSE
+                                                VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+                                                --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));
+                                            END IF;
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VDATA := VDATA || '' || TRIM(VVAR) || '';
+                                    END IF;
+
+                                    IF VVAR = 'V' THEN
+                                        VDATA := VDATA || '365';
+                                    END IF;
+
+                                    IF VVAR = 'C' THEN
+
+                                        --SELECT SUBSTR(CUR_IND.VALORES,2,VTAM-3) INTO VVAR FROM DUAL;
+                                        SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    --VDATA := VDATA || '' || VVAR || ' -- ';
+                                END IF;
+
+                                --VDATA := VDATA || '--' || CUR_IND.VALORES || ' / ';
+
+                            END LOOP;
+                            vsql := 'SELECT '|| VDATA ||' FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO VDATA;
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '9999999999990.0000000000000000')) || '|';
+
+                            --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
+                        END IF;
+
+            END LOOP;
+
+            VNUM := 0;
+            FOR CURRES IN(
+                    select distinct
+                    regexp_substr(VRES,'[^|]+', 1, level) as VALORES
+                    , level
+                    from   DUAL
+                    connect by regexp_substr(VRES, '[^|]+', 1, level) is not null
+                    order by level ASC
+                    )
+                    LOOP
+                        VNUM := VNUM + 1;
+
+                        SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,1) INTO VVAR2 FROM DUAL;
+
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
+                            SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                            vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO V9;
+                        ELSE
+                            SELECT SUBSTR(CURRES.VALORES,1,2) INTO VVAR FROM DUAL;
+                            IF VVAR = '10' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V10;
+                            END IF;
+
+                            IF VVAR = '11' THEN
+                                --IF LENGTH(V9) >  0 AND LENGTH(V10) > 0 THEN
+                                IF V9 >  0 AND V10 > 0 THEN
+                                    --vsql := 'SELECT '|| V9 ||'-'|| V10 ||' FROM DUAL';
+                                    --EXECUTE IMMEDIATE vsql INTO V11;
+                                    V11 := V9 - V10;
+                                ELSE
+                                    SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                    vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                    EXECUTE IMMEDIATE vsql INTO V11;
+                                END IF;
+                            END IF;
+                            
+                            IF VVAR = '96' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT '|| VVAR ||' FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V96;
+                                VALIDAR_ENERG := 1;
+                            END IF;
+                            
+                            IF VVAR = '90' THEN
+                              IF VALIDAR_ENERG = 1 THEN
+                                  V90 := FN_GET_V90 (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, 90, V96, pANNO);
+                              ELSE
+                                  SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                  vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                  EXECUTE IMMEDIATE vsql INTO V96;
+                              END IF;
+                            END IF;
+                            
+                        END IF;
+
+                    END LOOP;
+
+                    SELECT  VALOR INTO VNUM
+                    FROM    T_MAEM_INDICADOR_DATA D
+                    WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                            D.ID_ENFOQUE = pID_ENFOQUE AND
+                            D.ID_MEDMIT = pID_MEDMIT AND
+                            D.ID_INDICADOR = pID_INDICADOR AND
+                            D.ID_PARAMETRO = 6 AND
+                            D.FLAG_ESTADO = 1;
+                            
+                    IF VNUM = pANNO THEN
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 9;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = TRIM(TO_CHAR(ROUND(V9*100)/100, '9999999999990.00')) WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 9;
+                      END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 10;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = TRIM(TO_CHAR(ROUND(V10*100)/100, '9999999999990.00')) WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 10;
+                      END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 11;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = TRIM(TO_CHAR(ROUND(V11*100)/100, '9999999999990.00')) WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 11;
+                      END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 96;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = TRIM(TO_CHAR(ROUND(V96*100)/100, '9999999999990.00')) WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 96;
+                      END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 90;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = TRIM(TO_CHAR(ROUND(V90*100)/100, '9999999999990.00')) WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 90;
+                      END IF;
+                    END IF;
+
+                    SELECT COUNT(*) INTO VALIDAR_ACUM FROM T_GENM_ACUMULADO
+                    WHERE ID_INICIATIVA = pID_INICIATIVA
+                      AND ID_MEDMIT = pID_MEDMIT
+                      AND ID_ENFOQUE = pID_ENFOQUE
+                      AND ID_INDICADOR = pID_INDICADOR
+                      AND ANNO = pANNO;
+
+                    IF VALIDAR_ACUM > 0 THEN
+                        UPDATE  T_GENM_ACUMULADO
+                        SET BAU = V9,
+                            INI = V10,
+                            REDUCIDO = V11,
+                            ENERGIA = V96,
+                            ENERGIA_TOTAL = V90
+                        WHERE ID_INICIATIVA = pID_INICIATIVA
+                        AND ID_MEDMIT = pID_MEDMIT
+                        AND ID_ENFOQUE = pID_ENFOQUE
+                        AND ID_INDICADOR = pID_INDICADOR
+                        AND ANNO = pANNO;
+                    END IF;
+
+    END USP_PRC_UPD_ACUMULADO;
+
+
+=================================================================
+
+PKG REPORTES FUNCION
+
+AGREGAR CABECERA
+
+FUNCTION FN_GET_V90 (
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO NUMBER,
+        pID_V96 NUMBER,
+        pANNO NUMBER
+    )RETURN NUMBER;
+
+
+--------------------------
+
+
+AGREGAR CUERPO
+
+FUNCTION FN_GET_V90 (
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO NUMBER,
+        pID_V96 NUMBER,
+        pANNO NUMBER --add
+    ) RETURN NUMBER
+    AS
+        VDATA VARCHAR2(4000);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVARPARAM NUMBER(36,16);
+        vsql VARCHAR2(4000);
+        VRESULTADO NUMBER(38,18);
+    BEGIN
+
+        SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO
+        WHERE ID_PARAMETRO = pID_PARAMETRO AND ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT;
+
+        FOR CUR_IND IN(
+            select distinct
+                  regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                 , level
+            from   DUAL
+            connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null
+            order by level ASC
+        )
+        LOOP
+            SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL;
+
+            IF VTAM =1 THEN
+                VDATA := VDATA || '' || CUR_IND.VALORES || '';
+            ELSE
+                SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                IF VVAR = 'P' THEN
+                    IF VTAM = 4 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;                        
+                        VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                    END IF;
+
+                    IF VTAM = 5 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+
+                        IF VVAR = '17' THEN
+                            VVARPARAM := 0;
+                        ELSE
+                            IF VVAR = '96' THEN
+                                VVARPARAM := pID_V96;
+                            ELSE
+                                VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                            END IF;                            
+                        END IF;
+
+                    END IF;
+
+                    IF VTAM = 6 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+
+                        VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, VVAR);
+                    END IF;
+
+                    VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    VDATA := VDATA || '' || VVAR || '';
+                END IF;
+
+                IF VVAR = 'F' THEN
+                    IF VTAM = 4 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                        IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                            VVARPARAM := FN_GET_VALOR_DATA(pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, '13');
+                        ELSE
+                            VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+                        END IF;
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+
+                    IF VTAM = 5 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                        VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+
+                    IF VTAM = 6 THEN
+                        SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                        VVARPARAM := FN_GET_FACTOR_DATA (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR,VVAR,pANNO);
+
+                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                    END IF;
+                    VDATA := VDATA || '' || TRIM(VVAR) || '';
+                END IF;
+
+                IF VVAR = 'V' THEN
+                    VDATA := VDATA || '365';
+                END IF;
+
+                IF VVAR = 'C' THEN
+                    SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;
+                    VDATA := VDATA || '' || VVAR || '';
+                END IF;
+            END IF;
+        END LOOP;    
+        vsql := 'SELECT ROUND('|| '100' ||'*('|| VDATA ||'))/100 FROM DUAL';
+        EXECUTE IMMEDIATE vsql INTO VRESULTADO;
+        Return (VRESULTADO);
+    END;
+
+
+=================================================================================
+
+ACTUALIZAR PKG REPORTE
+
+CUERPO
+
+PROCEDURE USP_PRC_MOSTRAR_ACUMULADOR(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER,
+        pANNO NUMBER,
+        PO OUT SYS_REFCURSOR
+    )
+    AS
+        VDATA VARCHAR2(4000);
+        VNUM NUMBER(36,16);
+        VDATO NUMBER(36,16);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
+        VVARFAC VARCHAR2(1000);
+        VVARFACTOR NUMBER(36,16);
+        VVARPARAM NUMBER(36,16);
+        VRES VARCHAR(4000);
+        VID NUMBER;
+        V9 NUMBER;
+        V10 NUMBER;
+        V11 NUMBER;
+        vsql VARCHAR2(4000);
+        VALIDAR_ACUM NUMBER; --- ADD
+
+        VFACTOR VARCHAR(1000);
+    BEGIN
+
+            FOR CURINI IN (
+                SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
+                FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
+                WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                        D.ID_ENFOQUE = pID_ENFOQUE AND
+                        D.ID_MEDMIT = pID_MEDMIT AND
+                        D.ID_INDICADOR = pID_INDICADOR AND
+                        D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
+            )
+            LOOP
+                        VDATA := '';
+                        SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO
+                        WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                        IF VDATO > 0 THEN
+                            SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO
+                            WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                            FOR CUR_IND IN(
+                                select distinct
+                                      regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                                     , level
+                                from   DUAL
+                                connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null
+                                order by level ASC
+                            )
+                            LOOP
+                                SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL;
+
+                                IF VTAM =1 THEN
+                                    VDATA := VDATA || '' || CUR_IND.VALORES || '';
+                                ELSE
+                                    SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                                    IF VVAR = 'P' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '17' THEN
+                                                VVARPARAM := 0;
+                                            ELSE
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            END IF;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                           --VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                        END IF;
+
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                        --VDATA := VDATA || '' || VVARPARAM || '';
+
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    IF VVAR = 'F' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, '13');
+                                            ELSE
+                                                VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+                                                --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));
+                                            END IF;
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VDATA := VDATA || '' || TRIM(VVAR) || '';
+                                    END IF;
+
+                                    IF VVAR = 'V' THEN
+                                        VDATA := VDATA || '365';
+                                    END IF;
+
+                                    IF VVAR = 'C' THEN
+
+                                        --SELECT SUBSTR(CUR_IND.VALORES,2,VTAM-3) INTO VVAR FROM DUAL;
+                                        SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    --VDATA := VDATA || '' || VVAR || ' -- ';
+                                END IF;
+
+                                --VDATA := VDATA || '--' || CUR_IND.VALORES || ' / ';
+
+                            END LOOP;
+                            vsql := 'SELECT '|| VDATA ||' FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO VDATA;
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '9999999999990.0000000000000000')) || '|';
+
+                            --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
+                        END IF;
+
+            END LOOP;
+
+            VNUM := 0;
+            FOR CURRES IN(
+                    select distinct
+                    regexp_substr(VRES,'[^|]+', 1, level) as VALORES
+                    , level
+                    from   DUAL
+                    connect by regexp_substr(VRES, '[^|]+', 1, level) is not null
+                    order by level ASC
+                    )
+                    LOOP
+                        VNUM := VNUM + 1;
+
+                        SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,1) INTO VVAR2 FROM DUAL;
+
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
+                            SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                            vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO V9;
+                        ELSE
+                            SELECT SUBSTR(CURRES.VALORES,1,2) INTO VVAR FROM DUAL;
+                            IF VVAR = '10' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V10;
+                            END IF;
+
+                            IF VVAR = '11' THEN
+                                --IF LENGTH(V9) >  0 AND LENGTH(V10) > 0 THEN
+                                IF V9 >  0 AND V10 > 0 THEN
+                                    --vsql := 'SELECT '|| V9 ||'-'|| V10 ||' FROM DUAL';
+                                    --EXECUTE IMMEDIATE vsql INTO V11;
+                                    V11 := V9 - V10;
+                                ELSE
+                                    SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                    vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                    EXECUTE IMMEDIATE vsql INTO V11;
+                                END IF;
+                            END IF;
+                        END IF;
+
+                    END LOOP;
+
+                    OPEN PO FOR
+                    --SELECT pANNO anio, V11 reducido FROM DUAL;
+                    SELECT pANNO anio, V11 reducido, V9 linea, V10 iniciativa FROM DUAL; --add
+
+    END USP_PRC_MOSTRAR_ACUMULADOR;
+
+===============================================================================================
+
+PKG REPORTE
+
+ACTUALZIAR CUERPO
+
+
+PROCEDURE USP_PRC_ACUMULADO(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER,
+        pANNO NUMBER--,
+        --PO OUT SYS_REFCURSOR
+    )
+    AS
+        VDATA VARCHAR2(4000);
+        VNUM NUMBER(36,16);
+        VDATO NUMBER(36,16);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
+        VVARFAC VARCHAR2(1000);
+        VVARFACTOR NUMBER(36,16);
+        VVARPARAM NUMBER(36,16);
+        VRES VARCHAR(4000);
+        VID NUMBER;
+        V9 NUMBER;
+        V10 NUMBER;
+        V11 NUMBER;
+        V90 NUMBER;
+        V96 NUMBER;
+        vsql VARCHAR2(4000);
+        VALIDAR_ACUM NUMBER;
+        VALIDAR_ENERG NUMBER;
+        VFACTOR VARCHAR(1000);
+    BEGIN
+
+            FOR CURINI IN (
+                SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
+                FROM    T_MAEM_INDICADOR_DATA D
+                INNER JOIN T_MAEM_INDICADOR IND ON D.ID_ENFOQUE = IND.ID_ENFOQUE AND D.ID_MEDMIT = IND.ID_MEDMIT
+                AND D.ID_PARAMETRO = IND.ID_PARAMETRO
+                WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                        D.ID_ENFOQUE = pID_ENFOQUE AND
+                        D.ID_MEDMIT = pID_MEDMIT AND
+                        D.ID_INDICADOR = pID_INDICADOR AND
+                        D.FLAG_ESTADO = 1
+                ORDER BY IND.ORDEN ASC
+            )
+            LOOP
+                        VDATA := '';
+                        SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO
+                        WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                        IF VDATO > 0 THEN
+                            SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO
+                            WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+
+                            FOR CUR_IND IN(
+                                select distinct
+                                      regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                                     , level
+                                from   DUAL
+                                connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null
+                                order by level ASC
+                            )
+                            LOOP
+                                SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL;
+
+                                IF VTAM =1 THEN
+                                    VDATA := VDATA || '' || CUR_IND.VALORES || '';
+                                ELSE
+                                    SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                                    IF VVAR = 'P' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '17' THEN
+                                                VVARPARAM := 0;
+                                            ELSE
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            END IF;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                           --VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                        END IF;
+
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
+                                        --VDATA := VDATA || '' || VVARPARAM || '';
+
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    IF VVAR = 'F' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+
+                                            IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, '13');
+                                            ELSE
+                                                VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+                                                --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));
+                                            END IF;
+
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VDATA := VDATA || '' || TRIM(VVAR) || '';
+                                    END IF;
+
+                                    IF VVAR = 'V' THEN
+                                        VDATA := VDATA || '365';
+                                    END IF;
+
+                                    IF VVAR = 'C' THEN
+
+                                        --SELECT SUBSTR(CUR_IND.VALORES,2,VTAM-3) INTO VVAR FROM DUAL;
+                                        SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+
+                                    --VDATA := VDATA || '' || VVAR || ' -- ';
+                                END IF;
+
+                                --VDATA := VDATA || '--' || CUR_IND.VALORES || ' / ';
+
+                            END LOOP;
+                            vsql := 'SELECT '|| VDATA ||' FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO VDATA;
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999999990.0000000000000000')) || '|';
+
+                            --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
+                        END IF;
+
+            END LOOP;
+
+            VNUM := 0;
+            FOR CURRES IN(
+                    select distinct
+                    regexp_substr(VRES,'[^|]+', 1, level) as VALORES
+                    , level
+                    from   DUAL
+                    connect by regexp_substr(VRES, '[^|]+', 1, level) is not null
+                    order by level ASC
+                    )
+                    LOOP
+                        VNUM := VNUM + 1;
+
+                        SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,1) INTO VVAR2 FROM DUAL;
+
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
+                            SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                            vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO V9;
+                        ELSE
+                            SELECT SUBSTR(CURRES.VALORES,1,2) INTO VVAR FROM DUAL;
+                            IF VVAR = '10' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V10;
+                            END IF;
+
+                            IF VVAR = '11' THEN
+                                --IF LENGTH(V9) >  0 AND LENGTH(V10) > 0 THEN
+                                IF V9 >  0 AND V10 > 0 THEN
+                                    --vsql := 'SELECT '|| V9 ||'-'|| V10 ||' FROM DUAL';
+                                    --EXECUTE IMMEDIATE vsql INTO V11;
+                                    V11 := V9 - V10;
+                                ELSE
+                                    SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                    vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                    EXECUTE IMMEDIATE vsql INTO V11;
+                                END IF;
+                            END IF;
+                            
+                            IF VVAR = '96' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT '|| VVAR ||' FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V96;
+                                VALIDAR_ENERG := 1;
+                            END IF;
+                            
+                            IF VVAR = '90' THEN
+                              IF VALIDAR_ENERG = 1 THEN
+                                  V90 := FN_GET_V90 (pID_INICIATIVA, pID_ENFOQUE, pID_MEDMIT, pID_INDICADOR, 90, V96, pANNO);
+                              ELSE
+                                  SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                  vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                  EXECUTE IMMEDIATE vsql INTO V96;
+                              END IF;
+                            END IF;
+                        END IF;
+
+                    END LOOP;
+
+
+                    SELECT COUNT(*) INTO VALIDAR_ACUM FROM T_GENM_ACUMULADO
+                    WHERE ID_INICIATIVA = pID_INICIATIVA
+                      AND ID_MEDMIT = pID_MEDMIT
+                      AND ID_ENFOQUE = pID_ENFOQUE
+                      AND ID_INDICADOR = pID_INDICADOR
+                      AND ANNO = pANNO;
+
+                    IF VALIDAR_ACUM = 0 THEN
+                        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO, ENERGIA, ENERGIA_TOTAL)
+                        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11, V96, V90);
+                    ELSE
+                        UPDATE  T_GENM_ACUMULADO
+                        SET BAU = V9,
+                            INI = V10,
+                            REDUCIDO = V11,
+                            ENERGIA = V96,
+                            ENERGIA_TOTAL = V90
+                        WHERE ID_INICIATIVA = pID_INICIATIVA
+                        AND ID_MEDMIT = pID_MEDMIT
+                        AND ID_ENFOQUE = pID_ENFOQUE
+                        AND ID_INDICADOR = pID_INDICADOR
+                        AND ANNO = pANNO;
+                    END IF;
+
+    END USP_PRC_ACUMULADO;
+
+
+
+========================================================================================
