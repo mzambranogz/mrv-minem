@@ -3239,7 +3239,7 @@ namespace MRVMinem.Controllers
                 html += "       </tbody>";
                 html += "   </table>";
                 html += "</div>";
-                html += "<br/><div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Total reducido de GEI: </span>&nbsp;<span> " + ini.TOTAL_GEI.ToString("N2") + " tCO<sub>2</sub>eq</span></div>";
+                html += "<br/><div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Total reducido de GEI: </span>&nbsp;<span> " + ini.TOTAL_GEI.ToString("N", new CultureInfo("en-US")) + " tCO<sub>2</sub>eq</span></div>";
                 html += "</body>";
                 html += "</html>";
             }

@@ -1,1 +1,142 @@
 14/12/2020 04:01:02: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1010] - Referencia a objeto no establecida como instancia de un objeto.
+14/12/2020 04:35:31: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:31: [Método: Void Init(System.String, System.IO.FileMode, System.IO.FileAccess, Int32, Boolean, System.IO.FileShare, Int32, System.IO.FileOptions, SECURITY_ATTRIBUTES, System.String, Boolean, Boolean, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:31: [Método: Void .ctor(System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, Int32, System.IO.FileOptions, System.String, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:31: [Método: Void .ctor(System.String, System.IO.FileMode), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:31: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 3088] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:48: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:48: [Método: Void Init(System.String, System.IO.FileMode, System.IO.FileAccess, Int32, Boolean, System.IO.FileShare, Int32, System.IO.FileOptions, SECURITY_ATTRIBUTES, System.String, Boolean, Boolean, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:48: [Método: Void .ctor(System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, Int32, System.IO.FileOptions, System.String, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:48: [Método: Void .ctor(System.String, System.IO.FileMode), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:35:48: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 3088] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:36:00: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:36:00: [Método: Void Init(System.String, System.IO.FileMode, System.IO.FileAccess, Int32, Boolean, System.IO.FileShare, Int32, System.IO.FileOptions, SECURITY_ATTRIBUTES, System.String, Boolean, Boolean, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:36:00: [Método: Void .ctor(System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, Int32, System.IO.FileOptions, System.String, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:36:00: [Método: Void .ctor(System.String, System.IO.FileMode), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:36:00: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 3088] - No se puede encontrar una parte de la ruta de acceso 'C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Temp\75_MRV.pdf'.
+14/12/2020 04:40:07: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:07: [Método: entidad.minem.gob.pe.SustentoIniciativaBE RegistrarSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 549] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:16: [Método: entidad.minem.gob.pe.SustentoIniciativaBE RegistrarSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 549] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:40:58: [Método: entidad.minem.gob.pe.SustentoIniciativaBE RegistrarSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 549] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:43:48: [Método: entidad.minem.gob.pe.SustentoIniciativaBE RegistrarSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 549] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_GEND_INICIATIVA_SUSTENTA"."ADJUNTO_BASE" (real: 172, máximo: 100)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 320
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:48:03: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistrarDetalleIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 263] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1
+14/12/2020 04:51:36: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistrarDetalleIndicadorData(entidad.minem.gob.pe.IndicadorDataBE), Línea: 263] - ORA-12899: el valor es demasiado grande para la columna "MRVMM_P"."T_MAEM_INDICADOR_DATA"."VALOR" (real: 56, máximo: 50)
+ORA-06512: en "MRVMM_P.PKG_MRV_DETALLE_INDICADORES", línea 1292
+ORA-06512: en línea 1

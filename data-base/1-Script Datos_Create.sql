@@ -172,9 +172,9 @@ create table T_GEND_INICIATIVA_SUSTENTA
 (
   id_iniciativa_sustentatorio INTEGER,
   id_iniciativa               INTEGER,
-  adjunto                     VARCHAR2(100),
+  adjunto                     VARCHAR2(500),
   flag_estado                 CHAR(1),
-  adjunto_base                VARCHAR2(100)
+  adjunto_base                VARCHAR2(500)
 )
 ;
 create index GEND_INICIATIVA_SUSTENTA_PK on T_GEND_INICIATIVA_SUSTENTA (ID_INICIATIVA_SUSTENTATORIO);
@@ -883,7 +883,7 @@ create table T_MAEM_INDICADOR_DATA
   id_enfoque    NUMBER not null,
   id_medmit     INTEGER not null,
   id_parametro  NUMBER not null,
-  valor         VARCHAR2(50),
+  valor         VARCHAR2(1000),
   flag_estado   VARCHAR2(1) default '1',
   flag_revision VARCHAR2(1) default '0'
 )
