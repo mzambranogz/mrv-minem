@@ -197,6 +197,7 @@ namespace MRVMinem.Controllers
                                                     {
                                                         var fec = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
                                                         item.VALOR = Convert.ToDateTime(fec).ToString("yyyy-MM-dd");
+                                                        if (item.VALOR == "1920-01-01") item.VALOR = "";
                                                         //item.VALOR = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
                                                         //item.VALOR = item.VALOR.Substring(0, 10);
                                                         //item.VALOR = "2018-11-12";
