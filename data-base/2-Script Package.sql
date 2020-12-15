@@ -3688,7 +3688,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                             IF VVAR = '96' THEN
                                 SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
                                 vsql := 'SELECT '|| VVAR ||' FROM DUAL';
-                                EXECUTE IMMEDIATE vsql INTO V90;
+                                EXECUTE IMMEDIATE vsql INTO V96;
                                 VALIDAR_ENERG := 1;
                             END IF;
                             
@@ -4929,7 +4929,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                             IF VVAR = '96' THEN
                                 SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
                                 vsql := 'SELECT '|| VVAR ||' FROM DUAL';
-                                EXECUTE IMMEDIATE vsql INTO V90;
+                                EXECUTE IMMEDIATE vsql INTO V96;
                                 VALIDAR_ENERG := 1;
                             END IF;
                             
