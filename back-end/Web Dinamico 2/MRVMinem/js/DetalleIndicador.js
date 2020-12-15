@@ -4068,7 +4068,7 @@ $(document).on("change", "#cbo-enfoque", function () {
     });
     CargarDatosCabecera();
     CargarDatosGuardados();
-    if ($('#cbo-enfoque').val() == 24)
+    if ($('#cbo-enfoque').val() == 24 || $("#Control").data("mitigacion") == 1)
         $('#msj-equipo').removeClass('d-none');
     else
         $('#msj-equipo').addClass('d-none');
