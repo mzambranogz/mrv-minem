@@ -3701,7 +3701,8 @@ function CargarDatosGuardados() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
-
+                    let v = data[0]["listaInd"][0]["FLAG_REVISION"] == '1' ? true : false;
+                    if (v) $('#cbo-enfoque').prop('disabled', v);
                     CargarCuerpoGuardado(data.length, 1);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
