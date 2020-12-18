@@ -317,7 +317,7 @@ function limpiar() {
 function validarFactor() {
     var v = true;
     var factor = $("#cbo-factores").val();
-    if (factor > 0){
+    if (factor > 0) {
         var componentes = $("#filas-factor").find(".factor-div");
         componentes.each(function (index, value) {
             if ($(value).find(".valor").val() == factor) {
@@ -331,7 +331,7 @@ function validarFactor() {
             $("#cbo-factores").val(0);
         }
     }
-    
+
 }
 
 function agregarFactor() {
@@ -531,7 +531,7 @@ function cargarTablaMedidaFactor() {
                             tr += '            </div>';
                             tr += '        </td>';
                             tr += '    </tr>';
-                            $("#cuerpoMedidaFactor").append(tr);                            
+                            $("#cuerpoMedidaFactor").append(tr);
                         }
                         pagina = Number(data[i]["pagina"]);
                         total_paginas = Number(data[i]["total_paginas"]);
@@ -542,7 +542,7 @@ function cargarTablaMedidaFactor() {
                             if (fin > total_registros)
                                 fin = total_registros
                         }
-                        resultado = inicio + " de " + fin;                        
+                        resultado = inicio + " de " + fin;
                     }
                     $("#resultado").html(resultado);
                     $("#total-registros").html(total_registros);
@@ -720,4 +720,176 @@ var estiloblockpage = () => {
 
 $(document).ready(function () {
     estiloblockpage();
+    $('#cbo-enfoque-asignar').on('change', (e) => cambiarEnfoque());
+    $('#cbo-parametro-asignar').on('change', (e) => cambiarParametroBase());
+    $('#cbo-parametro-filtro').on('change', (e) => armarTablaFiltro());
 });
+
+var cambiarEnfoque = () => {
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+    };
+    $('#cbo-parametro-asignar').html('');
+    $('#cbo-parametro-asignar').prop('disabled', true);
+    $('#cbo-parametro-filtro').html('');
+    $('#cbo-parametro-filtro').prop('disabled', true);
+    $('#cuerpoAsignar').html('');
+    if ($('#cbo-enfoque-asignar').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/EnfoquePorParametro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                $('#cbo-parametro-asignar').html('<option value="0">-seleccione un parámetro-</option>');
+                for (var i = 0; i < data.length; i++) {
+                    $('#cbo-parametro-asignar').append(`<option value="${data[i]["ID_PARAMETRO"]}">[P${data[i]["ID_PARAMETRO"]}] ${data[i]["NOMBRE_PARAMETRO"]}</option>`);
+                }
+                $('#cbo-parametro-asignar').prop('disabled', false);
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var cambiarParametroBase = () => {
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+        ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+    };
+    $('#cbo-parametro-filtro').html('');
+    $('#cbo-parametro-filtro').prop('disabled', true);
+    if ($('#cbo-parametro-asignar').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ParametroFiltro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                $('#cbo-parametro-filtro').html('<option value="0">-seleccione un parámetro-</option>');
+                for (var i = 0; i < data.length; i++) {
+                    $('#cbo-parametro-filtro').append(`<option value="${data[i]["ID_PARAMETRO"]}">[P${data[i]["ID_PARAMETRO"]}] ${data[i]["NOMBRE_PARAMETRO"]}</option>`);
+                }
+                $('#cbo-parametro-filtro').prop('disabled', false);
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var armarTablaFiltro = () => {
+
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+        ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+        INS: $('#cbo-parametro-filtro').val(),
+    };
+    $('#cuerpoAsignar').html('');
+    if ($('#cbo-parametro-filtro').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ArmarTablaFiltro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                let dataP = data.ParametroDetalles;
+                let fila = ``;
+                for (var i = 0; i < dataP.length; i++) {
+                    fila += `<tr class="detalle-filtro">`;
+                    fila += `<td class="cod-detalle text-center" id="filtro-${dataP[i]["ParamDetalle"].ID_DETALLE}">${dataP[i]["ParamDetalle"].NOMBRE_DETALLE}</td>`;
+                    fila += `<td><select class="form-control form-control-sm valor-filtro" id="det-${dataP[i]["ParamDetalle"].ID_DETALLE}"><option value="0">Seleccionar</option>`;
+                    let detalle = dataP[i]["listaDetalle"];
+                    for (var j = 0; j < detalle.length; j++) {
+                        fila += '<option value="' + detalle[j]["ID_DETALLE"] + '">' + detalle[j]["NOMBRE_DETALLE"] + '</option>';
+                    }
+                    fila += '</select></td></tr>';
+                }
+                $('#cuerpoAsignar').html(fila);
+
+                let dataRelacion = data.ParametroRelacion;
+                if (dataRelacion != null) {
+                    for (var m = 0; m < dataRelacion.length; m++) {
+                        $(`#det-${dataRelacion[m]["ID_DETALLE"]}`).val(dataRelacion[m]["DETALLES"]);
+                    }
+                }
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var guardarRelacionParametro = () => {
+    let item = [];
+    $('.detalle-filtro').each((x, y) => {
+        let id_detalle = $(y).find('.cod-detalle').attr('id').replace('filtro-', '');
+        let detalles = $(`#${$(y).find('.valor-filtro').attr('id')}`).val();
+        let r = {
+            ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+            ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+            ID_DETALLE: id_detalle,
+            PARAMETROS: $('#cbo-parametro-filtro').val(),
+            DETALLES: detalles,
+        }
+        item.push(r);
+    });
+
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/GuardarParametroRelacion',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data) alert('correcto');
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}

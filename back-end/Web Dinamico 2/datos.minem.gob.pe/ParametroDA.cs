@@ -33,10 +33,10 @@ namespace datos.minem.gob.pe
 
                 foreach (var item in Lista)
                 {
-                        if (item.ID_TIPO_CONTROL == 1)
-                        {
-                            item.listaDetalle = DetalleParametro(item.ID_PARAMETRO);
-                        }                    
+                    if (item.ID_TIPO_CONTROL == 1)
+                    {
+                        item.listaDetalle = DetalleParametro(item.ID_PARAMETRO);
+                    }
                 }
             }
             catch (Exception ex)
@@ -137,9 +137,10 @@ namespace datos.minem.gob.pe
 
                     int e = entidad.ID_ENFOQUE;
                     if (e == 1 || e == 2 || e == 3 || e == 4 || e == 8 || e == 9 || e == 15 || e == 23)
-                        foreach (var param in Lista) {
+                        foreach (var param in Lista)
+                        {
                             if (param.ID_PARAMETRO == 9)
-                                param.LEYENDA_PARAMETRO = WebConfigurationManager.AppSettings.Get("B"+e);
+                                param.LEYENDA_PARAMETRO = WebConfigurationManager.AppSettings.Get("B" + e);
                             else if (param.ID_PARAMETRO == 10)
                                 param.LEYENDA_PARAMETRO = WebConfigurationManager.AppSettings.Get("M" + e);
                         }
@@ -405,8 +406,9 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
-        public ParametroBE FiltrarParametro(ParametroBE entidad)
+        public List<ParametroBE> FiltrarParametro(ParametroBE entidad)
         {
+            List<ParametroBE> lista = new List<ParametroBE>();
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -417,7 +419,7 @@ namespace datos.minem.gob.pe
                     p.Add("PI_DETALLE", entidad.ID_DETALLE);
                     p.Add("PI_ID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("PO_RF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-                    entidad = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
             catch (Exception ex)
@@ -425,7 +427,81 @@ namespace datos.minem.gob.pe
                 Log.Error(ex);
             }
 
-            return entidad;
+            return lista;
+        }
+
+        public List<ParametroBE> ParametroRelacion(int enfoque, int parametro, int paramfiltro)
+        {
+            List<ParametroBE> lista = new List<ParametroBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_PARAMETRO_RELACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_PARAMETRO", parametro);
+                    p.Add("PI_PARAMFILTRO", paramfiltro);
+                    p.Add("PI_ID_ENFOQUE", enfoque);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public bool GuardarParametroRelacion(ParametroBE entidad)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_PARAMETRO_RELACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("PI_ID_PARAMETRO", entidad.ID_PARAMETRO);
+                    p.Add("PI_ID_DETALLE", entidad.ID_DETALLE);
+                    p.Add("PI_PARAMETROS", entidad.PARAMETROS);
+                    p.Add("PI_DETALLES", entidad.DETALLES);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    v = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return v;
+        }
+
+        public bool deshabilitarRelacion(int idenfoque, int parametro, string parametrosr)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_DEL_PARAMETRO_RELACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_ENFOQUE", idenfoque);
+                    p.Add("PI_ID_PARAMETRO", parametro);
+                    p.Add("PI_ID_PARAMETROS", parametrosr);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    v = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return v;
         }
 
     }

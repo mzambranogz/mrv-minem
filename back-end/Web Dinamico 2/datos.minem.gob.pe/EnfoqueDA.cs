@@ -282,5 +282,56 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public List<ParametroBE> EnfoquePorParametro(EnfoqueBE entidad)
+        {
+            List<ParametroBE> lista = new List<ParametroBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_FILTRO_ENFOQUE_PARAM";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return lista;
+        }
+
+        public List<ParametroBE> ParametroFiltro(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = new List<ParametroBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_FILTRO_PARAM";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("PI_ID_PARAMETRO", entidad.ID_PARAMETRO);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return lista;
+        }
     }
 }

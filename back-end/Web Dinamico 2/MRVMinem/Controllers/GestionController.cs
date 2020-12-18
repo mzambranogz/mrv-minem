@@ -247,7 +247,7 @@ namespace MRVMinem.Controllers
                 modelo.iniciativa_mit = inic;
                 modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
 
-                if(modelo.iniciativa_mit.ListaSustentos.Count > 0) modelo.iniciativa_mit.ListaSustentos = limpiarFileSustento(modelo.iniciativa_mit.ListaSustentos);//add
+                if (modelo.iniciativa_mit.ListaSustentos.Count > 0) modelo.iniciativa_mit.ListaSustentos = limpiarFileSustento(modelo.iniciativa_mit.ListaSustentos);//add
 
                 //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
                 modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
@@ -1028,7 +1028,7 @@ namespace MRVMinem.Controllers
                         listaDataE = entidad.ListaIndicadoresData;
                     }
                 }
-                
+
 
 
                 //if (!string.IsNullOrEmpty(entidad.DATA))
@@ -1134,7 +1134,8 @@ namespace MRVMinem.Controllers
                     v = true;
 
                 entidad.OK = v;
-                if (entidad.OK) {
+                if (entidad.OK)
+                {
                     if (Convert.ToInt16(Session["rol"]) == 7)
                     {
                         entidad.OK = true;
@@ -1187,8 +1188,8 @@ namespace MRVMinem.Controllers
                             Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                         }
                     }
-                }                 
-                
+                }
+
                 Session["correo_destino"] = "";
                 itemRespuesta.success = entidad.OK;
                 itemRespuesta.extra = entidad.ID_ESTADO.ToString();
@@ -1432,7 +1433,7 @@ namespace MRVMinem.Controllers
                     }
                 }
             }
-            
+
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -2255,7 +2256,7 @@ namespace MRVMinem.Controllers
                 }
 
                 listaP = IndicadorLN.CalculoIndicador(listaP);
-                
+
             }
             catch (Exception ex)
             {
@@ -2301,7 +2302,7 @@ namespace MRVMinem.Controllers
                     listaP.Add(p);
                 }
 
-                listaP = IndicadorLN.CalculoIndicador(listaP);                
+                listaP = IndicadorLN.CalculoIndicador(listaP);
                 listaA = detalleAcumulado(listaP);
 
             }
@@ -2581,7 +2582,7 @@ namespace MRVMinem.Controllers
                 EnvioCorreo hilo_correo = new EnvioCorreo(ini, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
-            
+
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -3358,11 +3359,12 @@ namespace MRVMinem.Controllers
                             return null;
                         }
 
-                        if (file_origen != "") {
+                        if (file_origen != "")
+                        {
                             byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Detalle"] + "\\" + id_filename);
                             string fileName = file_origen;
                             return File(fileBytes, MediaTypeNames.Application.Octet, file_origen);
-                        }                        
+                        }
                     }
                 }
                 //if (id_filename != "")
@@ -3527,8 +3529,8 @@ namespace MRVMinem.Controllers
             catch (Exception ex)
             {
                 Log.Error(ex);
-            }   
-            
+            }
+
             return new_lista;
         }
 
@@ -3547,7 +3549,7 @@ namespace MRVMinem.Controllers
             {
                 List<IndicadorDataBE> lista = new List<IndicadorDataBE>();
                 List<IndicadorDataBE> listaPr = new List<IndicadorDataBE>();
-                lista = listaE;            
+                lista = listaE;
                 int anioP = 0;
                 string reducido = "";
                 foreach (var item in lista)
@@ -3586,7 +3588,7 @@ namespace MRVMinem.Controllers
                         listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
                         anioP += 1;
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -3635,8 +3637,8 @@ namespace MRVMinem.Controllers
                             //id_indicadores += Convert.ToString(it.ID_INDICADOR) + "/";
                         }
                         //id_indicadores = id_indicadores.Substring(0, id_indicadores.Length - 1);
-                    }                    
-                }                
+                    }
+                }
             }
             //return id_indicadores;
             return listaE;
@@ -3647,7 +3649,8 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
             IniciativaBE ini = IniciativaLN.EliminarIniciativa(entidad);
             itemRespuesta.success = ini.OK;
-            if (ini.OK) {
+            if (ini.OK)
+            {
                 ini = IniciativaLN.IniciativaMitigacionDatos(entidad);
                 IniciativaBE iniciativa = new IniciativaBE();
                 UsuarioBE usu = UsuarioLN.UsuarioAdministrador();
@@ -3659,7 +3662,7 @@ namespace MRVMinem.Controllers
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
 
-            }                
+            }
             return Respuesta(itemRespuesta);
         }
 
@@ -3700,7 +3703,7 @@ namespace MRVMinem.Controllers
                     encontrado = MisArchivos[i];
 
                     if (encontrado != null)
-                    {                        
+                    {
                         var nuevo_name = encontrado.ADJUNTO.Split('-');
                         //System.IO.File.Create(strCarpeta + "\\" + nuevo_name[0] + '-' + idnuevo + '-' + nuevo_name[2] + '-' + nuevo_name[3] + '-' + nuevo_name[4] + '-' + nuevo_name[5] + '-' + nuevo_name[6]);
                         System.IO.File.Move(strCarpeta + "\\" + encontrado.ADJUNTO, strCarpeta + "\\" + nuevo_name[0] + '-' + idnuevo + '-' + nuevo_name[2] + '-' + nuevo_name[3] + '-' + nuevo_name[4] + '-' + nuevo_name[5] + '-' + nuevo_name[6]);
@@ -3710,9 +3713,9 @@ namespace MRVMinem.Controllers
                     }
                 }
                 Session["MisArchivos"] = MisArchivos;
-            }                
-            
-        return Json(uploadFile);
+            }
+
+            return Json(uploadFile);
         }
 
         public ActionResult OrdenarFile(int IdIniciativa)
@@ -3723,7 +3726,8 @@ namespace MRVMinem.Controllers
             {
                 MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
 
-                foreach (IndicadorArchivoBE f in MisArchivos) {
+                foreach (IndicadorArchivoBE f in MisArchivos)
+                {
                     int ind = Convert.ToInt16(f.ADJUNTO.Split('-')[1]);
                     f.pagina = ind;
                 }
@@ -3735,11 +3739,14 @@ namespace MRVMinem.Controllers
 
         public ActionResult FiltrarOpcion(ParametroBE entidad)
         {
-            entidad = ParametroLN.FiltrarParametro(entidad);
-            return Json(entidad);
+            List<ParametroBE> lista = ParametroLN.FiltrarParametro(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
-        public void registrarInversion(List<MontoInversionBE> lista) {
+        public void registrarInversion(List<MontoInversionBE> lista)
+        {
             IniciativaLN.RegistrarInversion(lista);
         }
 
@@ -3771,5 +3778,5 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
-    }    
+    }
 }

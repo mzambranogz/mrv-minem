@@ -361,7 +361,7 @@ namespace MRVMinem.Controllers
             EnfoqueBE entidad = new EnfoqueBE();
 
             entidad.ID_ENFOQUE = int.Parse(Request.Form["ID_ENFOQUE"].ToString());
-            entidad.ID_MEDMIT = int.Parse(Request.Form["ID_MEDMIT"].ToString());            
+            entidad.ID_MEDMIT = int.Parse(Request.Form["ID_MEDMIT"].ToString());
             entidad.DESCRIPCION = Request.Form["DESCRIPCION"].ToString();
             //entidad.FLAG_ESTADO= Request.Form["FLAG_ESTADO"].ToString();
 
@@ -376,7 +376,7 @@ namespace MRVMinem.Controllers
                 fledocumentos.InputStream.Read(content, 0, fledocumentos.ContentLength);
                 double tamanio = (fledocumentos.ContentLength / 1024);
                 nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledocumentos.FileName).ToString();
-                nomArchivoSave = nomOriginal.Substring(0, nomOriginal.Length - 5) + "_"+ nomArchivoSave; //add
+                nomArchivoSave = nomOriginal.Substring(0, nomOriginal.Length - 5) + "_" + nomArchivoSave; //add
             }
             else
             {
@@ -398,7 +398,7 @@ namespace MRVMinem.Controllers
                     try
                     {
                         //var carpeta = WebConfigurationManager.AppSettings.Get("Exportar");
-                        var ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Documentos\Exportar\"+ nomArchivoSave);
+                        var ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Documentos\Exportar\" + nomArchivoSave);
                         //var ruta = Path.Combine(carpeta, nomArchivoSave);
                         fledocumentos.SaveAs(ruta);
                         itemRespuesta.success = true;
@@ -912,7 +912,8 @@ namespace MRVMinem.Controllers
                 fledocumentos.InputStream.Read(content, 0, fledocumentos.ContentLength);
                 double tamanio = (fledocumentos.ContentLength / 1024);
                 nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledocumentos.FileName).ToString();
-            }else
+            }
+            else
             {
                 nomArchivoSave = "nul";
             }
@@ -920,13 +921,13 @@ namespace MRVMinem.Controllers
             entidad.ADJUNTO_BASE = nomOriginal;
             entidad = MedidaMitigacionLN.GuardarMedidaMitigacion(entidad);
 
-           if (!entidad.OK)
-           {
+            if (!entidad.OK)
+            {
                 itemRespuesta.success = false;
                 itemRespuesta.extra = entidad.extra;
-           }
-           else
-           {
+            }
+            else
+            {
                 if (fledocumentos != null)
                 {
                     try
@@ -943,7 +944,7 @@ namespace MRVMinem.Controllers
                     }
                 }
                 itemRespuesta.success = true;
-                
+
             }
             return Respuesta(itemRespuesta);
         }
@@ -1340,7 +1341,7 @@ namespace MRVMinem.Controllers
                     ws1.Cells["B" + row].Value = "ENFOQUE";
                     ws1.Cells["B" + row].AutoFitColumns(50);
                     ws1.Cells["C" + row].Value = "MEDIDA MITIGACIÓN";
-                    ws1.Cells["C" + row].AutoFitColumns(70);                    
+                    ws1.Cells["C" + row].AutoFitColumns(70);
                     ws1.Cells["D" + row].Value = "FACTOR(ES)";
                     ws1.Cells["D" + row].AutoFitColumns(30);
 
@@ -1450,9 +1451,9 @@ namespace MRVMinem.Controllers
 
                     for (var i = 4; i < limite; i++)
                     {
-                        ws1.Cells[obtenerLetra(i+1) + row].Value = "";
+                        ws1.Cells[obtenerLetra(i + 1) + row].Value = "";
                         ws1.Cells[obtenerLetra(i + 1) + row].AutoFitColumns(40);
-                        FormatoCelda(ws1, obtenerLetra(i+1), row, 0, 123, 255, 255, 255, 255);
+                        FormatoCelda(ws1, obtenerLetra(i + 1), row, 0, 123, 255, 255, 255, 255);
                     }
 
                     FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
@@ -1463,7 +1464,7 @@ namespace MRVMinem.Controllers
                     row++;
                     if (lista.Count > 0)
                     {
-                        
+
                         foreach (ParametroIndicadorBE dt_fila in lista)
                         {
                             var xNum = 4;
@@ -2777,7 +2778,7 @@ namespace MRVMinem.Controllers
                                 foreach (var item in dt_fila.listaDetalle)
                                 {
                                     ws1.Cells[obtenerLetra(xNum) + row].Value = item.NOMBRE_DETALLE;
-                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 91, 192, 222, 255, 255, 255);                                    
+                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 91, 192, 222, 255, 255, 255);
                                     xNum++;
                                 }
                             }
@@ -3096,7 +3097,7 @@ namespace MRVMinem.Controllers
                     {
                         mayor = item.listaDetalle.Count;
                     }
-                }                
+                }
             }
             return mayor;
         }
@@ -3150,6 +3151,38 @@ namespace MRVMinem.Controllers
         {
             bool v = IniciativaLN.RecalcularValores();
 
+            var jsonResult = Json(v, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult EnfoquePorParametro(EnfoqueBE entidad)
+        {
+            List<ParametroBE> lista = EnfoqueLN.EnfoquePorParametro(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ParametroFiltro(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = EnfoqueLN.ParametroFiltro(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ArmarTablaFiltro(ParametroBE entidad)
+        {
+            ParametroBE ent = ParametroLN.ArmarTablaFiltro(entidad);
+            var jsonResult = Json(ent, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult GuardarParametroRelacion(List<ParametroBE> lista)
+        {
+            bool v = ParametroLN.GuardarParametroRelacion(lista);
             var jsonResult = Json(v, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

@@ -70,6 +70,17 @@ namespace logica.minem.gob.pe
         {
             return Enfoque.GuardarEnfoque(entidad);
         }
+
+        public static List<ParametroBE> EnfoquePorParametro(EnfoqueBE entidad)
+        {
+            return Enfoque.EnfoquePorParametro(entidad);
+        }
+
+        public static List<ParametroBE> ParametroFiltro(ParametroBE entidad)
+        {
+            return Enfoque.ParametroFiltro(entidad);
+        }
+
     }
 
 }

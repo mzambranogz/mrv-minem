@@ -63,13 +63,13 @@ namespace logica.minem.gob.pe
                 {
                     entidad.OK = false;
                 }
-            }              
+            }
             else
                 entidad.OK = true;
 
             if (entidad.OK)
                 entidad = parametroDA.RegistrarParametro(entidad);
-                
+
             return entidad;
         }
 
@@ -78,9 +78,44 @@ namespace logica.minem.gob.pe
             return parametroDA.EliminarParametro(entidad);
         }
 
-        public static ParametroBE FiltrarParametro(ParametroBE entidad)
+        public static List<ParametroBE> FiltrarParametro(ParametroBE entidad)
         {
             return parametroDA.FiltrarParametro(entidad);
+        }
+
+        public static ParametroBE ArmarTablaFiltro(ParametroBE entidad)
+        {
+            ParametroBE parametros = new ParametroBE();
+            List<ParametroBE> listaP = new List<ParametroBE>();
+            List<ParametroDetalleBE> listaParamBaseDet = new List<ParametroDetalleBE>();
+            List<ParametroDetalleBE> listaParamFiltroDet = new List<ParametroDetalleBE>();
+            List<ParametroBE> listaParamRelacion = new List<ParametroBE>();
+            listaParamBaseDet = parametroDA.DetalleParametro(entidad.ID_PARAMETRO);
+            listaParamFiltroDet = parametroDA.DetalleParametro(entidad.INS);
+            listaParamRelacion = parametroDA.ParametroRelacion(entidad.ID_ENFOQUE, entidad.ID_PARAMETRO, entidad.INS);
+
+            foreach (ParametroDetalleBE d in listaParamBaseDet)
+            {
+                ParametroBE param = new ParametroBE();
+                param.ParamDetalle = d;
+                param.listaDetalle = listaParamFiltroDet;
+                listaP.Add(param);
+            }
+
+            parametros.ParametroDetalles = listaP;
+            parametros.ParametroRelacion = listaParamRelacion;
+            return parametros;
+        }
+
+        public static bool GuardarParametroRelacion(List<ParametroBE> lista)
+        {
+            bool seGuardo = true;
+            seGuardo = parametroDA.deshabilitarRelacion(lista[0].ID_ENFOQUE, lista[0].ID_PARAMETRO, lista[0].PARAMETROS);
+            foreach (ParametroBE p in lista)
+            {
+                if (!(seGuardo = parametroDA.GuardarParametroRelacion(p))) break;
+            }
+            return seGuardo;
         }
     }
 }

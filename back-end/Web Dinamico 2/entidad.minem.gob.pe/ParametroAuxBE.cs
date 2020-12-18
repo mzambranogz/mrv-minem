@@ -30,5 +30,8 @@ namespace entidad.minem.gob.pe
         public string ID_DELETE_DETALLE { get; set; }
         public string PARAMETROS { get; set; }
         public string DETALLES { get; set; }
+        public ParametroDetalleBE ParamDetalle { get; set; }
+        public List<ParametroBE> ParametroDetalles { get; set; }
+        public List<ParametroBE> ParametroRelacion { get; set; }
     }
 }
