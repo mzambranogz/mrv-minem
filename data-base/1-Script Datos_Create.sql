@@ -797,6 +797,7 @@ create table T_MAEM_FACTOR_DATA
   id_parametro VARCHAR2(50) not null,
   valor        VARCHAR2(50) not null,
   factor       NUMBER(36,15) not null,
+  unidad       VARCHAR2(500),
   flag_estado  VARCHAR2(1) default '1',
   fec_registro DATE,
   usu_regisro  VARCHAR2(50),

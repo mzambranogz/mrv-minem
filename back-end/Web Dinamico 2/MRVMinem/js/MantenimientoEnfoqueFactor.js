@@ -119,6 +119,9 @@ function CargarCuerpoGuardado(filas, factor) {
                                 if (data[j]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
                                     tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                } else if (data[j]["ID_TIPO_DATO"] == 3) {
+                                    texto++;
+                                    tr += `<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"] == '0' ? -1 : 0}">`;
                                 } else {
                                     texto++;
                                     tr += '<input class="form-control form-control-sm text-center validar" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
@@ -188,6 +191,8 @@ function CargarDatosGuardados(factor) {
                         //}
                         texto++;
                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(data[i]["FACTOR"]);
+                        texto++;
+                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(data[i]["UNIDAD"] == null ? '' : data[i]["UNIDAD"]);
                     }
                 }
             } else {
@@ -229,19 +234,22 @@ function fn_guardarFactor() {
     for (var fila = 1 ; fila < n; fila++) {
         //debugger;
         var valor_factor = 0;
+        let unidad = '';
         var parametros = "";
         var valores = "";
         var ind = $("#cuerpoTablaFactor #detalles-tr-" + fila).data("ind");
         var column = $("#tablaFactor").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         if (fn_validarCampoReg(fila)) {
             column.each(function (index, value) {
-                //debugger;
+                debugger;
                 if ($(value).attr("data-param") == 0) {
                     valor_factor = $("#" + $(value).attr("id")).val();
+                } else if ($(value).attr("data-param") == -1) {
+                    unidad = $("#" + $(value).attr("id")).val(); //add
                 } else {
                     parametros += $(value).attr("data-param") + "|";
-                    valores += $("#" + $(value).attr("id")).val() + "|";
-                }
+                valores += $("#" + $(value).attr("id")).val() + "|";
+            }
             });
         }
         if (parametros.length > 0) {
@@ -252,7 +260,8 @@ function fn_guardarFactor() {
                 ID_DETALLE: ind,
                 ID_PARAMETRO: parametros,
                 VALOR: valores,
-                FACTOR: valor_factor
+                FACTOR: valor_factor,
+                UNIDAD: unidad,
             }
             factores.push(itemF);
         }

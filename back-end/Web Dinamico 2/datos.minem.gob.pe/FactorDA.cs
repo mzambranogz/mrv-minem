@@ -240,6 +240,7 @@ namespace datos.minem.gob.pe
                         }
                         f.ID_DETALLE = item.ID_DETALLE;
                         f.FACTOR = item.FACTOR;
+                        f.UNIDAD = item.UNIDAD; //ADD
                         f.listaParametro = listaD;
                         listaData.Add(f);
                     }
@@ -293,6 +294,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_PARAMETRO", entidad.ID_PARAMETRO);
                     p.Add("pVALOR", entidad.VALOR);
                     p.Add("pFACTOR", entidad.FACTOR);
+                    p.Add("pUNIDAD", entidad.UNIDAD);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     f.OK = true;
                 }

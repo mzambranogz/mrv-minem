@@ -12,5 +12,6 @@ namespace entidad.minem.gob.pe
         public string ID_PARAMETRO { get; set; }
         public string VALOR { get; set; }
         public decimal FACTOR { get; set; }
+        public string UNIDAD { get; set; }
     }
 }
