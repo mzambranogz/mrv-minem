@@ -1,0 +1,45 @@
+16/12/2020 08:51:49: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:49: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 30] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:51:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1460] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+16/12/2020 08:52:31: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 248] - ORA-12541: TNS:no listener
+16/12/2020 16:47:32: [Método: Void HandleUnknownAction(System.String), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: TResult End(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: TResult End(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: TResult End(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+16/12/2020 16:47:32: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.

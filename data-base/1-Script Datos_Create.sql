@@ -1681,7 +1681,7 @@ values (19, 1, 'Etiquetado secadoras', '1', '1.1.EEE_secadoras_exp.xlsx', '1.1.E
 insert into T_GENM_ENFOQUE (id_enfoque, id_medmit, descripcion, flag_estado, adjunto, adjunto_base)
 values (20, 1, 'Etiquetado aire acondicionado', '1', '1.1.EEE_motores_electricos_exp.xlsx', '1.1.EEE_motores_electricos_exp.xlsx');
 insert into T_GENM_ENFOQUE (id_enfoque, id_medmit, descripcion, flag_estado, adjunto, adjunto_base)
-values (21, 1, 'Etiquetado calentadores agua (E. instantáneo y acumulación)', '1', '1.1.EEE_aire_acondicionado_exp.xlsx', '1.1.EEE_aire_acondicionado_exp.xlsx');
+values (21, 1, 'Etiquetado calentadores agua eléctrico (Instantáneo y acumulación)', '1', '1.1.EEE_aire_acondicionado_exp.xlsx', '1.1.EEE_aire_acondicionado_exp.xlsx');
 commit;
 prompt 25 records loaded
 
@@ -2942,7 +2942,7 @@ values (18, 'Factor_cocción_biocombus_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (19, 'Factor_coccion_biocombus_acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (20, 'Factor_biomasa');
+values (20, 'Factor (fNRB)');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (1, 'Factor de emisión vehiculos convencionales');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
@@ -3042,105 +3042,105 @@ values (61, 'Factor poder calórico mejora');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (62, 'Factor refrigeradoras Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (63, 'Factor refrigeradoras etiqueta A');
+values (63, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (64, 'Factor refrigeradoras etiqueta B');
+values (64, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (65, 'Factor refrigeradoras etiqueta C');
+values (65, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (66, 'Factor refrigeradoras etiqueta D');
+values (66, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (67, 'Factor refrigeradoras etiqueta E');
+values (67, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (68, 'Factor congeladoras Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (69, 'Factor congeladoras etiqueta A');
+values (69, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (70, 'Factor congeladoras etiqueta B');
+values (70, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (71, 'Factor congeladoras etiqueta C');
+values (71, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (72, 'Factor congeladoras etiqueta D');
+values (72, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (73, 'Factor congeladoras etiqueta E');
+values (73, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (74, 'Factor lavadoras Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (75, 'Factor lavadoras etiqueta A');
+values (75, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (76, 'Factor lavadoras etiqueta B');
+values (76, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (77, 'Factor lavadoras etiqueta C');
+values (77, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (78, 'Factor lavadoras etiqueta D');
+values (78, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (79, 'Factor lavadoras etiqueta E');
+values (79, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (80, 'Factor secadoras Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (81, 'Factor secadoras etiqueta A');
+values (81, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (82, 'Factor secadoras etiqueta B');
+values (82, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (83, 'Factor secadoras etiqueta C');
+values (83, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (84, 'Factor secadoras etiqueta D');
+values (84, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (85, 'Factor secadoras etiqueta E');
+values (85, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (86, 'Factor aire acondicionado Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (87, 'Factor aire acondicionado etiqueta A');
+values (87, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (88, 'Factor aire acondicionado etiqueta B');
+values (88, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (89, 'Factor aire acondicionado etiqueta C');
+values (89, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (90, 'Factor aire acondicionado etiqueta D');
+values (90, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (91, 'Factor aire acondicionado etiqueta E');
+values (91, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (92, 'Factor calentadores de agua(inst y acum) Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (93, 'Factor calentadores de agua(inst y acum) etiqueta A');
+values (93, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (94, 'Factor calentadores de agua(inst y acum) etiqueta B');
+values (94, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (95, 'Factor calentadores de agua(inst y acum) etiqueta C');
+values (95, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (96, 'Factor calentadores de agua(inst y acum) etiqueta D');
+values (96, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (97, 'Factor calentadores de agua(inst y acum) etiqueta E');
+values (97, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (98, 'Factor calentadores de agua (gas natural) Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (99, 'Factor calentadores de agua (gas natural) etiqueta A');
+values (99, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (100, 'Factor calentadores de agua (gas natural) etiqueta B');
+values (100, 'Fact. Cons.B');
 commit;
 prompt 100 records committed...
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (101, 'Factor calentadores de agua (gas natural) etiqueta C');
+values (101, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (102, 'Factor calentadores de agua (gas natural) etiqueta D');
+values (102, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (103, 'Factor calentadores de agua (gas natural) etiqueta E');
+values (103, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (104, 'Factor calentadores de agua (gas natural) etiqueta F');
+values (104, 'Fact. Cons.F');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (105, 'Factor calentadores de agua (glp) Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (106, 'Factor calentadores de agua (glp) etiqueta A');
+values (106, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (107, 'Factor calentadores de agua (glp) etiqueta B');
+values (107, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (108, 'Factor calentadores de agua (glp) etiqueta C');
+values (108, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (109, 'Factor calentadores de agua (glp) etiqueta D');
+values (109, 'Fact. Cons.D');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (110, 'Factor calentadores de agua (glp) etiqueta E');
+values (110, 'Fact. Cons.E');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (111, 'Factor calentadores de agua (glp) etiqueta F');
+values (111, 'Fact. Cons.F');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (112, 'Factor VCN EESI línea base');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
@@ -3160,11 +3160,11 @@ values (119, 'FE por defecto kgN2O acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (120, 'Factor Motores eléctricos trifásicos bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (121, 'Factor Motores eléctricos trifásicos etiqueta A');
+values (121, 'Fact. Cons.A');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (122, 'Factor Motores eléctricos trifásicos etiqueta B');
+values (122, 'Fact. Cons.B');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (123, 'Factor Motores eléctricos trifásicos etiqueta C');
+values (123, 'Fact. Cons.C');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (124, 'Factor VCN EESI línea base y acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
