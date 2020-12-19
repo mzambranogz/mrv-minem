@@ -3439,10 +3439,10 @@ insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (25, 55, 9, '1');
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (25, 56, 10, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (25, 57, 11, '1');
-insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
-values (25, 58, 12, '1');
+--insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+--values (25, 57, 11, '1');
+--insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
+--values (25, 58, 12, '1');
 commit;
 prompt 85 records loaded
 
