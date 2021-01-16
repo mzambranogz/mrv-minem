@@ -1993,7 +1993,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 if (data[j]["EDITABLE"] == 1) {
                                     if (data[j]["ID_TIPO_DATO"] == 1) {
                                         fecha++;
-                                        tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        //tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        tr += `<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-${fecha}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" ${data[j]["ID_PARAMETRO"] == 92 || data[j]["ID_PARAMETRO"] == 94 ? '' : 'readonly'}>`;
                                     } else {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
@@ -2005,7 +2006,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     texto++;
                                     //tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
-                                    tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
+                                    tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" ${data[j]["ID_PARAMETRO"] == 92 || data[j]["ID_PARAMETRO"] == 94 ? '' : 'readonly'}>`;
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'

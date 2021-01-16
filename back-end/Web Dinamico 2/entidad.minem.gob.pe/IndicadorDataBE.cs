@@ -17,5 +17,6 @@ namespace entidad.minem.gob.pe
         public string ADJUNTO { get; set; }
         public string ADJUNTO_BASE { get; set; }
         public string FLAG_REVISION { get; set; }
+        public string FLAG_VERIFICACION { get; set; }
     }
 }

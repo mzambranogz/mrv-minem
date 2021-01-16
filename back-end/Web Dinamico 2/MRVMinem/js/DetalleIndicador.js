@@ -4,7 +4,6 @@ var documentos = new Array();
 
 var eliminar_item;
 
-
 function fn_crearLinea(fila) {
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
     tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-' + fila + '">' + fila + '</th>';
@@ -3685,12 +3684,8 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        //type: 'POST',
-        //datatype: 'json',
-        //data: item,
 
         type: "POST",
-        //url: nurl,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         //async: false,
@@ -3711,7 +3706,8 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
-                        let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
+                        //let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
+                        let rev = medida == 4 ? '0' : entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
                         //if (rev == '1' || rol_usuario == 7) {
@@ -3741,8 +3737,8 @@ function CargarDatosGuardados() {
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                 lista++;
                                 $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 if (entidad[m]["VERIFICABLE"] == 1) {
                                     $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
                                 }
@@ -3752,8 +3748,8 @@ function CargarDatosGuardados() {
                                     //let fecha = formatearFecha(entidad[m]["VALOR"]);
                                     //$("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(fecha);
                                     $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
@@ -3777,8 +3773,8 @@ function CargarDatosGuardados() {
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 }
                             }
                             if (entidad[m]["ID_PARAMETRO"] == 11) {
@@ -4466,7 +4462,6 @@ $(document).ready(function () {
         armarAcumulado(); //add 17-05-2020
 
     } else {
-
         loadMoneda();
         CargarDatosCabecera();
         CargarDatosGuardados();
@@ -4474,12 +4469,7 @@ $(document).ready(function () {
         fn_cargarUbicacion();
         fn_cargarEnergetico();
         fn_cargarGei();
-        $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());
-
-        //cargarCabeceraTabla($("#cbo-enfoque").val());
-        //CargarDetalleDatos();
-        //cargarCuerpoTabla($("#cbo-enfoque").val());
-        //CargarDetalleIndicador();        
+        $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());     
     }
 
     if ($("#Control").data("mitigacion") == 1 || $('#cbo-enfoque').val() == 24)

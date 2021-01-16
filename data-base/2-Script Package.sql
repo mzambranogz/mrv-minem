@@ -11218,6 +11218,7 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
                                 CH.GENERADO_PDF,
                                 CH.NOMBRE_PDF,
                                 INI.ESTADO_FICHA,
+				INI.ID_MEDMIT,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -11342,6 +11343,7 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
                                 CH.GENERADO_PDF,
                                 CH.NOMBRE_PDF,
                                 INI.ESTADO_FICHA,
+				INI.ID_MEDMIT,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -17233,6 +17235,10 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         
         --===================
         --UPDATE T_MAEM_INDICADOR_DATA SET FLAG_REVISION = '1' WHERE ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
+	IF pID_MEDMIT = 4 THEN
+          UPDATE T_MAEM_INDICADOR_DATA SET FLAG_VERIFICACION = '1'
+          WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_INDICADOR IN (SELECT ID_INDICADOR FROM T_MAEM_INDICADOR_DATA WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_PARAMETRO = 91 AND VALOR > 2 AND FLAG_ESTADO = '1');
+        END IF;
         --============================================
 
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
@@ -17864,7 +17870,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
   BEGIN
         OPEN pRefcursor FOR
         SELECT  IDA.ID_INDICADOR, IDA.ID_ENFOQUE, IDA.ID_INICIATIVA, IDA.ID_MEDMIT, IDA.VALOR, IDA.ID_PARAMETRO,
-                IDA.FLAG_REVISION, --ADD 14-10-20
+                IDA.FLAG_REVISION, FLAG_VERIFICACION, --ADD 14-10-20
                 MP.ID_TIPO_CONTROL, MP.ID_TIPO_DATO, MP.VERIFICABLE,
                 (SELECT ORDEN FROM T_MAEM_INDICADOR TMI WHERE TMI.ID_MEDMIT = pID_MEDMIT AND TMI.ID_ENFOQUE = pID_ENFOQUE AND TMI.ID_PARAMETRO = IDA.ID_PARAMETRO) ORDEN
         FROM    T_MAEM_INDICADOR_DATA IDA

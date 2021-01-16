@@ -879,14 +879,15 @@ alter table T_MAEM_INDICADOR
 prompt Creating T_MAEM_INDICADOR_DATA...
 create table T_MAEM_INDICADOR_DATA
 (
-  id_iniciativa NUMBER not null,
-  id_indicador  NUMBER not null,
-  id_enfoque    NUMBER not null,
-  id_medmit     INTEGER not null,
-  id_parametro  NUMBER not null,
-  valor         VARCHAR2(1000),
-  flag_estado   VARCHAR2(1) default '1',
-  flag_revision VARCHAR2(1) default '0'
+  id_iniciativa 	NUMBER not null,
+  id_indicador  	NUMBER not null,
+  id_enfoque    	NUMBER not null,
+  id_medmit     	INTEGER not null,
+  id_parametro  	NUMBER not null,
+  valor         	VARCHAR2(1000),
+  flag_estado   	VARCHAR2(1) default '1',
+  flag_revision 	VARCHAR2(1) default '0',
+  flag_verificacion 	VARCHAR2(1) default '0'
 )
 ;
 alter table T_MAEM_INDICADOR_DATA

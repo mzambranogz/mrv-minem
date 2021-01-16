@@ -1955,16 +1955,7 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.7 
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.2 Plantilla_Electrificacion_rural.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.1 Plantilla_RER_Conectado.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.1 Plantilla Coccion limpia_vales_fise.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.1 Plantilla_Coccion_Lena.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.4 Plantilla_Auditoria_energetica.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx
