@@ -27306,7 +27306,7 @@ values (1, 'Sector público', '1');
 insert into T_MAE_SECTOR_INST (id_sector_inst, descripcion, flag_estado)
 values (2, 'Sector privado', '1');
 insert into T_MAE_SECTOR_INST (id_sector_inst, descripcion, flag_estado)
-values (3, 'SECTOR INDUSTRIAL', '0');
+values (3, 'Persona natural', '1');
 commit;
 prompt 3 records loaded
 prompt Loading T_MAE_TERMINOS...
