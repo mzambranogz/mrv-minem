@@ -2758,6 +2758,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         SECTOR_INST: medida == 4 ? $('#cbo-sector').val() : '',
         INSTITUCION_AUDITADA: medida == 4 ? $('#txt-institucion').val() : '',
         TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
+        DESCRIPCION_TIPO_AUDITORIA: medida == 4 ? $('#txt-descripcion-tipo-auditoria').val() : '',
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
         FECHA_AUDITORIA: medida == 4 ? $('#fch-fecha-auditoria').val() : '',
