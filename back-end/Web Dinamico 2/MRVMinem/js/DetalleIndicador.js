@@ -4059,6 +4059,9 @@ $(document).on("change", "#cbo-enfoque", function () {
     //cargarCabeceraTabla($("#cbo-enfoque").val());
     //CargarDetalleDatos();    
     //cargarCuerpoTabla($("#cbo-enfoque").val());
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
+
     $('#cuerpo-acumulado-total').html('');
     $('[id^=acum-]').each((x, y) => {
         $(y).html('0.00');
@@ -4471,6 +4474,8 @@ $(document).ready(function () {
         fn_cargarGei();
         $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());     
     }
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
 
     if ($("#Control").data("mitigacion") == 1 || $('#cbo-enfoque').val() == 24)
         $('#msj-equipo').removeClass('d-none');
@@ -6767,4 +6772,11 @@ var cambiarTipo = () => {
             $('#txt-descripcion-tipo-auditoria').val("");
         }
     });
+}
+
+var nombreresumen = (medida, enfoque) => {
+    if (medida == 12 || medida == 4 || enfoque == 6 || enfoque == 9)
+        $('#nombre-resumen').html("Emisiones de GEI reducidas");
+    else
+        $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
 }

@@ -605,6 +605,9 @@ function fn_cargarDatosUserMantenimiento(id) {
     $("#btn-modal-consultar").show();
     $("#txt-user").attr("disabled", true);
     $("#txt-buscar-accion").val("");
+
+    $('#cbo-sector').prop("disabled", true); //add
+
     fn_seleccionarMantenimientoUsuario(id);
 }
 
@@ -662,6 +665,7 @@ function fn_cargaMedidaMitigacion(id) {
 function regUsuario() {
     fn_cargaMedidaMitigacion(0);
     fn_limpiarCampo();
+    $("#cbo-sector").prop("disabled", false);//add
     $("#txt-user").attr("disabled", false);
     $("#validarUsuario").data("guardar", 1);
     $("#cabeceraEditarMantenimientoUsuario").hide();

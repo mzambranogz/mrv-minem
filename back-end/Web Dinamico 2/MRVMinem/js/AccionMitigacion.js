@@ -1952,12 +1952,12 @@ function fn_enviarPaquete() {
         //if (cont > 0) {
         if ($("#cbo-actor-paquete").val() == 4) {
             if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-                fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán la iniciativa.</small>');
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán las acciones de mitigación.</small>');
             } else {
                 if (cont > 0) {
                     fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
                 } else {
-                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Evaluador.</small>');
+                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más acciones de mitigación para enviar al Evaluador.</small>');
                 }
             }
             //} else if ($("#cbo-actor-paquete").val() == 5 && cont == 1) {                
@@ -1966,7 +1966,7 @@ function fn_enviarPaquete() {
             if (cont > 0) {
                 fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
             } else {
-                fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Verificador.</small>');
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más acciones de mitigación para enviar al Verificador.</small>');
             }
             //} else if ($("#cbo-actor-paquete").val() == 5 && cont > 0) {
             //fn_msjError('<hr><small class="mb-0">Por favor, seleccione solo una iniciativa para el envío de la iniciativa al Verificador.</small>');
@@ -1974,7 +1974,7 @@ function fn_enviarPaquete() {
             //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la iniciativa que se enviará al Verificador.</small>');
         }
     } else {
-        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) iniciativa(s).</small>');
+        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) acción(es) de mitigación.</small>');
     }
 }
 
@@ -2169,7 +2169,7 @@ function fn_aprobarPaquete() {
     //debugger;
     $("#seccionMensaje3 #errorRegistro").remove(); //add
     if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-        fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las iniciativas.</small>');
+        fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las acciones de mitigación.</small>');
     } else {
         if (cont > 0) {
             fn_aprobarPaqueteIniciativa(id_iniciativa);

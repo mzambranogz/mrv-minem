@@ -243,6 +243,8 @@ $(document).ready(function () {
     //CargarDatosIniciativa();
     //CargarSector();
 
+    nombreresumen($("#medida_ID_MEDMIT").val(), $('#txt-enfoque').data("enfoque"));
+
     if (sindetalle == 0)
         generarAcumulado();
 
@@ -545,4 +547,11 @@ var resumenPotencial = () => {
     let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
     let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
     $('#resumenpotencial').html(row);
+}
+
+var nombreresumen = (medida, enfoque) => {
+    if (medida == 12 || medida == 4 || enfoque == 6 || enfoque == 9)
+        $('#nombre-resumen').html("Emisiones de GEI reducidas");
+    else
+        $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
 }

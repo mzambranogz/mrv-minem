@@ -2304,6 +2304,8 @@ $(document).ready(function () {
         GuardarIdDetalle();
     }
 
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
+
     asignarRuta($("#cbo-enfoque").val());
     $('[data-toggle="tooltip"]').tooltip();
     CargarDatosIniciativa();
@@ -2439,6 +2441,7 @@ $(document).on("change", "#cbo-enfoque", function () {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
 
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
 
     $('[data-toggle="tooltip"]').tooltip();
     $("#cuerpoTablaIndicador").html("");
@@ -4112,5 +4115,12 @@ var cambiarTipo = () => {
             $('#txt-descripcion-tipo-auditoria').val("");
         }
     });
+}
+
+var nombreresumen = (medida, enfoque) => {
+    if (medida == 12 || medida == 4 || enfoque == 6 || enfoque == 9)
+        $('#nombre-resumen').html("Emisiones de GEI reducidas");
+    else
+        $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
 }
 
