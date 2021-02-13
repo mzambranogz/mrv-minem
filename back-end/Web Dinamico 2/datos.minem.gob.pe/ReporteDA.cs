@@ -119,6 +119,27 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public List<AuditoriaRpt> ListaAuditoriaRpt()
+        {
+            List<AuditoriaRpt> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_RPT_AUDITORIA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<AuditoriaRpt>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
 
     }
 }

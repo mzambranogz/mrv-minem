@@ -91,10 +91,6 @@ C:\Users\JK\Desktop\git_new\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Deb
 C:\Users\JK\Desktop\git_new\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Users\JK\Desktop\git_new\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 C:\Users\JK\Desktop\git_new\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
 C:\Users\Dell\Desktop\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
 C:\Users\Dell\Desktop\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
 C:\Users\Dell\Desktop\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
@@ -105,4 +101,7 @@ C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj
 C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
 C:\Users\Dell\Desktop\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb

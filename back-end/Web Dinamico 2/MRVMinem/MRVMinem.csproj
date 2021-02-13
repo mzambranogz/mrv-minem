@@ -735,6 +735,7 @@
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedGeneral.rdlc" />
+    <EmbeddedResource Include="Reportes\rptAuditoria.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
   </ItemGroup>
   <PropertyGroup>

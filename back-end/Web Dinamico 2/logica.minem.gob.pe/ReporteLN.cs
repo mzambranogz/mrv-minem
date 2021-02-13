@@ -32,5 +32,9 @@ namespace logica.minem.gob.pe
             return reporteDA.ListaMedGeneralRpt(entidad);
         }
 
+        public static List<AuditoriaRpt> ListaAuditoriaRpt()
+        {
+            return reporteDA.ListaAuditoriaRpt();
+        }
     }
 }

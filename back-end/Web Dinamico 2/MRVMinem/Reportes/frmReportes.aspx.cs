@@ -38,6 +38,11 @@ namespace MRVMinem.Reportes
                     {
                         ReporteMedGeneral();
                     }
+
+                    else if (Request.QueryString["IdReporte"] == "7")
+                    {
+                        ReporteAuditoria();
+                    }
                 }
             }
             catch (Exception ex)
@@ -169,6 +174,21 @@ namespace MRVMinem.Reportes
             rvReporte.LocalReport.DataSources.Add(dataSource);
             rvReporte.ServerReport.Refresh();
 
+        }
+
+        private void ReporteAuditoria()
+        {
+            string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+
+            ConfigurarReporte();
+            rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptAuditoria.rdlc", rutatarget);
+            List<AuditoriaRpt> lbeReporte = ReporteLN.ListaAuditoriaRpt();
+
+            ReportDataSource dataSource = new ReportDataSource("DsAuditoria", lbeReporte);
+
+            rvReporte.LocalReport.DataSources.Clear();
+            rvReporte.LocalReport.DataSources.Add(dataSource);
+            rvReporte.ServerReport.Refresh();
         }
     }
 }

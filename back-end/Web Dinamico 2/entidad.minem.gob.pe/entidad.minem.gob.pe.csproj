@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AcumuladoBE.cs" />
     <Compile Include="AnnoBE.cs" />
+    <Compile Include="AuditoriaRpt.cs" />
     <Compile Include="BaseBE.cs" />
     <Compile Include="BlockChainAuxBE.cs" />
     <Compile Include="BlockChainBE.cs" />
