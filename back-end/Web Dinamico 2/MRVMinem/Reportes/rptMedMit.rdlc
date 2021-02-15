@@ -110,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Reducción sector público
+                              <Value>Emisiones de GEI reducidas sector público
 (tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
@@ -161,7 +161,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Reducción sector privado</Value>
+                              <Value>Emisiones de GEI reducidas sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -225,7 +225,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Emisiones de GEI reducidas</Value>
+                              <Value>Emisiones de GEI reducidas totales</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -289,7 +289,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Acciones de  mitigación del sector público</Value>
+                              <Value>Número de  acciones de  mitigación del sector público</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -324,7 +324,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Acciones de mitigación del sector privado</Value>
+                              <Value>Número de acciones de mitigación del sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>

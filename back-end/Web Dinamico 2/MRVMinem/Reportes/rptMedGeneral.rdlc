@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reporte de escenario general por medidas de mitigación</Value>
+                <Value>Reporte de medidas de mitigación</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -324,7 +324,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Reporte de escenario general por medidas de mitigación</Caption>
+            <Caption>Reporte de medidas de mitigación</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -333,7 +333,7 @@
             </Style>
           </ChartTitle>
           <ChartTitle Name="Title1">
-            <Caption>       Reducción</Caption>
+            <Caption>tCO2eq/año</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
@@ -387,7 +387,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Emisiones (tCO2eq/año)</Value>
+                            <Value>Medidas de mitigación</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -396,7 +396,7 @@
                           </TextRun>
                         </TextRuns>
                         <Style>
-                          <TextAlign>Center</TextAlign>
+                          <TextAlign>Right</TextAlign>
                         </Style>
                       </Paragraph>
                       <Paragraph>
@@ -678,7 +678,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Emisiones de GEI reducidas</Value>
+                                <Value>Emisiones de GEI reducidas(tCO2eq/año)</Value>
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                 </Style>

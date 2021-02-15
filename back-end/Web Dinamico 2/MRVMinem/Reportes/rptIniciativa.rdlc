@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reporte de medida de mitigación por institución</Value>
+                <Value>Reporte de acciones de mitigación por medida y por sector público o privado</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
