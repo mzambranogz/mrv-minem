@@ -225,7 +225,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Emisiones de GEI reducidas totales</Value>
+                              <Value>Emisiones de GEI reducidas</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>

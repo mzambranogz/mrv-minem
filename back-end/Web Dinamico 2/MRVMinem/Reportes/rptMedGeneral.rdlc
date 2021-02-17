@@ -324,7 +324,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Reporte de medidas de mitigación</Caption>
+            <Caption>Reporte de emisiones de GEI reducidas según medida de mitigación</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -387,7 +387,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Medidas de mitigación</Value>
+                            <Value>Código de la medida</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -397,21 +397,6 @@
                         </TextRuns>
                         <Style>
                           <TextAlign>Right</TextAlign>
-                        </Style>
-                      </Paragraph>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value />
-                            <Style>
-                              <FontSize>8pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                              <Color>White</Color>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
                         </Style>
                       </Paragraph>
                     </Paragraphs>
