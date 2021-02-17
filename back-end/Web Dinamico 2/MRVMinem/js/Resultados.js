@@ -78,7 +78,7 @@
                         var entidad = data[i]["listaAnnoSec"];
 
                         var arr4n = [];//add
-                        arr4n.push(['Year', 'Sector Público', 'Sector Privado', ]);//add
+                        arr4n.push(['Year', 'Sector público', 'Sector privado', 'Persona natural']);//add
 
                         for (var j = 0; j < entidad.length; j++) {
                             var arr = [];
@@ -91,7 +91,6 @@
                                 arrTotal.push(obj[m]["TOTAL_GEI"]);
                                 arrAnno.push(obj[m]["ANNO"]);
                             }
-
                             //==============================================================================
                             //var validar = 0; //add
                             //debugger;
@@ -122,10 +121,10 @@
 
                             //debugger;
                             //for (var j = 0; j < entidad.length; j++) {
-                            if (arrTotal[0] > 0 || arrTotal[1] > 0) {
+                            if (arrTotal[0] > 0 || arrTotal[1] > 0 || arrTotal[2] > 0) {
                                 // arr4n.push([arrAnno[0].toString(), arrTotal[0], arrTotal[1], ]);
-                                arr4n.push([arrAnno[0].toString(), Math.round(arrTotal[0] * 100) / 100, Math.round(arrTotal[1] * 100) / 100, ]);
-                            }                                
+                                arr4n.push([arrAnno[0].toString(), Math.round(arrTotal[0] * 100) / 100, Math.round(arrTotal[1] * 100) / 100, Math.round(arrTotal[2] * 100) / 100, ]);
+                            }
                             //}
 
                         }
@@ -141,6 +140,7 @@
                         var arr4 = [];
                         arr4.push(['Sector', 'Total', ]);
                         var entidad = data[i]["listaCant"];
+
                         for (var j = 0; j < entidad.length; j++) {
                             arr4.push([entidad[j]["DESCRIPCION"], entidad[j]["CANTIDAD"]]);
                         }
@@ -173,7 +173,7 @@ function drawMultSeries01(data) {
     var options = {
         width: 900,
         height: 540,
-        legend: { position: 'none' },
+        //legend: { position: 'none' },
         //title: 'Cantidad de tCO2eq disminuido por Año y Sector',
         //subtitle: 'Período 2010 - 2030',
         //hAxis: {
@@ -202,7 +202,7 @@ function drawMultSeries02(data) {
     var options = {
         width: 900,
         height: 540,
-        legend: { position: 'none' },
+        legend: { position: 'none' }, //quit 17-02-21
         //title: 'Cantidad de Acciones de Mitigación registrados por Sector',
         //subtitle: 'Período 2010 - 2030',
         //hAxis: {
@@ -297,7 +297,7 @@ function drawPieChart(data) {
     //]);
     var options = {
         //title: 'Reducción de tCO2eq por Sector',
-        legend: { position: 'none' },
+        //legend: { position: 'none' },//quit 17-02-21
         width: 900,
         height: 540,
         is3D: true
