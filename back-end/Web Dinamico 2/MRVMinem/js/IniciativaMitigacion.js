@@ -1376,7 +1376,7 @@ var validarmodal = () => {
 }
 
 var listaAccion = () => {
-    $('#cbo-accion-asociado').html('<option value="0">-Seleccione la acción de mitigación principal-</option>');
+    $('#cbo-accion-asociado').html('<option value="0">-Seleccione la acción de mitigación-</option>');
     var item = {
         ID_USUARIO: $("#Control").data("usuario"),
         ID_MEDMIT: $("#Control").data("mitigacion"),
