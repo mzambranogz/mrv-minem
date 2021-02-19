@@ -716,8 +716,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Emisiones de GEI reducidas : </Value>
+                <Value>Emisiones de GEI reducidas (tCO2eq/año): </Value>
                 <Style>
+                  <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>

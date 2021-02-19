@@ -1363,7 +1363,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Código :</Value>
+                <Value>Código de medida de mitigación :</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1402,7 +1402,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reducción sector público (tCO2eq): </Value>
+                <Value>Emisiones de GEI reducidas sector público (tCO2eq): </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1442,7 +1442,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reducción sector privado (tCO2eq): </Value>
+                <Value>Emisiones de GEI reducidas sector privado (tCO2eq): </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1523,7 +1523,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Acciones de mitigación del sector público:</Value>
+                <Value>Número de acciones de mitigación del sector público:</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1562,7 +1562,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Acciones de mitigación del sector privado</Value>
+                <Value>Número de acciones de mitigación del sector privado</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
