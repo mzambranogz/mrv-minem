@@ -218,11 +218,12 @@ function fn_validarCampoReg(f) {
     var campos = $("#tablaFactor").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
     campos.each(function (index, value) {
         //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
-        if ($(value).val() == 0) {
-            v = false;
+        debugger;
+        if ($(value).data('param') != -1) {
+            if ($(value).val() == 0) {
+                v = false;
+            }
         }
-
     });
     return v;
 }
@@ -232,7 +233,6 @@ function fn_guardarFactor() {
     var factor = $("#tablaCabeceraFactor").data("idfactor");
     var n = $("#tablaFactor").find("tbody").find("th").length + 1;
     for (var fila = 1 ; fila < n; fila++) {
-        //debugger;
         var valor_factor = 0;
         let unidad = '';
         var parametros = "";
@@ -241,7 +241,6 @@ function fn_guardarFactor() {
         var column = $("#tablaFactor").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         if (fn_validarCampoReg(fila)) {
             column.each(function (index, value) {
-                debugger;
                 if ($(value).attr("data-param") == 0) {
                     valor_factor = $("#" + $(value).attr("id")).val();
                 } else if ($(value).attr("data-param") == -1) {
