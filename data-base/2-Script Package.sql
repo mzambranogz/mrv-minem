@@ -6852,11 +6852,11 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
     )IS
         vIdIniciativa   NUMBER;
         vIdDetalleIniciativa   NUMBER;
-        vEntidad        VARCHAR2(100);
+        vEntidad        VARCHAR2(1000);
         vIdEspecialista NUMBER;
         vIdEtapaEstado NUMBER;
-        vNombreMedmit VARCHAR2(100);
-        vMoneda VARCHAR2(50);
+        vNombreMedmit VARCHAR2(1000);
+        vMoneda VARCHAR2(500);
     BEGIN
         SELECT SQ_GENM_INICIATIVA.NEXTVAL INTO vIdIniciativa FROM DUAL;
         IF pID_ESTADO = 0 THEN
