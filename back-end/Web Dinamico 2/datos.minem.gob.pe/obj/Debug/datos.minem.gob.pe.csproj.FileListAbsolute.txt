@@ -298,3 +298,15 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\Dapper.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Debug\Dapper.xml
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb

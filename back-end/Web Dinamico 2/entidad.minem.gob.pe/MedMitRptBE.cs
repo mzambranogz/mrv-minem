@@ -15,9 +15,11 @@ namespace entidad.minem.gob.pe
         public decimal GEI_TOTAL { get; set; }
         public decimal GEI_PUBLICO { get; set; }
         public decimal GEI_PRIVADO { get; set; }
+        public decimal GEI_NATURAL { get; set; }
         public decimal CANT_TOTAL { get; set; }
         public decimal CANT_PUBLICO { get; set; }
         public decimal CANT_PRIVADO { get; set; }
+        public decimal CANT_NATURAL { get; set; }
 
     }
 }

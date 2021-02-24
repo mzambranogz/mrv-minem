@@ -295,6 +295,10 @@ namespace MRVMinem.Reportes {
             
             private global::System.Data.DataColumn columnCANT_PRIVADO;
             
+            private global::System.Data.DataColumn columnCANT_NATURAL;
+            
+            private global::System.Data.DataColumn columnGEI_NATURAL;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DtMedMitDataTable() {
@@ -394,6 +398,22 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CANT_NATURALColumn {
+                get {
+                    return this.columnCANT_NATURAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GEI_NATURALColumn {
+                get {
+                    return this.columnGEI_NATURAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +449,7 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DtMedMitRow AddDtMedMitRow(string NUMERO_MEDMIT, string NOMBRE_MEDMIT, decimal GEI_TOTAL, decimal GEI_PUBLICO, decimal GEI_PRIVADO, decimal CANT_TOTAL, decimal CANT_PUBLICO, decimal CANT_PRIVADO) {
+            public DtMedMitRow AddDtMedMitRow(string NUMERO_MEDMIT, string NOMBRE_MEDMIT, decimal GEI_TOTAL, decimal GEI_PUBLICO, decimal GEI_PRIVADO, decimal CANT_TOTAL, decimal CANT_PUBLICO, decimal CANT_PRIVADO, decimal CANT_NATURAL, decimal GEI_NATURAL) {
                 DtMedMitRow rowDtMedMitRow = ((DtMedMitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NUMERO_MEDMIT,
@@ -439,7 +459,9 @@ namespace MRVMinem.Reportes {
                         GEI_PRIVADO,
                         CANT_TOTAL,
                         CANT_PUBLICO,
-                        CANT_PRIVADO};
+                        CANT_PRIVADO,
+                        CANT_NATURAL,
+                        GEI_NATURAL};
                 rowDtMedMitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtMedMitRow);
                 return rowDtMedMitRow;
@@ -470,6 +492,8 @@ namespace MRVMinem.Reportes {
                 this.columnCANT_TOTAL = base.Columns["CANT_TOTAL"];
                 this.columnCANT_PUBLICO = base.Columns["CANT_PUBLICO"];
                 this.columnCANT_PRIVADO = base.Columns["CANT_PRIVADO"];
+                this.columnCANT_NATURAL = base.Columns["CANT_NATURAL"];
+                this.columnGEI_NATURAL = base.Columns["GEI_NATURAL"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +515,10 @@ namespace MRVMinem.Reportes {
                 base.Columns.Add(this.columnCANT_PUBLICO);
                 this.columnCANT_PRIVADO = new global::System.Data.DataColumn("CANT_PRIVADO", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCANT_PRIVADO);
+                this.columnCANT_NATURAL = new global::System.Data.DataColumn("CANT_NATURAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANT_NATURAL);
+                this.columnGEI_NATURAL = new global::System.Data.DataColumn("GEI_NATURAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGEI_NATURAL);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -761,6 +789,38 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal CANT_NATURAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDtMedMit.CANT_NATURALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANT_NATURAL\' de la tabla \'DtMedMit\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtMedMit.CANT_NATURALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal GEI_NATURAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDtMedMit.GEI_NATURALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'GEI_NATURAL\' de la tabla \'DtMedMit\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtMedMit.GEI_NATURALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNUMERO_MEDMITNull() {
                 return this.IsNull(this.tableDtMedMit.NUMERO_MEDMITColumn);
             }
@@ -853,6 +913,30 @@ namespace MRVMinem.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCANT_PRIVADONull() {
                 this[this.tableDtMedMit.CANT_PRIVADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCANT_NATURALNull() {
+                return this.IsNull(this.tableDtMedMit.CANT_NATURALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCANT_NATURALNull() {
+                this[this.tableDtMedMit.CANT_NATURALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGEI_NATURALNull() {
+                return this.IsNull(this.tableDtMedMit.GEI_NATURALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGEI_NATURALNull() {
+                this[this.tableDtMedMit.GEI_NATURALColumn] = global::System.Convert.DBNull;
             }
         }
         
