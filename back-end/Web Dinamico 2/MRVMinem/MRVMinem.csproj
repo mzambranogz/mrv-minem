@@ -541,7 +541,6 @@
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Aire acondicionado.xlsx" />
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_gas.xlsx" />
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_GLP.xlsx" />
-    <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_instantaneo.xlsx" />
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx" />
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx" />
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx" />
@@ -549,6 +548,7 @@
     <Content Include="Documentos\1.2 Plantilla_Eficiencia_energetica_industrial_caldera %28cambio de combustible%29.xlsx" />
     <Content Include="Documentos\1.2 Plantilla_Eficiencia_energetica_industrial_caldera %28retrofit%29.xlsx" />
     <Content Include="Documentos\1.2 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx" />
+    <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_eléctricos.xlsx" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
