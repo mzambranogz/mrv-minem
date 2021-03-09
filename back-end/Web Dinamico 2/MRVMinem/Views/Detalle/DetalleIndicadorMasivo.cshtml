@@ -1319,7 +1319,6 @@
         $("#cuerpo-acumulado-total").html(""); //add 17-05-2020
         limpiarAcumulado(); //add 17-05-2020
 
-        debugger;
         var fileName = this.files[0].name;
         switch (fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()) {
             case 'xlsx': case 'xlsm':
@@ -1364,9 +1363,6 @@
                 if (response != null && response != "") {
                     console.log(response);
                     if (response.length > 0) {
-                        //for (var i = 0; i < response.length; i++) {
-                            debugger;
-                            //CargarTablaIndicador(response, i);
                         $("#txt-declaracion").prop("disabled", false);
                         $("#fledeclaracion").prop("disbled", false);
                         $("#cbo-enfoque").prop("disabled", false);
@@ -1374,11 +1370,8 @@
                         $("#txt-declaracion").val("");
                         $("#cuerpoTablaIndicador").data("flag", 1);
                         CargarDatosExcel(response);
-                        //}
-                        //$("#cuerpoTablaIndicador").data("row", response.length);
                     }
                 } else {
-                    debugger;
                     $("#fledeclaracion").val("");
                     $("#txt-declaracion").val("");
                     $("#txt-declaracion").prop("disabled", false);
@@ -1388,7 +1381,6 @@
                     $("#txt-declaracion").val("");
                     $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
                     $("#validar-excel").removeAttr("hidden");
-                    //alert(response);
                 }
             },
             error: function (myXhr, textStatus, errorThrown) {

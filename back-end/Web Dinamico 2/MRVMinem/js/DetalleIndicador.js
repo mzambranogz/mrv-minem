@@ -1,7 +1,7 @@
 
 var indicadores = new Array();
 var documentos = new Array();
-
+var arrAIV = [];
 var eliminar_item;
 
 function fn_crearLinea(fila) {
@@ -2764,10 +2764,10 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
 
     let validar_fecha_imple = false;
-    if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFecha();
+    if ($("#Control").data("mitigacion") == 4 && (estado == 1 || estado == 5)) validar_fecha_imple = verificarFecha();
     if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la implementación de la acción de mitigación debe ingresar la fecha de implementación', '#mensajeModalRegistrar'); return; }
 
-    if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFechaVerificacion();
+    if ($("#Control").data("mitigacion") == 4 && (estado == 1 || estado == 5)) validar_fecha_imple = verificarFechaVerificacion();
     if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la verificación de la acción de mitigación debe ingresar la fecha de verificación', '#mensajeModalRegistrar'); return; }
 
     indicadores = [];
@@ -2815,7 +2815,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             arrValores.push({
                 ID_INDICADOR: ind,
                 ADJUNTO: nom_t,
-                listaInd: ListaValores
+                listaInd: ListaValores,
+                objAIV: arrAIV[fila - 1],
             });
         }
     }
@@ -2922,6 +2923,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
+                arrAIV = [];
                 //CargarDetalleDatos();  
                 if (estado == 0 || estado == 6) CargarArchivosGuardados();
                 if (estado == 0 || estado == 6) CargarDatosGuardados();
@@ -3290,6 +3292,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         var tr = "";
                         tr += '<tr id="detalles-tr-' + (i + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
+                        let fecha_actual = new Date().getFullYear();
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
                             if (data[j]["ID_TIPO_CONTROL"] == 1) {
@@ -3303,15 +3306,12 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
-                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            tr += `<option value="${listaD[m]["NOMBRE_DETALLE"]}" ${listaD[m]["NOMBRE_DETALLE"] < 2021 ? '' : 'hidden'}>${listaD[m]["NOMBRE_DETALLE"]}</option>`;
                                         }
                                         tr += '</select>';
                                     } else {
-                                        //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                         tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                        //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
-                                        //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
                                             tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
@@ -3543,6 +3543,7 @@ function CargarNuevaFila(filas) {
                         var tr = "";
                         tr += '<tr id="detalles-tr-' + (rows + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (rows + 1) + '</th>';
+                        let fecha_actual = new Date().getFullYear();
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
                             if (data[j]["ID_TIPO_CONTROL"] == 1) {
@@ -3556,7 +3557,8 @@ function CargarNuevaFila(filas) {
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
-                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            //tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            tr += `<option value="${listaD[m]["NOMBRE_DETALLE"]}" ${listaD[m]["NOMBRE_DETALLE"] < 2021 ? '' : 'hidden'}>${listaD[m]["NOMBRE_DETALLE"]}</option>`;
                                         }
                                         tr += '</select>';
                                     } else {
@@ -3660,6 +3662,7 @@ function CargarNuevaFila(filas) {
                         //====================================================================================================================
 
                     }
+                    if (medida == 4) agregarValorAIF("", {}, 0);
                     //console.log(arregloIDs);
                     asignarAfecto(arregloIDs);
                 }
@@ -3708,8 +3711,9 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
+                        let objAIV = data[i]["objAIV"];
                         //let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
-                        let rev = medida == 4 ? '0' : entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
+                        let rev = medida == 4 ? entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"] : '0';
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
                         //if (rev == '1' || rol_usuario == 7) {
@@ -3744,6 +3748,7 @@ function CargarDatosGuardados() {
                                 if (entidad[m]["VERIFICABLE"] == 1) {
                                     $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
                                 }
+                                if (entidad[m]["ID_PARAMETRO"] == 91) validarOpcionesEstadoAuditoria(`#cbo-det-tbl-1-${lista}-${(i + 1)}`, entidad[m]["VALOR"]);
                             } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
                                 if (entidad[m]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
@@ -3788,7 +3793,7 @@ function CargarDatosGuardados() {
                         //add 17-05-2020
                         //cargarAcumulado(entidad, i + 1);
                         cargarAcumulado(entidad_a, i + 1); //add 29-09-20
-
+                        if (medida == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
                     }
                     //$("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
@@ -3796,20 +3801,30 @@ function CargarDatosGuardados() {
 
                     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if (medida == 4) {
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
-                            let energia = $(y).parent().parent().parent().find('.energia-total').val();
-                            emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            resumen_emisiones_potencial += emision;
-                            resumen_energia_total += energia;
-                            resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
-                            resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
-                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                            resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
-                            resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += emision;
+                        //    resumen_energia_total += energia;
+                        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -3853,6 +3868,7 @@ function CargarDatosGuardados() {
                     cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${1}">0.00</td>`;
                 }
                 $("#cuerpo-acumulado-total").append(cuerpo);
+                agregarValorAIF("", {}, 0);
                 //====================================================================================================================
             }
             $("#tbl-main-preload").html("");
@@ -4461,11 +4477,9 @@ $(document).ready(function () {
     }
 
     if ($("#revision").val() == 1) {
-
         fn_ListarGEI();
         CargarDatosAuditoria(); //add 03-11-20
         armarAcumulado(); //add 17-05-2020
-
     } else {
         loadMoneda();
         CargarDatosCabecera();
@@ -4693,7 +4707,8 @@ function fn_enviarCalcularValor(item, f) {
                     //$("#cuerpoTablaIndicador").data("total", total);
 
                     //add
-                    agregarAcumulado(item, f);
+                    actualizarValorAIF(`#detalles-tr-${f}`);
+                    agregarAcumulado(item, f);                    
                 }
 
             } else {
@@ -4708,12 +4723,10 @@ function fn_validarCampoReg(f) {
     var v = true;
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
     campos.each(function (index, value) {
-        console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
+        //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
         if ($(value).attr("data-validar") == 0) {
             v = false;
         }
-
     });
     return v;
 }
@@ -4744,10 +4757,11 @@ function fn_eliminarRestarTotal() {
             console.log("Archivos borrados");
         }
 
-        eliminar_item.parent().parent().remove();
+        eliminarAIV(`#detalles-tr-${fila}`);
+        eliminar_item.parent().parent().remove();        
         eliminarAcumulado(fila);
         $('#modal-confirmacion').modal('hide');
-        ordenarTablaDatos(1); //add
+        ordenarTablaDatos(1); //add        
     }
 }
 
@@ -5574,20 +5588,30 @@ function agregarAcumulado(item, f) {
 
                 let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                 if (medida == 4) {
-                    $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                        let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
-                        let energia = $(y).parent().parent().parent().find('.energia-total').val();
-                        emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                        energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                        resumen_emisiones_potencial += emision;
-                        resumen_energia_total += energia;
-                        resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
-                        resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
-                        resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                        resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                        resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
-                        resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
-                    });
+                    //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                    //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                    //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                    //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                    //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                    //    resumen_emisiones_potencial += emision;
+                    //    resumen_energia_total += energia;
+                    //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                    //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                    //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                    //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                    //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                    //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                    //});
+                    for (var i = 0; i < arrAIV.length; i++) {
+                        resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                        resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                        resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                        resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                        resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                        resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                        resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                        resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                    }
                     $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -5668,23 +5692,32 @@ function eliminarAcumulado(f) {
     $("#f-" + f).remove();
 
     ordenarTabla();
-
     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
-        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
-            let energia = $(y).parent().parent().parent().find('.energia-total').val();
-            emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-            energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-            resumen_emisiones_potencial += emision;
-            resumen_energia_total += energia;
-            resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
-            resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
-            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-            resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
-            resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
-        });
+        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+        //    resumen_emisiones_potencial += emision;
+        //    resumen_energia_total += energia;
+        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+        //});
+        for (var i = 0; i < arrAIV.length; i++) {
+            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+        }
         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -5792,21 +5825,31 @@ function generarAcumulado() {
                     for (var i = 0; i < data.length; i++) {
                         armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
-
+                    arrAIV = arrRevisionAIV;
                     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if ($("#Control").data("mitigacion") == 4) {
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
-                            resumen_energia_total += $(y).val() == null ? 0 : energia;
-                            resumen_total_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? emision : 0;
-                            resumen_energia_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? energia : 0;
-                            resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
-                            resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
-                            resumen_total_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? emision : 0;
-                            resumen_energia_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                        //    resumen_energia_total += $(y).val() == null ? 0 : energia;
+                        //    resumen_total_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? energia : 0;
+                        //    resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
+                        //    resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -6300,6 +6343,8 @@ $(document).on("click", ".quitarCamposN", function (e) {
 })
 
 $(document).on("change", ".validar-implementado", function (e) {
+    //let id_fila = `#${$(`#${e.currentTarget.id}`).parent().parent().parent()[0].id}`;
+    //actualizarValorAIF(id_fila);
     fn_calcularValor($(this));
 })
 
@@ -6535,7 +6580,7 @@ var ordenarAscendente = (arr) => {
 function ordenarTablaDatos(accion_eliminar) {
     let iniciativa = $("#Control").data("iniciativa");
     let o = $("#tablaIndicador");
-    if ($("#Control").data("mitigacion") == 4 && accion_eliminar == 0) ordenarAcumulado(o.find("tbody").find("th"));
+    if ($("#Control").data("mitigacion") == 4 && accion_eliminar == 0) { ordenarAcumulado(o.find("tbody").find("th")); ordenarArrAIF(o.find("tbody").find("th")); }
     for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
         var s = a + 1;
         o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
@@ -6599,7 +6644,7 @@ var ordenarAcumulado = (inp) => {
     inp.each((x, y) => {
         arr.push($(y).html());
     });
-
+    
     $.each(arr, (x, y) => {
         html += $(`#f-${y}`)[0].outerHTML;
     });
@@ -6781,4 +6826,156 @@ var nombreresumen = (medida, enfoque) => {
         $('#nombre-resumen').html("Emisiones de GEI reducidas");
     else
         $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
+}
+
+var agregarValorAIF = (e, obj, ind) => {
+    let iniciativa = $("#Control").data("iniciativa");
+    if (e == "") {
+        arrAIV.push({
+            ID_INICIATIVA: iniciativa,
+            ID_INDICADOR: 0,
+            ID_ESTADO: 0,
+            AUDITADO: 0,
+            IMPLEMENTADO: 0,
+            VERIFICADO: 0,
+            ENERGIA_AUDITADO: 0,
+            ENERGIA_IMPLEMENTADO: 0,
+            ENERGIA_VERIFICADO: 0,
+        });
+    } else {
+        if (obj == null) {
+            arrAIV.push({
+                ID_INICIATIVA: iniciativa,
+                ID_INDICADOR: ind,
+                ID_ESTADO: 0,
+                AUDITADO: 0,
+                IMPLEMENTADO: 0,
+                VERIFICADO: 0,
+                ENERGIA_AUDITADO: 0,
+                ENERGIA_IMPLEMENTADO: 0,
+                ENERGIA_VERIFICADO: 0,
+            });
+        } else {
+            arrAIV.push({
+                ID_INICIATIVA: obj.ID_INICIATIVA,
+                ID_INDICADOR: obj.ID_INDICADOR,
+                ID_ESTADO: obj.ID_ESTADO,
+                AUDITADO: obj.AUDITADO,
+                IMPLEMENTADO: obj.IMPLEMENTADO,
+                VERIFICADO: obj.VERIFICADO,
+                ENERGIA_AUDITADO: obj.ENERGIA_AUDITADO,
+                ENERGIA_IMPLEMENTADO: obj.ENERGIA_IMPLEMENTADO,
+                ENERGIA_VERIFICADO: obj.ENERGIA_VERIFICADO,
+            });
+        }        
+    }
+}
+
+var actualizarValorAIF = (e) => {
+    //let row = $(`#${e.currentTarget.id}`).parent().parent().parent().find('th:eq(0)').html();
+    //let ind = $(`#${e.currentTarget.id}`).parent().parent().parent()[0].dataset.ind;
+    //let valorAIF = $(`#${e.currentTarget.id}`).val();
+    //let emisiones = $(`#${e.currentTarget.id}`).parent().parent().parent().find('[data-param = 11]').val();
+    //emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+    let row = $(e).find('th:eq(0)').html();
+    let ind = $(e)[0].dataset.ind;
+    let valorAIF = $(e).find('[data-param = 91]').val();
+    valorAIF = valorAIF == null ? 0 : valorAIF == "" ? 0 : valorAIF;
+    let emisiones = $(e).find('[data-param = 11]').val();
+    emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+    let energia = $(e).find('[data-param = 90]').val();
+    energia = energia == null ? 0 : energia == "" ? 0 : parseFloat(energia.replace(/,/gi, ''));
+    let i = row - 1;
+    if (valorAIF > 0) {
+        if (ind == 0) {
+            if (valorAIF == 1) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = 0;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 2) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 3) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = emisiones;
+                arrAIV[i].ENERGIA_VERIFICADO = energia;
+            }
+            arrAIV[i].ID_ESTADO = valorAIF;
+        } else {
+            if (valorAIF == 1) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = 0;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 2) {
+                arrAIV[i].AUDITADO = arrAIV[i].AUDITADO <= 0 ? emisiones : arrAIV[i].AUDITADO;
+                arrAIV[i].ENERGIA_AUDITADO = arrAIV[i].ENERGIA_AUDITADO <= 0 ? energia : arrAIV[i].ENERGIA_AUDITADO;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 3) {
+                arrAIV[i].AUDITADO = arrAIV[i].AUDITADO <= 0 ? emisiones : arrAIV[i].AUDITADO;
+                arrAIV[i].ENERGIA_AUDITADO = arrAIV[i].ENERGIA_AUDITADO <= 0 ? energia : arrAIV[i].ENERGIA_AUDITADO;
+                arrAIV[i].IMPLEMENTADO = arrAIV[i].IMPLEMENTADO <= 0 ? emisiones : arrAIV[i].IMPLEMENTADO;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = arrAIV[i].ENERGIA_IMPLEMENTADO <= 0 ? energia : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                arrAIV[i].VERIFICADO = emisiones;
+                arrAIV[i].ENERGIA_VERIFICADO = energia;
+            }
+            arrAIV[i].ID_ESTADO = valorAIF;
+        }
+    } else {
+        arrAIV[i].ID_ESTADO = 0;
+        arrAIV[i].AUDITADO = 0;
+        arrAIV[i].IMPLEMENTADO = 0;
+        arrAIV[i].VERIFICADO = 0;
+        arrAIV[i].ENERGIA_AUDITADO = 0;
+        arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+        arrAIV[i].ENERGIA_VERIFICADO = 0;
+    }    
+}
+
+var eliminarAIV = (e) => {
+    let row = $(e).find('th:eq(0)').html();
+    let i = row - 1;
+    arrAIV.splice(i, 1);
+}
+
+var ordenarArrAIF = (inp) => {
+    let arr = [], arrTemp = arrAIV, html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+
+    arrAIV = [];
+    for (var i = 0; i < arrTemp.length; i++) {
+        let j = arr[i] - 1;
+        arrAIV.push(arrTemp[j]);
+    }
+}
+
+var validarOpcionesEstadoAuditoria = (id, valor) => {
+    let v = valor == null ? 0 : valor == "" ? 0 : valor;
+    if (v > 2) {
+        $(`${id} option[value="0"]`).attr("hidden", true);
+        $(`${id} option[value="1"]`).attr("hidden", true);
+        $(`${id} option[value="2"]`).attr("hidden", true);
+    } else if (v > 1) {
+        $(`${id} option[value="0"]`).attr("hidden", true);
+        $(`${id} option[value="1"]`).attr("hidden", true);
+    } else if (v > 0) {
+        $(`${id} option[value="0"]`).attr("hidden", true);        
+    }
 }

@@ -109,3 +109,4 @@ D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\ent
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache

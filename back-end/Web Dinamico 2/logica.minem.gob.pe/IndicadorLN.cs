@@ -151,6 +151,11 @@ namespace logica.minem.gob.pe
                     string destino = WebConfigurationManager.AppSettings["Sustentatorio"] + "\\" + item.ArchivoSustento.ADJUNTO;
                     File.Move(origen, destino);
                 }
+                if (item.objAIV != null)
+                {
+                    item.objAIV.ID_INDICADOR = id_indicador;
+                    indicador.guardarAIV(item.objAIV);
+                }                
             }
 
             //foreach (IndicadorDataBE item in entidad.ListaIndicadoresData)

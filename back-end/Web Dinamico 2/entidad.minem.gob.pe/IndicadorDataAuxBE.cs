@@ -26,5 +26,6 @@ namespace entidad.minem.gob.pe
         public List<int> id_factores { get; set; }
         public IndicadorArchivoBE ArchivoSustento { get; set; }
         public List<AcumuladoBE> listaAcumulado { get; set; }
+        public AudImpVerfBE objAIV { get; set; }
     }
 }

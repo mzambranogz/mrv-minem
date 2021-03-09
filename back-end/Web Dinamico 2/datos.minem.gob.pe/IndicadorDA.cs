@@ -878,6 +878,7 @@ namespace datos.minem.gob.pe
                     foreach(var arc in listaDataE)
                     {
                         arc.ArchivoSustento = new IndicadorArchivoDA().GetArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = arc.ID_INDICADOR });
+                        arc.objAIV = obtenerAIV(entidad.ID_INICIATIVA, arc.ID_INDICADOR); //add
                     }
                 }
                 entidad.OK = true;
@@ -963,7 +964,7 @@ namespace datos.minem.gob.pe
                     List<int> factores = new List<int>();
                     foreach (var item in listaDataE)
                     {
-                        item.listaInd = ListarDatosDinamico(item);
+                        item.listaInd = ListarDatosDinamico(item);                        
                         item.listaParam = listarDetalleCabeceraDinamico(item);
                         item.listaFactor = ListaEnfoqueFactores(item.ID_ENFOQUE);
                         foreach (var itemF in item.listaFactor)
@@ -1006,6 +1007,7 @@ namespace datos.minem.gob.pe
                 foreach (var item in listaP)
                 {
                     item.listaInd = ListarDetalleDatosDinamico(item);
+                    item.objAIV = obtenerAIV(entidad.ID_INICIATIVA, item.ID_INDICADOR);
                     item.ArchivoSustento = new IndicadorArchivoDA().GetArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INDICADOR = item.ID_INDICADOR, ID_INICIATIVA = entidad.ID_INICIATIVA });
                 }
                 entidad.OK = true;
@@ -1527,6 +1529,55 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public bool guardarAIV(AudImpVerfBE entidad)
+        {
+            bool seGuardo = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_AIV";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_ID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("PI_ID_ESTADO", entidad.ID_ESTADO);
+                    p.Add("PI_AUDITADO", entidad.AUDITADO);
+                    p.Add("PI_IMPLEMENTADO", entidad.IMPLEMENTADO);
+                    p.Add("PI_VERIFICADO", entidad.VERIFICADO);
+                    p.Add("PI_ENERGIA_AUDITADO", entidad.ENERGIA_AUDITADO);
+                    p.Add("PI_ENERGIA_IMPLEMENTADO", entidad.ENERGIA_IMPLEMENTADO);
+                    p.Add("PI_ENERGIA_VERIFICADO", entidad.ENERGIA_VERIFICADO);
+                    p.Add("PO_ROWAFFECTED", dbType: OracleDbType.Int32, direction: ParameterDirection.Output);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    int filasAfectadas = (int)p.Get<dynamic>("PO_ROWAFFECTED").Value;
+                    seGuardo = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
 
+            return seGuardo;
+        }
+
+        public AudImpVerfBE obtenerAIV(int idIniciativa, int idIndicador)
+        {
+            AudImpVerfBE item = new AudImpVerfBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_AIV";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", idIniciativa);
+                    p.Add("PI_ID_INDICADOR", idIndicador);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    item = db.QueryFirstOrDefault<AudImpVerfBE>(sp, p, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex) { Log.Error(ex); }
+            return item;
+        }
     }
 }

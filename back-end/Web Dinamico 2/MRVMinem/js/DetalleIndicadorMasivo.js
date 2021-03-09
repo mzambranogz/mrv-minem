@@ -1,5 +1,6 @@
 var indicadores = new Array();
 var documentos = new Array();
+var arrAIV = [];
 
 function fn_crearLinea(fila) {
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
@@ -2128,6 +2129,7 @@ function CargarDatosExcel(data) {
     CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
     let validar_error = 0; //ad 08-09-20
+    arrAIV = [];
     //for (var i = 0; i < data.length; i++) {
     for (var i = 0; i < data.length; i++) {
         var validar = 0;
@@ -2135,7 +2137,7 @@ function CargarDatosExcel(data) {
         var texto = 0;
         var fecha = 0;
         var entidad = data[i]["listaInd"];
-        var entidad_a = data[i]["listaAcumulado"];
+        var entidad_a = data[i]["listaAcumulado"];        
         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
 
         var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("[data-param]");
@@ -2181,27 +2183,38 @@ function CargarDatosExcel(data) {
         //$("#cuerpoTablaIndicador").data("total", total);
 
         // add 17-05-2018
-        if (validar_error != 1) //add 08-09-20
+        if (validar_error != 1) {
             armarAcumulado(entidad_a, i + 1);
-
+            if ($("#Control").data("mitigacion") == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`);
+        } //add 08-09-20
     }
 
     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
-        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
-            let energia = $(y).parent().parent().parent().find('.energia-total').val();
-            emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-            energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-            resumen_emisiones_potencial += emision;
-            resumen_energia_total += energia;
-            resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
-            resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
-            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-            resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
-            resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
-        });
+        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+        //    resumen_emisiones_potencial += emision;
+        //    resumen_energia_total += energia;
+        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+        //});
+        for (var i = 0; i < arrAIV.length; i++) {
+            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+        }
         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -2639,7 +2652,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             arrValores.push({
                 ID_INDICADOR: ind,
                 ADJUNTO: nom_t,
-                listaInd: ListaValores
+                listaInd: ListaValores,
+                objAIV: arrAIV[fila - 1],
             });
         }
         //if (fn_validarCampoReg(fila)) {
@@ -2959,6 +2973,7 @@ $("#guardar-avance").on("hidden.bs.modal", function () {
 
 
 function CargarDatosGuardados() {
+    arrAIV = [];
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var iniciativa = $("#Control").data("iniciativa");
@@ -2997,6 +3012,7 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"];
+                        let objAIV = data[i]["objAIV"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         var tieneArchivo = data[i].ArchivoSustento;
                         if (tieneArchivo != undefined && tieneArchivo != null) {
@@ -3059,6 +3075,7 @@ function CargarDatosGuardados() {
                         //add 17-05-2020
                         //armarAcumulado(entidad, i + 1);
                         armarAcumulado(entidad_a, i + 1);
+                        agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
                     }
                     //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
@@ -3074,20 +3091,30 @@ function CargarDatosGuardados() {
 
                     let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if (medida == 4) {
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
-                            let energia = $(y).parent().parent().parent().find('.energia-total').val();
-                            emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            resumen_emisiones_potencial += emision;
-                            resumen_energia_total += energia;
-                            resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
-                            resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
-                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                            resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
-                            resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += emision;
+                        //    resumen_energia_total += energia;
+                        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
@@ -4040,7 +4067,6 @@ var loadMoneda = () => {
                 for (var i = 0; i < data.length; i++) {
                     opciones += '<option value="' + data[i]["ID_MONEDA"] + '">' + data[i]["DESCRIPCION"] + '</option>';
                 }
-                //debugger;
                 $('[id*=ms-]').each((x, y) => {
                     $(y).append(opciones);
                 });
@@ -4107,7 +4133,6 @@ var cambiarTipo = () => {
     }).done(function (data) {
         if (data != null && data != "") {
             if (data.length > 0) {
-                debugger;
                 $('#txt-descripcion-tipo-auditoria').val(data);
             } else {
                 $('#txt-descripcion-tipo-auditoria').val("");
@@ -4123,5 +4148,42 @@ var nombreresumen = (medida, enfoque) => {
         $('#nombre-resumen').html("Emisiones de GEI reducidas");
     else
         $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
+}
+
+var agregarValorAIF = (e, obj, ind) => {
+    let iniciativa = $("#Control").data("iniciativa");
+    if (obj == undefined) {
+        let row = $(e).find('th:eq(0)').html();
+        let ind = $(e)[0].dataset.ind;
+        let valorAIF = $(e).find('[data-param = 91]').val();
+        valorAIF = valorAIF == null ? 0 : valorAIF == "" ? 0 : valorAIF;
+        let emisiones = $(e).find('[data-param = 11]').val();
+        emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+        let energia = $(e).find('[data-param = 90]').val();
+        energia = energia == null ? 0 : energia == "" ? 0 : parseFloat(energia.replace(/,/gi, ''));
+        arrAIV.push({
+            ID_INICIATIVA: iniciativa,
+            ID_INDICADOR: 0,
+            ID_ESTADO: valorAIF,
+            AUDITADO: valorAIF > 0 ? emisiones : 0,
+            IMPLEMENTADO: valorAIF > 1 ? emisiones : 0,
+            VERIFICADO: valorAIF > 2 ? emisiones : 0,
+            ENERGIA_AUDITADO: valorAIF > 0 ? energia : 0,
+            ENERGIA_IMPLEMENTADO: valorAIF > 1 ? energia : 0,
+            ENERGIA_VERIFICADO: valorAIF > 2 ? energia : 0,
+        });
+    } else {
+        arrAIV.push({
+            ID_INICIATIVA: obj.ID_INICIATIVA,
+            ID_INDICADOR: obj.ID_INDICADOR,
+            ID_ESTADO: obj.ID_ESTADO,
+            AUDITADO: obj.AUDITADO,
+            IMPLEMENTADO: obj.IMPLEMENTADO,
+            VERIFICADO: obj.VERIFICADO,
+            ENERGIA_AUDITADO: obj.ENERGIA_AUDITADO,
+            ENERGIA_IMPLEMENTADO: obj.ENERGIA_IMPLEMENTADO,
+            ENERGIA_VERIFICADO: obj.ENERGIA_VERIFICADO,
+        });
+    }
 }
 
