@@ -3868,7 +3868,7 @@ function CargarDatosGuardados() {
                     cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${1}">0.00</td>`;
                 }
                 $("#cuerpo-acumulado-total").append(cuerpo);
-                agregarValorAIF("", {}, 0);
+                if (medida == 4) agregarValorAIF("", {}, 0);
                 //====================================================================================================================
             }
             $("#tbl-main-preload").html("");
@@ -4707,7 +4707,7 @@ function fn_enviarCalcularValor(item, f) {
                     //$("#cuerpoTablaIndicador").data("total", total);
 
                     //add
-                    actualizarValorAIF(`#detalles-tr-${f}`);
+                    if ($("#Control").data("mitigacion") == 4) actualizarValorAIF(`#detalles-tr-${f}`);
                     agregarAcumulado(item, f);                    
                 }
 

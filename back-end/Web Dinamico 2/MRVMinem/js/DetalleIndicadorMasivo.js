@@ -3075,7 +3075,7 @@ function CargarDatosGuardados() {
                         //add 17-05-2020
                         //armarAcumulado(entidad, i + 1);
                         armarAcumulado(entidad_a, i + 1);
-                        agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
+                        if (medida == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
                     }
                     //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
