@@ -1799,18 +1799,26 @@ values (3, 'Factor Emision Base', 'F_BAU', null);
 commit;
 prompt 3 records loaded
 prompt Loading T_GENM_INSTITUCION...
+
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (1, 1, '20878374834', 'MINEM', 'Av. De las artes', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
-values (2, 2, '20394783748', 'Ministerio de energia y minas', 'Av. De las artes sur', '1');
+values (2, 1, '20394783748', 'Ministerio de energia y minas', 'Av. De las artes sur', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (3, 2, '20934483748', 'NAMAS', 'Av. De las artes sur 191', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (4, 1, '20498394893', 'DGEE', 'Av. Tomas Marzano', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (5, 1, '10545646848', 'Ministerio', 'San Borja Norte 156', '1');
+insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
+values (6, 2, '20365485464', 'Pruebas del MRV S.A.C.', 'Jirón los cóndores 548', '1');
+insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
+values (7, 3, '10106594985', 'Persona natural', null, '1');
+insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
+values (8, 2, '20326149418', 'Green planet', 'Los albaricoques 209', '1');
 commit;
-prompt 5 records loaded
+prompt 8 records loaded
+
 prompt Loading T_GENM_MEDMIT_ENERG...
 insert into T_GENM_MEDMIT_ENERG (id_medmit_energ, id_medmit, id_energ, flag_estado)
 values (1, 1, 2, '1');
@@ -1908,18 +1916,27 @@ prompt 32 records loaded
 prompt Loading T_GENM_NOTIFICACION...
 prompt Table is empty
 prompt Loading T_GENM_USUARIO...
+
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (1, 'Alfonso', 'cordova', 1, 'AEZrjs/GGOZrKiTpt47yqwD05bWbYQphNxJaS2sKGeg+OYJaSItmVBxWeHgjv99BDg==', 'alfonso.cordova@gmail.com', 1, null, '988343674343', '1', 1, '1', null, '0', null, null);
+values (1, 'Alfonso                                                                                             ', 'cordova', 1, 'AEZrjs/GGOZrKiTpt47yqwD05bWbYQphNxJaS2sKGeg+OYJaSItmVBxWeHgjv99BDg==', 'alfonso.cordova@gmail.com', 1, null, '988343674343', '1', 1, '1', null, '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (2, 'Alfonso', 'Cordova', 2, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ALFONSOMRV@OUTLOOK.COM', 1, '93578701', '965488888', '1', 1, '1', '565601', null, null, null);
+values (2, 'Alfonso                                                                                             ', 'Cordova', 2, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ALFONSOMRV@OUTLOOK.COM', 1, '93578701', '965488888', '1', 1, '1', '565601', null, null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (3, 'Alfonso', 'Cordova Rau', 3, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ACORDOVA@MINEM.GOB.PE', 1, '7983984934', '938728273872', '1', 1, '1', '23323', '0', null, null);
+values (3, 'Alfonso                                                                                             ', 'Cordova Rau', 3, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ACORDOVA@MINEM.GOB.PE', 1, '7983984934', '938728273872', '1', 1, '1', '23323', '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (4, 'Daniela', 'Rough', 4, 'AMqu5wFaJ0h2ciQ3QyovH+zvthJjtVT9457M9w1Z3Xm1/0X/Y5ZPJ04f7Smu2jAPFQ==', 'DROUGH@MINEM.GOB.PE', 1, '1234567', '987654321', '1', 1, '1', '4738', '0', null, null);
+values (4, 'Daniela                                                                                             ', 'Rough', 4, 'AMqu5wFaJ0h2ciQ3QyovH+zvthJjtVT9457M9w1Z3Xm1/0X/Y5ZPJ04f7Smu2jAPFQ==', 'DROUGH@MINEM.GOB.PE', 1, '1234567', '987654321', '1', 1, '1', '4738', '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (5, 'Carlos', 'Galdos', 5, 'ANzVfTd8gRZBPAEbiYYkm6pB00L6+Kd4i85/LJMSHsqv25QFRVMsFUD/6QB4DBq+xA==', 'CGALDOS@MINEM.GOB.PE', 1, '1234567', '984321452', '1', 1, '1', '2367', '0', null, null);
+values (5, 'Carlos                                                                                              ', 'Galdos', 5, 'ANzVfTd8gRZBPAEbiYYkm6pB00L6+Kd4i85/LJMSHsqv25QFRVMsFUD/6QB4DBq+xA==', 'CGALDOS@MINEM.GOB.PE', 1, '1234567', '984321452', '1', 1, '1', '2367', '0', null, null);
+insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
+values (6, 'Pruebas                                                                                             ', 'De la Plataforma MRV', 6, 'AAKvc+tVqDXLsCDKmrNR0f64XgUgop0E3VEObMgJ60tecK1r1v/F+ivg8nH6gRH3KA==', 'alfonso.cordova222@gmail.com', 1, '444357753', '999888777', '1', 1, '1', '123', '0', null, null);
+insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
+values (7, 'Pruebas                                                                                             ', 'De persona natural', 7, 'ACx4Yi4G5P05PiPHVvxAl3Vlh/XxIcILGNjWE2sIr1gyt2W6zsYicO3WSnqzk8/WZw==', 'aled_cocho@hotmail.com', 1, '5455645645', '994981988949', '1', 1, '1', '48948', '0', null, null);
+insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
+values (8, 'Manuel                                                                                              ', 'Rojas', 8, 'AMhjM0SPIWbZghQl9b9LlXExyTpvEx1jVWvMK2IddzzQx6vfHxHHTVzx7njRT0csUA==', 'a@b.com', 1, '4546454654', '999999999999', '1', 1, '1', '123', '0', null, null);
 commit;
-prompt 5 records loaded
+prompt 8 records loaded
+
+
 prompt Loading T_GENM_VARIABLE...
 insert into T_GENM_VARIABLE (id_variable, descripcion, sigla)
 values (1, 'Kilometros Recorridos Vehiculo (base)', 'KRV');
@@ -27489,8 +27506,14 @@ insert into T_MAE_USUARIO_ROL (id_usuario, id_rol, flg_estado, des_comentario)
 values (4, 4, '1', null);
 insert into T_MAE_USUARIO_ROL (id_usuario, id_rol, flg_estado, des_comentario)
 values (5, 5, '1', null);
+insert into T_MAE_USUARIO_ROL (id_usuario, id_rol, flg_estado, des_comentario)
+values (6, 1, '1', null);
+insert into T_MAE_USUARIO_ROL (id_usuario, id_rol, flg_estado, des_comentario)
+values (7, 1, '1', null);
+insert into T_MAE_USUARIO_ROL (id_usuario, id_rol, flg_estado, des_comentario)
+values (8, 1, '1', null);
 commit;
-prompt 5 records loaded
+prompt 8 records loaded
 
 INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 1, '78', '1');
 INSERT INTO T_MAED_PARAMETRO_RELACION(ID_ENFOQUE, ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (25, 76, 2, '78', '2');
@@ -27804,7 +27827,7 @@ prompt
 create sequence MRVMM.SQ_GENM_INSTITUCION
 minvalue 1
 maxvalue 9999999999999999999999999999
-start with 6
+start with 9
 increment by 1
 cache 20;
 
@@ -27837,7 +27860,7 @@ prompt
 create sequence MRVMM.SQ_GENM_USUARIO
 minvalue 1
 maxvalue 9999999999999999999999999999
-start with 6
+start with 9
 increment by 1
 cache 20;
 
