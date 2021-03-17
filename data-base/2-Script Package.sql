@@ -16996,7 +16996,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_DETALLE_INDICADORES" AS
     END USP_SEL_LISTA_TIPO_FUENTE;
 
     PROCEDURE USP_UPD_REGISTRO_DETALLE(
-        pID_INICIATIVA  IN NUMBER,
+       pID_INICIATIVA  IN NUMBER,
         pID_USUARIO     IN NUMBER,
         pID_TIPO_INGRESO IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -17010,8 +17010,8 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_DETALLE_INDICADORES" AS
         vEntidad        VARCHAR2(500);
         vIniciativa     VARCHAR2(1000);
         vIdDetalle      NUMBER;
-        vNombreMedmit VARCHAR2(100);
-        vNombreEnfoque VARCHAR2(100);
+        vNombreMedmit VARCHAR2(1000);
+        vNombreEnfoque VARCHAR2(1000);
         vCantidad NUMBER;
     BEGIN
         SELECT  I.ID_MEDMIT, I.NOMBRE_INICIATIVA, X.NOMBRE_INSTITUCION
@@ -17088,7 +17088,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
     AS
         vIdUsuario NUMBER;
         vIdDetalle NUMBER;
-        vEntidad   VARCHAR2(100);
+        vEntidad   VARCHAR2(1000);
         vGeiTotal   NUMBER;
     BEGIN
         IF pID_TIPO_INICIATIVA = 0 THEN
@@ -17218,12 +17218,12 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         pPRIVACIDAD_INICIATIVA IN VARCHAR2,
         pPRIVACIDAD_INVERSION IN VARCHAR2
     )IS
-        vEntidad VARCHAR2(50);
+        vEntidad VARCHAR2(1000);
         vIdDetalle NUMBER;
         vIdEspecialista NUMBER;
         vIdMedMit NUMBER;
-        vNombreMedmit VARCHAR2(100);
-        vNombreEnfoque VARCHAR2(100);
+        vNombreMedmit VARCHAR2(1000);
+        vNombreEnfoque VARCHAR2(1000);
         vCantidad NUMBER;
     BEGIN
 
@@ -17453,7 +17453,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
 
 
     PROCEDURE USP_PRC_AVANCE_DETALLE(
-        pID_INICIATIVA IN NUMBER,
+         pID_INICIATIVA IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -17462,10 +17462,10 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         pTOTAL_GEI IN NUMBER
     )AS
         vIdDetalle      NUMBER;
-        vMensajeDetalle VARCHAR2(50);
+        vMensajeDetalle VARCHAR2(1000);
         vIdEtapaEstado NUMBER;
-        vNombreMedmit VARCHAR2(100);
-        vNombreEnfoque VARCHAR2(100);
+        vNombreMedmit VARCHAR2(1000);
+        vNombreEnfoque VARCHAR2(1000);
         vCantidad NUMBER;
     BEGIN
 
