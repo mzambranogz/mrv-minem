@@ -1345,7 +1345,7 @@ namespace datos.minem.gob.pe
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
                             //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12,14))";
                             //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,8,9,10,12,13,14,15,19,20,21,22))";
                         }
                         else if (entidad.ID_ROL == 2)
