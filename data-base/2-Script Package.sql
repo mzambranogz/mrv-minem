@@ -7083,8 +7083,8 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
         vEstadoIniciativa VARCHAR2(60);
         vEstadoMensaje VARCHAR2(60);
         vIdEtapaEstado NUMBER;
-        vNombreMedmit VARCHAR2(100);
-        vMoneda VARCHAR2(50);
+        vNombreMedmit VARCHAR2(1000);
+        vMoneda VARCHAR2(500);
         vRE_ID_MONEDA NUMBER;
         vId NUMBER;
     BEGIN
