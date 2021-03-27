@@ -26949,11 +26949,9 @@ insert into T_MAEM_MRV_VARIABLES (id_variable, nombre, id_parametro)
 values (2, 'Sumatoria de emisiones GEI reducidas', 6);
 commit;
 prompt 2 records loaded
+
 prompt Loading T_MAE_MONEDA...
-insert into T_MAE_MONEDA (id_moneda, descripcion, flag_estado)
-values (4, 'Libra', '0');
-insert into T_MAE_MONEDA (id_moneda, descripcion, flag_estado)
-values (5, 'Yen', '0');
+
 insert into T_MAE_MONEDA (id_moneda, descripcion, flag_estado)
 values (1, 'Soles', '1');
 insert into T_MAE_MONEDA (id_moneda, descripcion, flag_estado)
@@ -26961,7 +26959,8 @@ values (2, 'Dolares', '1');
 insert into T_MAE_MONEDA (id_moneda, descripcion, flag_estado)
 values (3, 'Euros', '1');
 commit;
-prompt 5 records loaded
+prompt 3 records loaded
+
 prompt Loading T_MAEM_PREFIJO...
 insert into T_MAEM_PREFIJO (id_prefijo, prefijo, simbolo, valor, flag_estado)
 values (0, 'unidad', null, 1, '1');
