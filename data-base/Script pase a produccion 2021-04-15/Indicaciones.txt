@@ -1,0 +1,4 @@
+1. El Script "0" es la BD en produccion implementada por primera vez
+2. El Script "1" son las modificaciones posteriores a esta primera versión de la BD implementada.
+3. El Script "2" son las modificaciones a nivel PKG
+4. Para obtener la BD actualizada al día 15-04-2021, se debe ejecutar el script "0", "1" y "2" en ese orden. De esta manera, la BD estará actualizada.
