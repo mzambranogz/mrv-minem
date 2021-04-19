@@ -115,15 +115,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12-col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="txt-id-asociado">Código de la acción de mitigación asociada</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                <input class="form-control-plaintext" id="txt-id-asociado" aria-describedby="inputGroup9" value="COD: @Model.iniciativa_mit.ASOCIADO_ACCION" readonly>
+                                    @if (@Model.iniciativa_mit.ASOCIADO_ACCION > 0)
+                                    {
+                                        <div class="col-sm-12-col-md-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold" for="txt-id-asociado">Código de la acción de mitigación asociada</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                    <input class="form-control-plaintext" id="txt-id-asociado" aria-describedby="inputGroup9" value="COD: @Model.iniciativa_mit.ASOCIADO_ACCION" readonly>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    }    
                                     <div class="col-sm-12-col-md-12 col-lg-12">
                                         <div class="form-group">
                                             <label for="txa-nombre-iniciativa">Nombre de la acción de mitigación</label>

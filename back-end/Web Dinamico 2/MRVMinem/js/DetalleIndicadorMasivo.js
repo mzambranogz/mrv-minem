@@ -1,6 +1,7 @@
 var indicadores = new Array();
 var documentos = new Array();
 var arrAIV = [];
+var validar_error = 0;
 
 function fn_crearLinea(fila) {
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
@@ -2128,7 +2129,8 @@ function progressHandlingFunction(e) {
 function CargarDatosExcel(data) {
     CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
-    let validar_error = 0; //ad 08-09-20
+    //let validar_error = 0; //ad 08-09-20
+    validar_error = 0;
     arrAIV = [];
     //for (var i = 0; i < data.length; i++) {
     for (var i = 0; i < data.length; i++) {
@@ -2606,6 +2608,16 @@ function fn_procesoDetalleIndicador(url, estado) {
         }
         return false;
     }
+
+    if (validar_error == 1) {
+        if (estado == 1 || estado == 5) {
+            $('#mensajeModalRegistrar').append(mensajeError("mensajeDangerRegistro", "Error", "Los datos cargados no coinciden con el formato establecido"));
+        } else if (estado == 6 || estado == 0) {
+            $('#mensajeModalAvance').append(mensajeError("mensajeDangerAvance", "Error", "Los datos cargados no coinciden con el formato establecido"));
+        }        
+        return
+    }
+
 
     indicadores = [];
     documentos = [];
@@ -3387,7 +3399,7 @@ function mensajeCorrecto(id, titulo, mensaje) {
 
 function mensajeError(id, titulo, mensaje) {
     var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
-    msj = msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+    msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
     msj = msj + '                            <div class="alert-wrap mr-3">';
     msj = msj + '                                <div class="sa">';
     msj = msj + '                                    <div class="sa-error">';

@@ -584,6 +584,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1 && data[i]["ID_MEDMIT"] == 4) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
                             }
+                            /*else if (data[i]["PROGRESO"] == 7 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            }*/
                         }
 
                         //==============================
@@ -603,6 +606,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3 && data[i]["ID_MEDMIT"] == 4) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
                             }
+                            /*else if (data[i]["PROGRESO"] == 7 && data[i]["ID_ESTADO"] == 3) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            }*/
                         }
                         //================================================
 

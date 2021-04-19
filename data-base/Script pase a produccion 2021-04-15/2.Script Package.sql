@@ -12212,6 +12212,19 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_MANTENIMIENTO" AS
         UPDATE  T_MAE_USUARIO_ROL
         SET     ID_ROL = pID_ROL
         WHERE   ID_USUARIO = pID_USUARIO;
+
+	IF (pID_ROL = 2) THEN
+          IF pID_ESTADO_USUARIO = 2 THEN
+            UPDATE T_MAE_USUARIO_MEDMIT U
+            SET U.FLG_ESTADO     = '0'
+             WHERE U.ID_USUARIO = pID_USUARIO;
+    
+             UPDATE   T_MAE_MEDMIT
+             SET      ASOCIADO = 0
+             WHERE    ASOCIADO = pID_USUARIO;
+          END IF;
+        END IF;
+
     END USP_UPD_USUARIO;
 
 
