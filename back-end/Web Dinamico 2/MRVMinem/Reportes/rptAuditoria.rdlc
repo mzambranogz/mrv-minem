@@ -1027,14 +1027,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Codigo de la acción de mitigación: </Value>
+                <Value>Código de la acción de mitigación: </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Codigo de la acción registrado.</Value>
+                <Value>Código de la acción registrado.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -1147,13 +1147,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Fecha de auditoria: </Value>
+                <Value>Fecha de auditoría: </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Fecha que se realizó la auditoria.</Value>
+                <Value>Fecha que se realizó la auditoría.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>

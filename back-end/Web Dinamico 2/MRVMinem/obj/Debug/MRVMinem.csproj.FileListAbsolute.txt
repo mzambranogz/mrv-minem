@@ -2558,3 +2558,14 @@ D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.cach
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll

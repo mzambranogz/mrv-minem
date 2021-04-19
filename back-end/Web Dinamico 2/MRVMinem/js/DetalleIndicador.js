@@ -6710,6 +6710,8 @@ $(document).on('change', '.filtrar-opcion', function (e) {
                 //    $(id).parent().parent().parent().find(`[data-param=${result.PARAMETROS}]`).val(valor);
                 for (var i = 0; i < result.length; i++) {
                     $(id).parent().parent().parent().find(`[data-param=${result[i].PARAMETROS}]`).val(result[i].PARAMETROS == null ? '0' : result[i].PARAMETROS == '' ? '0' : result[i].PARAMETROS == '6' ? result[i].DETALLES == '0' ? 0 : 2009 + parseInt(result[i].DETALLES) : result[i].DETALLES);
+                    let idfiltro = $(id).parent().parent().parent().find(`[data-param=${result[i].PARAMETROS}]`).attr({ "data-validar": "1" });
+                    //$(`#${idfiltro}`).attr({ "data-validar": "1" });
                 }
             }
         }

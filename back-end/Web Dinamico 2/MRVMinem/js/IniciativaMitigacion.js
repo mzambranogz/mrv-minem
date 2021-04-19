@@ -149,6 +149,7 @@ function fn_cargarIniciativa() {
                                 $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
                             }
                         } else {
+                            $("#txt-id-asociado").val(`COD: ${data[i]["ASOCIADO_ACCION"]}`)
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"] == null ? '------' : data[i]["MONEDA"] == "" ? '------' : data[i]["MONEDA"]);
@@ -1374,6 +1375,19 @@ var validarmodal = () => {
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
     $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
 }
+
+$(document).on('click', '[data-target="#solicitar-revision"]', function () {
+    let i = 0, verif = false;
+    $('[id^=U]').each((x, y) => {
+        i++;
+        if ($(y).prop('checked')) verif = true;
+    });
+    if (!verif) { alert("Por favor, seleccione una ubicación"); return; }
+    if ($('#txt-fecha-inicio').val() == "") { alert("Por favor, ingresar la fecha de inicio de operaciones"); return; }
+    if ($('#txa-nombre-iniciativa').val().trim() == "") { alert("Por favor, ingresar el nombre de la acción de mitigación"); return; }
+    if ($('#txa-descripcion-medida').val().trim() == "") { alert("Por favor, ingresar la descripción de la acción de mitigación"); return; }
+    
+})
 
 var listaAccion = () => {
     $('#cbo-accion-asociado').html('<option value="0">-Seleccione la acción de mitigación-</option>');

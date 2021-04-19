@@ -411,6 +411,22 @@ function fn_validarCampo() {
         arr.push("Debe seleccionar un Sector");
     }
 
+    if ($('#cbo-perfil').val() == 2 && $('#rad-01').prop('checked')) {
+        let validar_medida = 0
+        var medmit = $("[id^=rad-med-0]");
+        if (medmit.length > 0) {
+            for (var i = 0; i < medmit.length; i++) {
+                if (medmit[i].checked) {
+                    validar_medida = 1
+                }
+            }
+            if (validar_medida == 0)
+                arr.push("Debe asignar al menos una medida de mitigación al usuario especialista");
+        } else {
+            arr.push("Debe asignar al menos una medida de mitigación al usuario especialista");
+        }
+    }
+
     if ($("#validarUsuario").data("guardar") == 1) {
         if (clave == validar) {
             if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[\W]/.test(clave))) {
@@ -604,6 +620,9 @@ function fn_cargarDatosUserMantenimiento(id) {
     $("#cabeceraRegistrarMantenimientoUsuario").hide();
     $("#btn-modal-consultar").show();
     $("#txt-user").attr("disabled", true);
+    $("#txt-institucion").prop("disabled", true)
+    $("#txt-ruc").prop("disabled", true)
+    $("#txt-direccion").prop("disabled", true)
     $("#txt-buscar-accion").val("");
 
     $('#cbo-sector').prop("disabled", true); //add
@@ -674,6 +693,9 @@ function regUsuario() {
     $(".ocultar-psw").show();
     $("#ocultar-habilitar").show();
     $("#btn-asignar").parent().parent().parent().addClass('d-none');
+    $("#txt-ruc").prop("disabled", false)
+    $("#txt-direccion").prop("disabled", false)
+    $("#txt-institucion").prop("disabled", false)
 }
 
 //////////////////////////////////////EXPORTAR
