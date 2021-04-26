@@ -3713,7 +3713,7 @@ function CargarDatosGuardados() {
                         var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
                         let objAIV = data[i]["objAIV"];
                         //let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
-                        let rev = medida == 4 ? entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"] : '0';
+                        let rev = medida == 4 ? entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"] : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
                         //if (rev == '1' || rol_usuario == 7) {
@@ -4634,11 +4634,31 @@ function fn_enviarCalcularValor(item, f) {
     //if (respuesta.success) {
     //    alert("bien");
     //}
+    let md = $("#Control").data("mitigacion")
+
     $("[id^=txt-det-]").each((x, y) => {
-        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        if (md == 4) {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+            else if ($(y).parent().parent().parent().data('rev') == '1') {
+                if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                    $(y).prop('disabled', true);
+            }
+        } else {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        }
+        //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
     });
     $("[id^=cbo-det-]").each((x, y) => {
-        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        if (md == 4) {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+            else if ($(y).parent().parent().parent().data('rev') == '1') {
+                if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                    $(y).prop('disabled', true);
+            }
+        } else {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        }
+        //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
     });
     $("#tbl-main-preload").append("<div class='d-flex align-items-center calculando-mrv'><i Class='fas fa-spinner fa-spin px-1'></i>Calculando..</div>");
     $('.agregarCamposPrc').addClass('d-none');
@@ -5648,12 +5668,40 @@ function agregarAcumulado(item, f) {
             } else {
             }
 
+            //$("[id^=txt-det-]").each((x, y) => {
+            //    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            //});
+            //$("[id^=cbo-det-]").each((x, y) => {
+            //    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            //});
+
+            let md = $("#Control").data("mitigacion")
+
             $("[id^=txt-det-]").each((x, y) => {
-                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                if (md == 4) {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                    else if ($(y).parent().parent().parent().data('rev') == '1') {
+                        if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                            $(y).prop('disabled', false);
+                    }
+                } else {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                }
+                //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
             });
             $("[id^=cbo-det-]").each((x, y) => {
-                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                if (md == 4) {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                    else if ($(y).parent().parent().parent().data('rev') == '1') {
+                        if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                            $(y).prop('disabled', false);
+                    }
+                } else {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                }
+                //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
             });
+
             $("#tbl-main-preload").find('.calculando-mrv').remove();
             $('.agregarCamposPrc').removeClass('d-none', true);
 
