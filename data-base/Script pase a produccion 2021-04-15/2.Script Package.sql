@@ -3290,7 +3290,56 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         MD.ID_MEDMIT,
         MD.NOMBRE_MEDMIT, 
         MD.NUMERO_MEDMIT,
-        NVL((SELECT NVL(SUM(NVL(A.REDUCIDO,0)),0) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = MD.ID_MEDMIT AND A.ANNO = PI_ANNO),0) GEI_TOTAL
+        CASE
+            WHEN MD.ID_MEDMIT = 4 THEN
+                (SELECT
+                SUM(TOTAL_GEI) REDUCCION FROM (
+                SELECT
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                  WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                  ELSE 0
+                END TOTAL_GEI,
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                      WHERE ID_MEDMIT = 4 
+                      AND ID_INICIATIVA = I.ID_INICIATIVA
+                      AND ID_PARAMETRO = 94 
+                      AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                          FROM T_MAEM_INDICADOR_DATA 
+                                          WHERE ID_MEDMIT = 4 
+                                          AND ID_INICIATIVA = I.ID_INICIATIVA
+                                          AND ID_PARAMETRO = 91 
+                                          AND VALOR = 3)),0,4)
+                  WHEN AIF.ID_ESTADO = 2 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                  WHERE ID_MEDMIT = 4 
+                                  AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                  AND ID_PARAMETRO = 92 
+                                  AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                           FROM T_MAEM_INDICADOR_DATA 
+                                           WHERE ID_MEDMIT = 4 
+                                           AND ID_INICIATIVA = I.ID_INICIATIVA
+                                           AND ID_PARAMETRO = 91 
+                                           AND VALOR = 2)),0,4)
+                  ELSE ''          
+                END ANNO,
+                I.ID_INICIATIVA,
+                AIF.ID_INDICADOR,
+                AIF.ID_ESTADO,
+                MD.ID_MEDMIT,
+                MD.NOMBRE_MEDMIT
+                FROM T_GENM_INICIATIVA I
+                INNER JOIN T_MAE_MEDMIT MD ON I.ID_MEDMIT = MD.ID_MEDMIT
+                INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1'
+                )T1 
+                WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE) AND ANNO = PI_ANNO)            
+            ELSE            
+                NVL((SELECT NVL(SUM(NVL(A.REDUCIDO,0)),0) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = MD.ID_MEDMIT AND A.ANNO = PI_ANNO),0) 
+            END GEI_TOTAL
+        
         FROM
         T_MAE_MEDMIT MD
         LEFT JOIN T_GENM_ACUMULADO ACU ON MD.ID_MEDMIT = ACU.ID_MEDMIT
@@ -3755,21 +3804,71 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         pCursor out SYS_REFCURSOR
   ) AS
   BEGIN
-        open pCursor for
-        SELECT DISTINCT
-        ACU.ANNO, 
-        ACU.ID_MEDMIT,
-        MD.NOMBRE_MEDMIT, 
-        --(SELECT SUM(NVL(A.BAU,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) BAU_EMISION,
-        --(SELECT SUM(NVL(A.INI,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) MIT_EMISION,
-        (SELECT SUM(NVL(A.REDUCIDO,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) REDUCCION
-        FROM
-        T_GENM_ACUMULADO ACU
-        INNER JOIN T_MAE_MEDMIT MD ON ACU.ID_MEDMIT = MD.ID_MEDMIT
-        WHERE ACU.ID_MEDMIT = pIdMedMit AND ACU.ANNO < EXTRACT(YEAR FROM SYSDATE)
-        GROUP BY ACU.ANNO, ACU.ID_MEDMIT, MD.NOMBRE_MEDMIT
-        ORDER BY ACU.ANNO ASC
-        ;
+        IF pIdMedMit = 4 THEN
+            open pCursor for
+            SELECT
+              ANNO, ID_MEDMIT, NOMBRE_MEDMIT, SUM(TOTAL_GEI) REDUCCION FROM (
+              SELECT
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                ELSE 0
+              END TOTAL_GEI,
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                    WHERE ID_MEDMIT = 4 
+                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                    AND ID_PARAMETRO = 94 
+                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                        FROM T_MAEM_INDICADOR_DATA 
+                                        WHERE ID_MEDMIT = 4 
+                                        AND ID_INICIATIVA = I.ID_INICIATIVA
+                                        AND ID_PARAMETRO = 91 
+                                        AND VALOR = 3)),0,4)
+                WHEN AIF.ID_ESTADO = 2 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                WHERE ID_MEDMIT = 4 
+                                AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                AND ID_PARAMETRO = 92 
+                                AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                         FROM T_MAEM_INDICADOR_DATA 
+                                         WHERE ID_MEDMIT = 4 
+                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                         AND ID_PARAMETRO = 91 
+                                         AND VALOR = 2)),0,4)
+                ELSE ''          
+              END ANNO,
+              I.ID_INICIATIVA,
+              AIF.ID_INDICADOR,
+              AIF.ID_ESTADO,
+              MD.ID_MEDMIT,
+              MD.NOMBRE_MEDMIT
+              FROM T_GENM_INICIATIVA I
+              INNER JOIN T_MAE_MEDMIT MD ON I.ID_MEDMIT = MD.ID_MEDMIT
+              INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+              WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1'
+              )T1 
+              WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE)
+              GROUP BY ANNO, ID_MEDMIT, NOMBRE_MEDMIT
+              ORDER BY ANNO ASC;
+        ELSE
+            open pCursor for
+            SELECT DISTINCT
+            ACU.ANNO, 
+            ACU.ID_MEDMIT,
+            MD.NOMBRE_MEDMIT, 
+            --(SELECT SUM(NVL(A.BAU,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) BAU_EMISION,
+            --(SELECT SUM(NVL(A.INI,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) MIT_EMISION,
+            (SELECT SUM(NVL(A.REDUCIDO,0)) FROM T_GENM_ACUMULADO A WHERE A.ID_MEDMIT = pIdMedMit AND A.ANNO = ACU.ANNO) REDUCCION
+            FROM
+            T_GENM_ACUMULADO ACU
+            INNER JOIN T_MAE_MEDMIT MD ON ACU.ID_MEDMIT = MD.ID_MEDMIT
+            WHERE ACU.ID_MEDMIT = pIdMedMit AND ACU.ANNO < EXTRACT(YEAR FROM SYSDATE)
+            GROUP BY ACU.ANNO, ACU.ID_MEDMIT, MD.NOMBRE_MEDMIT
+            ORDER BY ACU.ANNO ASC;
+        END IF;
+        
        
   END SP_SEL_ESCENARIOS_RPT;
 
@@ -3783,29 +3882,225 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         open pCursor for
         SELECT  E.NOMBRE_MEDMIT,
                 E.NUMERO_MEDMIT,
-                (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO WHERE ID_MEDMIT = E.ID_MEDMIT) GEI_TOTAL,
-                (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
-                  FROM T_GENM_ACUMULADO IA
-                  INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
-                  LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-                  LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-                  LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-                  WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 1) GEI_PUBLICO,
-                (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
-                  FROM T_GENM_ACUMULADO IA
-                  INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
-                  LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-                  LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-                  LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-                  WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 2) GEI_PRIVADO,
+                
+                CASE
+                    WHEN ID_MEDMIT = 4 THEN
+                        (SELECT
+                        SUM(TOTAL_GEI) FROM (
+                        SELECT
+                        CASE
+                          WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                          WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                          ELSE 0
+                        END TOTAL_GEI,
+                        CASE
+                          WHEN AIF.ID_ESTADO = 3 THEN 
+                              SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                              WHERE ID_MEDMIT = 4 
+                              AND ID_INICIATIVA = I.ID_INICIATIVA
+                              AND ID_PARAMETRO = 94 
+                              AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                  FROM T_MAEM_INDICADOR_DATA 
+                                                  WHERE ID_MEDMIT = 4 
+                                                  AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                  AND ID_PARAMETRO = 91 
+                                                  AND VALOR = 3)),0,4)
+                          WHEN AIF.ID_ESTADO = 2 THEN 
+                              SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                          WHERE ID_MEDMIT = 4 
+                                          AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                          AND ID_PARAMETRO = 92 
+                                          AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                   FROM T_MAEM_INDICADOR_DATA 
+                                                   WHERE ID_MEDMIT = 4 
+                                                   AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                   AND ID_PARAMETRO = 91 
+                                                   AND VALOR = 2)),0,4)
+                          ELSE ''          
+                        END ANNO,
+                        AIF.ID_ESTADO
+                        FROM T_GENM_INICIATIVA I
+                        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                        INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                        WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1' --AND ID_SECTOR_INST = 1
+                        )T1 
+                        WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE))
+                    
+                    ELSE
+                        (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO WHERE ID_MEDMIT = E.ID_MEDMIT) 
+                        
+                END GEI_TOTAL,
+                
+                CASE
+                  WHEN ID_MEDMIT = 4 THEN
+                    (SELECT
+                    SUM(TOTAL_GEI) FROM (
+                    SELECT
+                    CASE
+                      WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                      WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                      ELSE 0
+                    END TOTAL_GEI,
+                    CASE
+                      WHEN AIF.ID_ESTADO = 3 THEN 
+                          SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                          WHERE ID_MEDMIT = 4 
+                          AND ID_INICIATIVA = I.ID_INICIATIVA
+                          AND ID_PARAMETRO = 94 
+                          AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                              FROM T_MAEM_INDICADOR_DATA 
+                                              WHERE ID_MEDMIT = 4 
+                                              AND ID_INICIATIVA = I.ID_INICIATIVA
+                                              AND ID_PARAMETRO = 91 
+                                              AND VALOR = 3)),0,4)
+                      WHEN AIF.ID_ESTADO = 2 THEN 
+                          SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                      WHERE ID_MEDMIT = 4 
+                                      AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                      AND ID_PARAMETRO = 92 
+                                      AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                               FROM T_MAEM_INDICADOR_DATA 
+                                               WHERE ID_MEDMIT = 4 
+                                               AND ID_INICIATIVA = I.ID_INICIATIVA
+                                               AND ID_PARAMETRO = 91 
+                                               AND VALOR = 2)),0,4)
+                      ELSE ''          
+                    END ANNO,
+                    AIF.ID_ESTADO
+                    FROM T_GENM_INICIATIVA I
+                    LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                    LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                    LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                    INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                    WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1' AND ID_SECTOR_INST = 1
+                    )T1 
+                    WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE))
                   
-                (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
-                  FROM T_GENM_ACUMULADO IA
-                  INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
-                  LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-                  LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-                  LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-                  WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 3) GEI_NATURAL,
+                  ELSE
+                  
+                    (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
+                      FROM T_GENM_ACUMULADO IA
+                      INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
+                      LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                      LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                      LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                      WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 1) 
+                  END GEI_PUBLICO,
+                  
+                  CASE
+                      WHEN ID_MEDMIT = 4 THEN
+                          (SELECT
+                          SUM(TOTAL_GEI) FROM (
+                          SELECT
+                          CASE
+                            WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                            WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                            ELSE 0
+                          END TOTAL_GEI,
+                          CASE
+                            WHEN AIF.ID_ESTADO = 3 THEN 
+                                SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                WHERE ID_MEDMIT = 4 
+                                AND ID_INICIATIVA = I.ID_INICIATIVA
+                                AND ID_PARAMETRO = 94 
+                                AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                    FROM T_MAEM_INDICADOR_DATA 
+                                                    WHERE ID_MEDMIT = 4 
+                                                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                    AND ID_PARAMETRO = 91 
+                                                    AND VALOR = 3)),0,4)
+                            WHEN AIF.ID_ESTADO = 2 THEN 
+                                SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                            WHERE ID_MEDMIT = 4 
+                                            AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                            AND ID_PARAMETRO = 92 
+                                            AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                     FROM T_MAEM_INDICADOR_DATA 
+                                                     WHERE ID_MEDMIT = 4 
+                                                     AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                     AND ID_PARAMETRO = 91 
+                                                     AND VALOR = 2)),0,4)
+                            ELSE ''          
+                          END ANNO,
+                          AIF.ID_ESTADO
+                          FROM T_GENM_INICIATIVA I
+                          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                          INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                          WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1' AND ID_SECTOR_INST = 2
+                          )T1 
+                          WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE))
+                      
+                      ELSE                     
+                      
+                        (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
+                          FROM T_GENM_ACUMULADO IA
+                          INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
+                          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                          WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 2) 
+                  END GEI_PRIVADO,
+                  
+                  CASE
+                      WHEN ID_MEDMIT = 4 THEN
+                          (SELECT
+                          SUM(TOTAL_GEI) FROM (
+                          SELECT
+                          CASE
+                            WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                            WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                            ELSE 0
+                          END TOTAL_GEI,
+                          CASE
+                            WHEN AIF.ID_ESTADO = 3 THEN 
+                                SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                WHERE ID_MEDMIT = 4 
+                                AND ID_INICIATIVA = I.ID_INICIATIVA
+                                AND ID_PARAMETRO = 94 
+                                AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                    FROM T_MAEM_INDICADOR_DATA 
+                                                    WHERE ID_MEDMIT = 4 
+                                                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                    AND ID_PARAMETRO = 91 
+                                                    AND VALOR = 3)),0,4)
+                            WHEN AIF.ID_ESTADO = 2 THEN 
+                                SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                            WHERE ID_MEDMIT = 4 
+                                            AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                            AND ID_PARAMETRO = 92 
+                                            AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                     FROM T_MAEM_INDICADOR_DATA 
+                                                     WHERE ID_MEDMIT = 4 
+                                                     AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                     AND ID_PARAMETRO = 91 
+                                                     AND VALOR = 2)),0,4)
+                            ELSE ''          
+                          END ANNO,
+                          AIF.ID_ESTADO
+                          FROM T_GENM_INICIATIVA I
+                          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                          INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                          WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1' AND ID_SECTOR_INST = 3
+                          )T1 
+                          WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE))
+                      
+                      ELSE
+                          (SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI
+                          FROM T_GENM_ACUMULADO IA
+                          INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
+                          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                          WHERE I.ID_MEDMIT = E.ID_MEDMIT AND ID_SECTOR_INST = 3)
+                      
+                  
+                      END GEI_NATURAL,
                   
                 (SELECT COUNT(*)FROM (
                   SELECT DISTINCT IN1.ID_INICIATIVA
@@ -3850,14 +4145,119 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         SELECT
                         I.ID_INICIATIVA,
                         M.NUMERO_MEDMIT || '-' || I.ID_INICIATIVA || '-' || EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) INDICE,
-                        I.FECHA_IMPLE_INICIATIVA,
+                        CASE
+                          WHEN I.ID_MEDMIT = 4 THEN
+                            CASE
+                            WHEN 
+                                    (SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                    WHERE ID_MEDMIT = 4 
+                                    AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                    AND ID_PARAMETRO = 94
+                                    AND VALOR < EXTRACT(YEAR FROM SYSDATE) || '-01-01'
+                                    AND ID_INDICADOR IN (SELECT ID_INDICADOR FROM T_MAEM_INDICADOR_DATA 
+                                                         WHERE ID_MEDMIT = 4 
+                                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                         AND ID_PARAMETRO = 91 
+                                                         AND VALOR = 3)) IS NOT NULL THEN
+                                    
+                                    (SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                    WHERE ID_MEDMIT = 4 
+                                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                                    AND ID_PARAMETRO = 94
+                                    AND VALOR < EXTRACT(YEAR FROM SYSDATE) || '-01-01'
+                                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                        FROM T_MAEM_INDICADOR_DATA 
+                                                        WHERE ID_MEDMIT = 4 
+                                                        AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                        AND ID_PARAMETRO = 91 
+                                                        AND VALOR = 3))
+                                                        
+                            WHEN
+                                    (SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                    WHERE ID_MEDMIT = 4 
+                                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                                    AND ID_PARAMETRO = 92 
+                                    AND VALOR < EXTRACT(YEAR FROM SYSDATE) || '-01-01'
+                                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                         FROM T_MAEM_INDICADOR_DATA 
+                                                         WHERE ID_MEDMIT = 4 
+                                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                         AND ID_PARAMETRO = 91 
+                                                         AND VALOR = 2)) IS NOT NULL THEN
+                                    
+                                    (SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                    WHERE ID_MEDMIT = 4 
+                                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                                    AND ID_PARAMETRO = 92
+                                    AND VALOR < EXTRACT(YEAR FROM SYSDATE) || '-01-01'
+                                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                         FROM T_MAEM_INDICADOR_DATA 
+                                                         WHERE ID_MEDMIT = 4 
+                                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                                         AND ID_PARAMETRO = 91 
+                                                         AND VALOR = 2))
+                              
+                            ELSE 
+                                    TO_CHAR(I.FECHA_IMPLE_INICIATIVA,'yyyy-MM-dd')
+                            END
+                          ELSE TO_CHAR(I.FECHA_IMPLE_INICIATIVA,'yyyy-MM-dd')
+                        END FECHA_IMPLE_INICIATIVA,
+                        --I.FECHA_IMPLE_INICIATIVA,
                         INS.NOMBRE_INSTITUCION,
                         I.NOMBRE_INICIATIVA,
                         M.NOMBRE_MEDMIT,
                         --I.GEI_TOTAL,
                         --(SELECT SUM(REDUCIDO) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA = I.ID_INICIATIVA AND ANNO < EXTRACT(YEAR FROM SYSDATE) ) GEI_TOTAL,
                         
-                        (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA IN ((SELECT INIC.ID_INICIATIVA FROM T_GENM_INICIATIVA INIC WHERE INIC.ASOCIADO_ACCION = I.ID_INICIATIVA))) + (SELECT SUM(REDUCIDO) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA = I.ID_INICIATIVA) GEI_TOTAL,
+                        CASE
+                            WHEN I.ID_MEDMIT = 4 THEN
+                                (SELECT
+                                SUM(TOTAL_GEI) FROM (
+                                SELECT
+                                CASE
+                                  WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                                  WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                                  ELSE 0
+                                END TOTAL_GEI,
+                                CASE
+                                  WHEN AIF.ID_ESTADO = 3 THEN 
+                                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                      WHERE ID_MEDMIT = 4 
+                                      AND ID_INICIATIVA = II.ID_INICIATIVA
+                                      AND ID_PARAMETRO = 94 
+                                      AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                          FROM T_MAEM_INDICADOR_DATA 
+                                                          WHERE ID_MEDMIT = 4 
+                                                          AND ID_INICIATIVA = II.ID_INICIATIVA
+                                                          AND ID_PARAMETRO = 91 
+                                                          AND VALOR = 3)),0,4)
+                                  WHEN AIF.ID_ESTADO = 2 THEN 
+                                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                                  WHERE ID_MEDMIT = 4 
+                                                  AND ID_INICIATIVA = II.ID_INICIATIVA 
+                                                  AND ID_PARAMETRO = 92 
+                                                  AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                                           FROM T_MAEM_INDICADOR_DATA 
+                                                           WHERE ID_MEDMIT = 4 
+                                                           AND ID_INICIATIVA = II.ID_INICIATIVA
+                                                           AND ID_PARAMETRO = 91 
+                                                           AND VALOR = 2)),0,4)
+                                  ELSE ''          
+                                END ANNO,
+                                AIF.ID_ESTADO,
+                                SEC.ID_SECTOR_INST
+                                FROM T_GENM_INICIATIVA II
+                                LEFT JOIN T_GENM_USUARIO U ON II.ID_USUARIO = U.ID_USUARIO
+                                LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                                LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                                INNER JOIN T_GEND_INDICADOR_AIF AIF ON II.ID_INICIATIVA = AIF.ID_INICIATIVA
+                                WHERE II.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1' AND II.ID_INICIATIVA = I.ID_INICIATIVA
+                                )T1 
+                                WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE) AND ID_SECTOR_INST = 1 )
+                
+                            ELSE
+                                (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA IN ((SELECT INIC.ID_INICIATIVA FROM T_GENM_INICIATIVA INIC WHERE INIC.ASOCIADO_ACCION = I.ID_INICIATIVA))) + (SELECT SUM(REDUCIDO) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA = I.ID_INICIATIVA) 
+                        END GEI_TOTAL,
                         --(SELECT SUM(REDUCIDO) FROM T_GENM_ACUMULADO WHERE ID_INICIATIVA = I.ID_INICIATIVA) GEI_TOTAL,
                         
                         (SELECT NVL(SUM(INVERSION),0) FROM T_GEND_INICIATIVA_INVERSION WHERE ID_INICIATIVA IN ((SELECT INIC.ID_INICIATIVA FROM T_GENM_INICIATIVA INIC WHERE INIC.ASOCIADO_ACCION = I.ID_INICIATIVA))) + (SELECT NVL(SUM(INVERSION),0) FROM T_GEND_INICIATIVA_INVERSION WHERE ID_INICIATIVA = I.ID_INICIATIVA) INVERSION_INICIATIVA,
@@ -3868,7 +4268,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
         INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
         INNER JOIN      T_MAE_MEDMIT M ON I.ID_MEDMIT=M.ID_MEDMIT
-        LEFT JOIN      T_MAE_MONEDA MON ON I.ID_MONEDA=MON.ID_MONEDA
+        LEFT JOIN       T_MAE_MONEDA MON ON I.ID_MONEDA=MON.ID_MONEDA
 
         WHERE           (I.ID_INICIATIVA = pIdIniciativa OR pIdIniciativa =0)
                         AND (I.ID_MEDMIT = pIdMedida OR pIdMedida = 0)
@@ -4358,16 +4758,77 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         pRefcursor OUT SYS_REFCURSOR
     )AS
     BEGIN
-        OPEN pRefcursor FOR
-
-        SELECT NVL(SUM(NVL(I.GEI_TOTAL,0)),0) TOTAL_GEI, NVL(SEC.DESCRIPCION,'SECTOR PUBLICO') DESCRIPCION, NVL(SEC.ID_SECTOR_INST,1)
-        FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        WHERE I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO,'1') = '1' --ADD 08/03/2021
-        GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
-        ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
+        IF pID_MEDMIT = 4 THEN
+          OPEN pRefcursor FOR
+          SELECT
+              SUM(TOTAL_GEI) TOTAL_GEI, DESCRIPCION, ID_SECTOR_INST FROM (
+              SELECT
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                ELSE 0
+              END TOTAL_GEI,
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                    WHERE ID_MEDMIT = 4 
+                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                    AND ID_PARAMETRO = 94 
+                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                        FROM T_MAEM_INDICADOR_DATA 
+                                        WHERE ID_MEDMIT = 4 
+                                        AND ID_INICIATIVA = I.ID_INICIATIVA
+                                        AND ID_PARAMETRO = 91 
+                                        AND VALOR = 3)),0,4)
+                WHEN AIF.ID_ESTADO = 2 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                WHERE ID_MEDMIT = 4 
+                                AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                AND ID_PARAMETRO = 92 
+                                AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                         FROM T_MAEM_INDICADOR_DATA 
+                                         WHERE ID_MEDMIT = 4 
+                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                         AND ID_PARAMETRO = 91 
+                                         AND VALOR = 2)),0,4)
+                ELSE ''          
+              END ANNO,
+              I.ID_INICIATIVA,
+              AIF.ID_INDICADOR,
+              AIF.ID_ESTADO,
+              SEC.ID_SECTOR_INST,
+              SEC.DESCRIPCION
+              FROM T_GENM_INICIATIVA I
+              LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+              LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+              LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+              INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+              WHERE I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO, '1') = '1'
+              )T1 
+              WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE)
+              GROUP BY ID_SECTOR_INST, DESCRIPCION
+              ORDER BY ID_SECTOR_INST ASC;
+        ELSE
+          OPEN pRefcursor FOR
+          SELECT NVL(SUM(AI.REDUCIDO),0) TOTAL_GEI, DESCRIPCION, ID_SECTOR_INST
+          FROM T_GENM_ACUMULADO AI
+          LEFT JOIN T_GENM_INICIATIVA I ON AI.ID_INICIATIVA = I.ID_INICIATIVA
+          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+          WHERE I.ID_MEDMIT = 8 AND NVL(I.FLG_ESTADO, '1') = '1'
+          GROUP BY ID_SECTOR_INST, DESCRIPCION
+          ORDER BY ID_SECTOR_INST ASC;
+          
+          --SELECT NVL(SUM(NVL(I.GEI_TOTAL,0)),0) TOTAL_GEI, NVL(SEC.DESCRIPCION,'SECTOR PUBLICO') DESCRIPCION, NVL(SEC.ID_SECTOR_INST,1)
+          --FROM T_GENM_INICIATIVA I
+          --LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+          --LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+          --LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+          --WHERE I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO,'1') = '1' --ADD 08/03/2021
+          --GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
+          --ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
+        END IF;        
     END USP_SEL_MED_SECTOR;
 
     PROCEDURE USP_SEL_ANNO(
@@ -4455,19 +4916,70 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         pRefcursor OUT SYS_REFCURSOR
     )AS
     BEGIN
-        OPEN pRefcursor FOR
-
-        SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI, A.DESCRIPCION ANNO, SEC.ID_SECTOR_INST
-        FROM T_GENM_ACUMULADO IA
-        INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        LEFT JOIN T_MAE_ANNO A ON IA.ANNO = A.DESCRIPCION
-        --WHERE IA.ANNO <= pANNO AND I.ID_MEDMIT = pID_MEDMIT
-        WHERE IA.ANNO < pANNO AND I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO, '1') = '1'
-        GROUP BY IA.ANNO, A.DESCRIPCION, SEC.DESCRIPCION, SEC.ID_SECTOR_INST
-        ORDER BY IA.ANNO ASC;
+        IF pID_MEDMIT = 4 THEN
+              OPEN pRefcursor FOR
+              SELECT
+              SUM(TOTAL_GEI) TOTAL_GEI, ANNO, ID_SECTOR_INST FROM (
+              SELECT
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                ELSE 0
+              END TOTAL_GEI,
+              CASE
+                WHEN AIF.ID_ESTADO = 3 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                    WHERE ID_MEDMIT = 4 
+                    AND ID_INICIATIVA = I.ID_INICIATIVA
+                    AND ID_PARAMETRO = 94 
+                    AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                        FROM T_MAEM_INDICADOR_DATA 
+                                        WHERE ID_MEDMIT = 4 
+                                        AND ID_INICIATIVA = I.ID_INICIATIVA
+                                        AND ID_PARAMETRO = 91 
+                                        AND VALOR = 3)),0,4)
+                WHEN AIF.ID_ESTADO = 2 THEN 
+                    SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                WHERE ID_MEDMIT = 4 
+                                AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                AND ID_PARAMETRO = 92 
+                                AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                         FROM T_MAEM_INDICADOR_DATA 
+                                         WHERE ID_MEDMIT = 4 
+                                         AND ID_INICIATIVA = I.ID_INICIATIVA
+                                         AND ID_PARAMETRO = 91 
+                                         AND VALOR = 2)),0,4)
+                ELSE ''          
+              END ANNO,
+              I.ID_INICIATIVA,
+              AIF.ID_INDICADOR,
+              AIF.ID_ESTADO,
+              SEC.ID_SECTOR_INST
+              FROM T_GENM_INICIATIVA I
+              LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+              LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+              LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+              INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+              WHERE I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO, '1') = '1'
+              )T1 
+              WHERE ID_ESTADO > 1 AND ANNO < pANNO
+              GROUP BY ANNO, ID_SECTOR_INST
+              ORDER BY ANNO ASC;
+        ELSE
+          OPEN pRefcursor FOR
+          SELECT NVL(SUM(NVL(IA.REDUCIDO,0)),0) TOTAL_GEI, A.DESCRIPCION ANNO, SEC.ID_SECTOR_INST
+          FROM T_GENM_ACUMULADO IA
+          INNER JOIN T_GENM_INICIATIVA I ON IA.ID_INICIATIVA = I.ID_INICIATIVA
+          LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+          LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+          LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+          LEFT JOIN T_MAE_ANNO A ON IA.ANNO = A.DESCRIPCION
+          --WHERE IA.ANNO <= pANNO AND I.ID_MEDMIT = pID_MEDMIT
+          WHERE IA.ANNO < pANNO AND I.ID_MEDMIT = pID_MEDMIT AND NVL(I.FLG_ESTADO, '1') = '1'
+          GROUP BY IA.ANNO, A.DESCRIPCION, SEC.DESCRIPCION, SEC.ID_SECTOR_INST
+          ORDER BY IA.ANNO ASC;
+        END IF;
+        
 
     END USP_SEL_INI_MED_ANNO;
 
@@ -4478,9 +4990,60 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
     BEGIN
         OPEN pRefcursor FOR
         SELECT
-            
-            (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO
-            WHERE ANNO < EXTRACT(YEAR FROM SYSDATE) AND ID_MEDMIT = pID_MEDMIT) TOTAL_GEI_REDUCIDO,
+            CASE
+              WHEN pID_MEDMIT = 4 THEN
+                (SELECT
+                SUM(TOTAL_GEI) FROM (
+                SELECT
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                  WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                  ELSE 0
+                END TOTAL_GEI,
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                      WHERE ID_MEDMIT = 4 
+                      AND ID_INICIATIVA = I.ID_INICIATIVA
+                      AND ID_PARAMETRO = 94 
+                      AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                          FROM T_MAEM_INDICADOR_DATA 
+                                          WHERE ID_MEDMIT = 4 
+                                          AND ID_INICIATIVA = I.ID_INICIATIVA
+                                          AND ID_PARAMETRO = 91 
+                                          AND VALOR = 3)),0,4)
+                  WHEN AIF.ID_ESTADO = 2 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                  WHERE ID_MEDMIT = 4 
+                                  AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                  AND ID_PARAMETRO = 92 
+                                  AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                           FROM T_MAEM_INDICADOR_DATA 
+                                           WHERE ID_MEDMIT = 4 
+                                           AND ID_INICIATIVA = I.ID_INICIATIVA
+                                           AND ID_PARAMETRO = 91 
+                                           AND VALOR = 2)),0,4)
+                  ELSE ''          
+                END ANNO,
+                I.ID_INICIATIVA,
+                AIF.ID_INDICADOR,
+                AIF.ID_ESTADO,
+                SEC.ID_SECTOR_INST,
+                SEC.DESCRIPCION
+                FROM T_GENM_INICIATIVA I
+                LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
+                LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+                LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+                INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1'
+                )T1 
+                WHERE ID_ESTADO > 1 AND ANNO < EXTRACT(YEAR FROM SYSDATE))
+              ELSE
+                (SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO
+                 WHERE ANNO < EXTRACT(YEAR FROM SYSDATE) AND ID_MEDMIT = pID_MEDMIT) 
+            END TOTAL_GEI_REDUCIDO,
+            --(SELECT NVL(SUM(REDUCIDO),0) FROM T_GENM_ACUMULADO
+            -- WHERE ANNO < EXTRACT(YEAR FROM SYSDATE) AND ID_MEDMIT = pID_MEDMIT) TOTAL_GEI_REDUCIDO,
 
             (SELECT COUNT(DISTINCT UI.ID_UBICACION)
             FROM T_GENM_INICIATIVA I
@@ -4501,12 +5064,70 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
     BEGIN
         OPEN pRefcursor FOR
 
-        SELECT SUM(AC.REDUCIDO) TOTAL_GEI, AC.ID_MEDMIT, MM.NOMBRE_MEDMIT
-        FROM    T_GENM_ACUMULADO AC
-        LEFT JOIN   T_MAE_MEDMIT MM ON AC.ID_MEDMIT = MM.ID_MEDMIT
-        WHERE AC.ANNO = pANNO
-        GROUP BY AC.ID_MEDMIT, MM.NOMBRE_MEDMIT
-        ORDER BY AC.ID_MEDMIT;
+        SELECT 
+        
+        CASE
+            WHEN MM.ID_MEDMIT = 4 THEN
+                NVL((SELECT
+                SUM(TOTAL_GEI) FROM (
+                SELECT
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN VERIFICADO
+                  WHEN AIF.ID_ESTADO = 2 THEN IMPLEMENTADO
+                  ELSE 0
+                END TOTAL_GEI,
+                CASE
+                  WHEN AIF.ID_ESTADO = 3 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                      WHERE ID_MEDMIT = 4 
+                      AND ID_INICIATIVA = I.ID_INICIATIVA
+                      AND ID_PARAMETRO = 94 
+                      AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                          FROM T_MAEM_INDICADOR_DATA 
+                                          WHERE ID_MEDMIT = 4 
+                                          AND ID_INICIATIVA = I.ID_INICIATIVA
+                                          AND ID_PARAMETRO = 91 
+                                          AND VALOR = 3)),0,4)
+                  WHEN AIF.ID_ESTADO = 2 THEN 
+                      SUBSTR((SELECT MIN(VALOR) FROM T_MAEM_INDICADOR_DATA 
+                                  WHERE ID_MEDMIT = 4 
+                                  AND ID_INICIATIVA = I.ID_INICIATIVA 
+                                  AND ID_PARAMETRO = 92 
+                                  AND ID_INDICADOR IN (SELECT ID_INDICADOR 
+                                           FROM T_MAEM_INDICADOR_DATA 
+                                           WHERE ID_MEDMIT = 4 
+                                           AND ID_INICIATIVA = I.ID_INICIATIVA
+                                           AND ID_PARAMETRO = 91 
+                                           AND VALOR = 2)),0,4)
+                  ELSE ''          
+                END ANNO,
+                I.ID_INICIATIVA,
+                AIF.ID_INDICADOR,
+                AIF.ID_ESTADO,
+                MD.ID_MEDMIT,
+                MD.NOMBRE_MEDMIT
+                FROM T_GENM_INICIATIVA I
+                INNER JOIN T_MAE_MEDMIT MD ON I.ID_MEDMIT = MD.ID_MEDMIT
+                INNER JOIN T_GEND_INDICADOR_AIF AIF ON I.ID_INICIATIVA = AIF.ID_INICIATIVA
+                WHERE I.ID_MEDMIT = 4 AND NVL(I.FLG_ESTADO, '1') = '1'
+                )T1 
+                WHERE ID_ESTADO > 1 
+                AND ANNO < EXTRACT(YEAR FROM SYSDATE) 
+                AND ANNO = pANNO),0)
+            
+            ELSE
+                NVL((SELECT SUM(REDUCIDO) FROM T_GENM_ACUMULADO WHERE ID_MEDMIT = MM.ID_MEDMIT AND ANNO = pANNO),0)
+            END TOTAL_GEI, 
+        
+        MM.ID_MEDMIT, MM.NOMBRE_MEDMIT
+        FROM    T_MAE_MEDMIT MM;
+
+        --SELECT SUM(AC.REDUCIDO) TOTAL_GEI, AC.ID_MEDMIT, MM.NOMBRE_MEDMIT
+        --FROM    T_GENM_ACUMULADO AC
+        --LEFT JOIN   T_MAE_MEDMIT MM ON AC.ID_MEDMIT = MM.ID_MEDMIT
+        --WHERE AC.ANNO = pANNO
+        --GROUP BY AC.ID_MEDMIT, MM.NOMBRE_MEDMIT
+        --ORDER BY AC.ID_MEDMIT;
 
     END USP_SEL_MOSTRAR_GEI_MED;
 
@@ -6563,8 +7184,12 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
     BEGIN
         OPEN PO FOR
         SELECT * FROM T_GENM_INICIATIVA
-        WHERE USUARIO_REGISTRO = PI_ID_USUARIO AND ID_MEDMIT = PI_ID_MEDMIT AND ASOCIADO_ACCION = 0 AND NVL(FLG_ESTADO,'1') = '1' AND NOT ID_INICIATIVA = PI_ID_INICIATIVA
-	ORDER BY ID_INICIATIVA ASC;
+        WHERE USUARIO_REGISTRO = PI_ID_USUARIO 
+        AND ID_MEDMIT = PI_ID_MEDMIT AND ASOCIADO_ACCION = 0 
+        AND NVL(FLG_ESTADO,'1') = '1' 
+        AND ID_ETAPA > 1
+        AND NOT ID_INICIATIVA = PI_ID_INICIATIVA
+        ORDER BY ID_INICIATIVA ASC;
     END USP_SEL_ACCION_MEDIDA;
   
   
@@ -7152,6 +7777,9 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
     )AS
         vIdUsuario NUMBER;
         vIdDetalleIniciativa NUMBER;
+        vIniciativaAsociado NUMBER;
+        vMonedaAsociado NUMBER;
+        vMonedaActual NUMBER;
     BEGIN --SE MODIFICO 18-01-20
 
         IF pID_TIPO_INICIATIVA > 0 THEN
@@ -7168,7 +7796,18 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
                     ID_PLAZO_ETAPA_ESTADO = 6 --add
             WHERE   ID_INICIATIVA = pID_INICIATIVA;
         END IF;
-
+        
+        SELECT ASOCIADO_ACCION INTO vIniciativaAsociado FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
+        IF vIniciativaAsociado > 0 THEN
+              SELECT ID_MONEDA INTO vMonedaAsociado FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = vIniciativaAsociado;
+              SELECT ID_MONEDA INTO vMonedaActual FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
+              IF vMonedaAsociado = 0 AND vMonedaActual > 0 THEN
+                --UPDATE T_GENM_INICIATIVA SET ID_MONEDA = vMonedaActual WHERE ID_INICIATIVA = vIniciativaAsociado;
+                UPDATE T_GENM_INICIATIVA SET ID_MONEDA = vMonedaActual WHERE ID_INICIATIVA IN (SELECT ID_INICIATIVA 
+                                                                                               FROM T_GENM_INICIATIVA
+                                                                                               WHERE ASOCIADO_ACCION = vIniciativaAsociado OR ID_INICIATIVA = vIniciativaAsociado);
+              END IF;
+        END IF;
 
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
@@ -12022,6 +12661,9 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
         PI_USUARIO_REGISTRO IN NUMBER
     )IS
         vId NUMBER;
+        vIniciativaAsociado NUMBER;
+        vMonedaAsociado NUMBER;
+        vMonedaActual NUMBER;
     BEGIN
 
         SELECT COUNT(*) INTO vId FROM T_GEND_INICIATIVA_INVERSION WHERE ID_INICIATIVA = PI_ID_INICIATIVA AND ANIO = PI_ANIO;
@@ -12037,6 +12679,31 @@ PROCEDURE USP_SEL_INSTITUCION_ACCION(
             FECHA_MODIFICA = SYSDATE
             WHERE ID_INICIATIVA = PI_ID_INICIATIVA AND ANIO = PI_ANIO;
         END IF;
+        
+        SELECT ASOCIADO_ACCION INTO vIniciativaAsociado FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+        IF vIniciativaAsociado > 0 THEN
+              SELECT ID_MONEDA INTO vMonedaAsociado FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = vIniciativaAsociado;
+              SELECT ID_MONEDA INTO vMonedaActual FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+              IF vMonedaAsociado = 0 AND vMonedaActual = 0 AND PI_MONEDA > 0 THEN
+                UPDATE T_GENM_INICIATIVA SET ID_MONEDA = PI_MONEDA WHERE ID_INICIATIVA IN (SELECT ID_INICIATIVA 
+                                                                                               FROM T_GENM_INICIATIVA
+                                                                                               WHERE ASOCIADO_ACCION = vIniciativaAsociado OR ID_INICIATIVA = vIniciativaAsociado);
+                                                                                               
+                UPDATE T_GEND_INICIATIVA_INVERSION SET MONEDA = PI_MONEDA WHERE ID_INICIATIVA IN (SELECT ID_INICIATIVA 
+                                                                                               FROM T_GENM_INICIATIVA
+                                                                                               WHERE ASOCIADO_ACCION = vIniciativaAsociado OR ID_INICIATIVA = vIniciativaAsociado);
+              END IF;
+        ELSE            
+            SELECT ID_MONEDA INTO vMonedaAsociado FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+            IF vMonedaAsociado = 0 THEN
+                UPDATE T_GENM_INICIATIVA SET ID_MONEDA = PI_MONEDA WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+                UPDATE T_GEND_INICIATIVA_INVERSION SET MONEDA = PI_MONEDA WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+            END IF;
+        END IF;
+        
+        UPDATE T_GENM_INICIATIVA 
+        SET INVERSION_INICIATIVA = (SELECT NVL(SUM(INVERSION),0) FROM T_GEND_INICIATIVA_INVERSION WHERE ID_INICIATIVA = PI_ID_INICIATIVA)
+        WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
 
     END USP_PRC_MONTO_INVERSION;
     

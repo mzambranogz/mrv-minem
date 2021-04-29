@@ -343,6 +343,12 @@ function CargarDatosIniciativa() {
                             }
                         }
 
+                        let moneda = data[i]["ID_MONEDA"]
+                        if (moneda > 0) {
+                            $('[id*="ms-20"]').val(moneda)
+                            $('[id*="ms-20"]').prop('disabled', true)
+                        }
+
                         //if (data[i]["ListaSustentos"] != null) {
                         //    for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
 
@@ -4199,3 +4205,7 @@ var agregarValorAIF = (e, obj, ind) => {
     }
 }
 
+$(document).on('change', '[id*=ms-20]', (e) => {
+    let moneda = $(`#${e.target.id}`).val()
+    $('[id*=ms-20]').val(moneda)
+})

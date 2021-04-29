@@ -286,7 +286,7 @@ function CargarDatosIniciativa() {
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                         } else {
                             $("#txt-moneda").val("------");
-                        }
+                        }                        
 
                         //$("#txt-moneda").val(data[i]["MONEDA"]);
                         if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -329,6 +329,12 @@ function CargarDatosIniciativa() {
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
                                 $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
                             }
+                        }
+
+                        let moneda = data[i]["ID_MONEDA"]
+                        if (moneda > 0) {
+                            $('[id*="ms-20"]').val(moneda)
+                            $('[id*="ms-20"]').prop('disabled', true)
                         }
 
                         //if (data[i]["ListaSustentos"] != null) {
@@ -7029,3 +7035,8 @@ var validarOpcionesEstadoAuditoria = (id, valor) => {
         $(`${id} option[value="0"]`).attr("hidden", true);        
     }
 }
+
+$(document).on('change', '[id*=ms-20]', (e) => {
+    let moneda = $(`#${e.target.id}`).val()
+    $('[id*=ms-20]').val(moneda)
+})

@@ -231,7 +231,7 @@ UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Etiquetado calentadores agua eléc
 UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Etiquetado calentadores agua (Gas natural)' WHERE ID_ENFOQUE = 22;
 UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Etiquetado calentadores agua (GLP)' WHERE ID_ENFOQUE = 23;
 UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Etiquetado calentadores agua (GLP)' WHERE ID_ENFOQUE = 23;
-UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Eficiencia energ. sector industrial (Motor)' WHERE ID_ENFOQUE = 24;
+UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Eficiencia energ. sector industrial (Motor)', ID_MEDMIT = 2 WHERE ID_ENFOQUE = 24;
 UPDATE mrvmm.T_GENM_ENFOQUE SET DESCRIPCION = 'Auditorias energéticas' WHERE ID_ENFOQUE = 25;
 commit;
 prompt 25 records loaded
@@ -7429,8 +7429,10 @@ insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle
 values (60, 3, 'Fluorescente circular', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (60, 4, 'Ahorrador(LFC)', '1');
+--insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
+--values (60, 5, 'LED', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (60, 5, 'LED', '1');
+values (60, 5, 'Otros', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (54, 1, 'galones', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -7447,6 +7449,8 @@ insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle
 values (57, 2, 'Incandescente', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (57, 3, 'Ahorrador (LFC)', '1');
+insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
+values (57, 4, 'Otros', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (59, 1, 'Vapor de sodio (VSAP)', '1');
 insert into mrvmm.T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)

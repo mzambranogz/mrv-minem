@@ -219,6 +219,8 @@ $(document).ready(function () {
     var monto = $("#txt-monto-inversion").val();
     //$("#txt-monto-inversion").val(formatoMiles(monto)); //add20
 
+    if ($('#ingresar-monto')[0] != undefined) loadMoneda()
+
     if (monto != "------") { // add 030620
         $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
     }
@@ -564,4 +566,60 @@ var nombreresumen = (medida, enfoque) => {
         $('#nombre-resumen').html("Emisiones de GEI reducidas");
     else
         $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
+}
+
+var loadMoneda = () => {
+    var anio = (new Date).getFullYear();
+    deshabilitarMontos(anio);
+    let opciones = '';
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMoneda",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    opciones += '<option value="' + data[i]["ID_MONEDA"] + '">' + data[i]["DESCRIPCION"] + '</option>';
+                }
+                $('[id*=ms-]').each((x, y) => {
+                    $(y).append(opciones);
+                });
+                asignarMontos();
+            }
+        }
+    });
+}
+
+var asignarMontos = () => {
+    let opciones = '';
+    var Item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMontos",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    let anio = data[i]["ANIO"];
+                    $(`#ms-${anio}`).val(data[i]["MONEDA"]);
+                    $(`#m-${anio}`).val(formatoMiles(data[i]["INVERSION"]));
+                }
+                $('[id*=ms-20]').prop('disabled', true)
+                $('[id*=m-20]').prop('disabled', true)
+            }
+        }
+    });
+}
+
+var deshabilitarMontos = (anio) => {
+    for (var i = anio; i <= 2030; i++) {
+        $(`#ms-${i}`).parent().parent().addClass('d-none');
+    }
 }

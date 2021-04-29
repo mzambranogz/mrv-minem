@@ -1,4 +1,5 @@
 ﻿var accion_asociado = 0;
+var moneda_actual = 0
 function fn_cargarUbicacion() {
     var Item =
     {
@@ -139,6 +140,7 @@ function fn_cargarIniciativa() {
                         }
                          
                         if ($("#Control").data("revision") == 0) {
+                            moneda_actual = data[i]["ID_MONEDA"]
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
                             $("#cbo-tipo-iniciativa-mitigacion").val(data[i]["ID_TIPO_INICIATIVA"]); // add 16-03-20
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -641,7 +643,6 @@ function fn_GuardarIniciativaMitigacion() {
 }
 
 function fn_guardarAvances() {
-    debugger;
     if ($("#Control").data("iniciativa") == 0) {
         fn_registrarAvance();
     } else {
@@ -684,7 +685,7 @@ function fn_ObtenerMedidaMitigacion(id) {
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         $("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span>' + data[i]["NOMBRE_MEDMIT"] + '</span>');
-                        $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_MEDMIT"]); //add
+                        if ($("#Control").data("revision") == 0) $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_MEDMIT"]); //add
                         listaAccion();
                     }
                 }
@@ -1418,6 +1419,67 @@ var listaAccion = () => {
             //
             if ($("#Control").data("iniciativa") > 0)
                 $('#cbo-accion-asociado').val(accion_asociado);
+            VerificarMonedaIniciativa()
         }
     });
+}
+
+var arrMoneda = []
+$(document).on('change', '#cbo-accion-asociado', () => {
+    VerificarMonedaIniciativa()
+})
+
+var VerificarMonedaIniciativa = () => {
+    let asociado = $('#cbo-accion-asociado').val()
+    if (asociado == 0) {
+        $('#cbo-moneda').val(0)
+        $("#cbo-moneda").prop('disabled', false)
+        return
+    } else {
+        let v = arrMoneda.findIndex(x => { return x.ID_INICIATIVA == asociado })
+        if (v != -1) {
+            let obj = arrMoneda.find(x => { return x.ID_INICIATIVA == asociado })
+            let moneda = obj.ID_MONEDA
+            if (moneda > 0) {
+                $("#cbo-moneda").val(moneda)
+                $("#cbo-moneda").prop('disabled', true)
+            } else {
+                $("#cbo-moneda").val(moneda)
+                $("#cbo-moneda").prop('disabled', false)
+            }
+        } else {
+            var Item =
+            {
+                ID_INICIATIVA: asociado
+            };
+            $.ajax({
+                url: baseUrl + "Gestion/CargarSeleccionIniciativa",
+                type: 'POST',
+                datatype: 'json',
+                data: Item,
+                success: function (data) {
+                    if (data != null && data != "") {
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
+                                let moneda = data[i]["ID_MONEDA"]
+                                if (moneda > 0) {
+                                    $("#cbo-moneda").val(moneda)
+                                    $("#cbo-moneda").prop('disabled', true)
+                                } else {
+                                    if (moneda_actual == 0 && moneda == 0) {
+                                        $("#cbo-moneda").val(moneda)
+                                    }                                    
+                                    $("#cbo-moneda").prop('disabled', false)
+                                }
+                                arrMoneda.push({
+                                    ID_INICIATIVA: asociado,
+                                    ID_MONEDA: moneda
+                                })
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
 }
