@@ -1411,26 +1411,34 @@ namespace MRVMinem.Controllers
             int validar = IniciativaLN.ValidarVista(entidad.ID_INICIATIVA);
             if (validar == 21)
             {
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                if (block.OK)
+                {
+                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                    itemRespuesta.extra2 = block.HASH;
+                }
+
+                entidad.BLOCKCHAIN = block.HASH;
+                entidad.ID_USUARIO_DESTINO = Convert.ToInt32(Session["usuario_destino"]);
+                entidad.NOMBRES = Convert.ToString(Session["nombres"]);
                 entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
                 if (entidad.OK)
                 {
                     //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    IniciativaBE iniciativa = new IniciativaBE();
-                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                    //IniciativaBE iniciativa = new IniciativaBE();
+                    //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+
+                    IniciativaBE iniciativa = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = entidad.ID_INICIATIVA });
+                    iniciativa.VALIDAR_RUTA = 1;
+                    iniciativa.EMAIL_USUARIO = iniciativa.EMAIL_USUARIO;
+
                     iniciativa.ASUNTO = "Evaluación acción de mitigación y detalle Indicador - MRVMinem ";
                     iniciativa.DESCRIPCION = "Los detalles de indicadores y la acción de mitigación (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobados por el Evaluador MINAM<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                     Session["correo_destino"] = "";
-                    Session["usuario_destino"] = 0;
-
-                    BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
-                    block = BlockChainLN.GeneraBlockChain(block);
-                    if (block.OK)
-                    {
-                        itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
-                        itemRespuesta.extra2 = block.HASH;
-                    }
+                    Session["usuario_destino"] = 0;                    
                 }
             }
 

@@ -491,7 +491,10 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                    p.Add("pID_ADMINISTRADOR", entidad.ID_ADMINISTRADOR);
+                    //p.Add("pID_ADMINISTRADOR", entidad.ID_ADMINISTRADOR);
+                    p.Add("pID_USUARIO_DESTINO", entidad.ID_USUARIO_DESTINO);
+                    p.Add("pBLOCKCHAIN", entidad.BLOCKCHAIN);
+                    p.Add("pNOMBRES", entidad.NOMBRES);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

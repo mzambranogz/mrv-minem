@@ -339,9 +339,13 @@ function drawColumnChart(data) {
 }
 
 $(document).on("change", "#cboAnioPeriodo", function () {
+    TotalGEIAnno()
+});
+
+var TotalGEIAnno = () => {
     var anno = $("#cboAnioPeriodo").val();
     calcularTotalGei(anno);
-});
+}
 
 function calcularTotalGei(anno) {
     var item = {
@@ -393,8 +397,9 @@ function calcularTotalGei(anno) {
 }
 
 $(document).ready(function () {
-    var anno = (new Date).getFullYear();
-    calcularTotalGei(anno);
+    //var anno = (new Date).getFullYear();
+    //calcularTotalGei(anno);
+    TotalGEIAnno()
 });
 
 function formatoMiles(n) { //add20
