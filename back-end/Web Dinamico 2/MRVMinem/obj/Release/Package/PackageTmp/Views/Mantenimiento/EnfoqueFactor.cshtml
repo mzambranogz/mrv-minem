@@ -65,8 +65,11 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-sm-12 col-md-12 col-lg-6">
                                     <button class="btn btn-primary w-100 mb-1" onclick="fn_recalcular()"><i class="fas fa-calculator px-1"></i>Recalcular valores</button>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-primary w-100 mb-2" data-toggle="modal" data-target="#modal-asignar"><i class="fas fa-box px-1"></i>Asignar relación</button>
                                 </div>
                             </div>
 
@@ -89,8 +92,8 @@
                                 <thead>
                                     <tr class="bg-primary text-white">
                                         <th class="text-center" scope="col" width="3%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ENFOQUE"></i></span></th>
-                                        <th scope="col" width="17%"><span class="miColumna">Enfoque &nbsp;<i class="fas fa-sort"  style="color: lightgray" id="DESCRIPCION"></i></span></th>
-                                        <th class="text-center" scope="col" width="15%"><span class="miColumna">Medida de Mitigación &nbsp;<i class="fas fa-sort"  style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th scope="col" width="17%"><span class="miColumna">Enfoque &nbsp;<i class="fas fa-sort" style="color: lightgray" id="DESCRIPCION"></i></span></th>
+                                        <th class="text-center" scope="col" width="15%"><span class="miColumna">Medida de Mitigación &nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
                                         <th class="text-center" scope="col" width="60%"><span>Factor(es) &nbsp;</span></th>
                                         <th class="text-center" scope="col" width="5%">Más</th>
                                     </tr>
@@ -219,7 +222,7 @@
                                                     <option value="0" selected>[ - Seleccione - ]</option>
                                                     @foreach (var item in Model.listaFactor)
                                                     {
-                                                        var factor = "[F"+@item.ID_FACTOR+"]";
+                                                        var factor = "[F" + @item.ID_FACTOR + "]";
                                                         <option value="@item.ID_FACTOR">&nbsp;@factor&nbsp;@item.NOMBRE_FACTOR</option>
                                                     }
                                                     @*<option value="1">FACTOR BAU</option>
@@ -532,7 +535,7 @@
                             </div>
                             <div id="botones-cerrar2" hidden>
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -585,6 +588,128 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-asignar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Asignar valor por defecto <br><small class="text-muted"></small></h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body medidas-modal">
+                @*<div class="row">
+                        <div class="col-12">
+                            <h6 class="font-weight-bold">Asignar valor por defecto</h6>
+                        </div>
+                    </div>*@
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label for="cbo-sector">Enfoque</label><span class="text-danger font-weight-bold">&nbsp;</span>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list"></i></span></div>
+                                <select class="form-control" id="cbo-enfoque-asignar" aria-describedby="inputGroup9">
+                                    <option value="0">- Seleccione un enfoque -</option>
+                                    @foreach (var item in Model.listaEnfoque)
+                                    {
+                                        <option value="@item.ID_ENFOQUE">[F@(item.ID_ENFOQUE)] @item.DESCRIPCION</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <div class="form-group">
+                            <label for="cbo-sector">Parámetro base</label><span class="text-danger font-weight-bold">&nbsp;</span>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list"></i></span></div>
+                                <select class="form-control" id="cbo-parametro-asignar" aria-describedby="inputGroup9" disabled>
+                                    @*<option value="0">-Seleccione un sector-</option>*@
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <div class="form-group">
+                            <label for="cbo-sector">Parámetro filtrado</label><span class="text-danger font-weight-bold">&nbsp;</span>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list"></i></span></div>
+                                <select class="form-control" id="cbo-parametro-filtro" aria-describedby="inputGroup9" disabled></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
+                            <table class="table table-hover" id="tablaFactor" data-fila="0">
+                                <thead id="CabeceraAsignar">
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col" width="50%"><span>Valores&nbsp;</span></th>
+                                        <th class="text-center" scope="col" width="50%"><span>Valor filtrado &nbsp;</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoAsignar"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="mensajeCorrecto2" hidden>
+                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                <div class="alert-wrap mr-3">
+                                    <div class="sa">
+                                        <div class="sa-success">
+                                            <div class="sa-success-tip"></div>
+                                            <div class="sa-success-long"></div>
+                                            <div class="sa-success-placeholder"></div>
+                                            <div class="sa-success-fix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alert-wrap">
+                                    <h6>Bien hecho</h6>
+                                    <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mensajeError2" hidden>
+                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                <div class="alert-wrap mr-3">
+                                    <div class="sa">
+                                        <div class="sa-error">
+                                            <div class="sa-error-x">
+                                                <div class="sa-error-left"></div>
+                                                <div class="sa-error-right"></div>
+                                            </div>
+                                            <div class="sa-error-placeholder"></div>
+                                            <div class="sa-error-fix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alert-wrap">
+                                    <h6>Error de registro</h6>
+                                    <hr><small class="mb-0">Ocurrió un problema durante el guardado de los datos, por favor intente nuevamente.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div id="botones-guardar2">
+                    <button class="btn btn-primary" type="button" onclick="guardarRelacionParametro()">Guardar</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                </div>
+                <div id="botones-cerrar2" hidden>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,9 +1,8 @@
 
 var indicadores = new Array();
 var documentos = new Array();
-
+var arrAIV = [];
 var eliminar_item;
-
 
 function fn_crearLinea(fila) {
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
@@ -275,10 +274,10 @@ function CargarDatosIniciativa() {
                         $("#txt-nombre-institucion").val(data[i]["INSTITUCION"]);
                         $("#txt-direccion").val(data[i]["DIRECCION"]);
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
-                        
+
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
-                            $("#txt-monto-inversion").val( data[i]["INVERSION_INICIATIVA"] == null ? '------' : formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                            $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"] == null ? '------' : formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
                         } else {
                             $("#txt-monto-inversion").val("------");//add 030620
                         }
@@ -287,7 +286,7 @@ function CargarDatosIniciativa() {
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                         } else {
                             $("#txt-moneda").val("------");
-                        }
+                        }                        
 
                         //$("#txt-moneda").val(data[i]["MONEDA"]);
                         if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -330,6 +329,12 @@ function CargarDatosIniciativa() {
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
                                 $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
                             }
+                        }
+
+                        let moneda = data[i]["ID_MONEDA"]
+                        if (moneda > 0) {
+                            $('[id*="ms-20"]').val(moneda)
+                            $('[id*="ms-20"]').prop('disabled', true)
                         }
 
                         //if (data[i]["ListaSustentos"] != null) {
@@ -1695,7 +1700,8 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '     <div class="alert-wrap">';
-        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        //msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <h6></h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
         msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
@@ -1794,7 +1800,8 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '     <div class="alert-wrap">';
-        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        //msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <h6></h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
         msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target=""><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
@@ -2683,7 +2690,7 @@ function CargarArchivosGuardados() {
                     $("#archivos-documentos").html("");
                     $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
-                        
+
                         var extension = "fa-file-word";
 
                         if (data[i]["ADJUNTO"].includes("pdf")) {
@@ -2763,10 +2770,10 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
 
     let validar_fecha_imple = false;
-    if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFecha();
+    if ($("#Control").data("mitigacion") == 4 && (estado == 1 || estado == 5)) validar_fecha_imple = verificarFecha();
     if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la implementación de la acción de mitigación debe ingresar la fecha de implementación', '#mensajeModalRegistrar'); return; }
 
-    if ($("#Control").data("mitigacion") == 4) validar_fecha_imple = verificarFechaVerificacion();
+    if ($("#Control").data("mitigacion") == 4 && (estado == 1 || estado == 5)) validar_fecha_imple = verificarFechaVerificacion();
     if (validar_fecha_imple) { mensajeError('Por favor, si ha confirmado la verificación de la acción de mitigación debe ingresar la fecha de verificación', '#mensajeModalRegistrar'); return; }
 
     indicadores = [];
@@ -2814,10 +2821,10 @@ function fn_procesoDetalleIndicador(url, estado) {
             arrValores.push({
                 ID_INDICADOR: ind,
                 ADJUNTO: nom_t,
-                listaInd: ListaValores
+                listaInd: ListaValores,
+                objAIV: arrAIV[fila - 1],
             });
         }
-
     }
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
@@ -2848,7 +2855,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
     if (archivos == "") archivos = "|";
 
-    
+
     var id_delete = "";
     if ($("#cuerpoTablaIndicador").data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
@@ -2860,6 +2867,20 @@ function fn_procesoDetalleIndicador(url, estado) {
         id_eliminar = $("#total-documentos").data("eliminarfile");
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
     }
+
+    let arrInversion = [];
+    $('.anio').each((x, y) => {
+        let anio = $(y).data('valor');
+        let moneda = $(`#ms-${anio}`).val();
+        let inversion = $(`#m-${anio}`).val() == '' ? 0 : $(`#m-${anio}`).val().replace(/,/gi, '');
+        arrInversion.push({
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANIO: anio,
+            MONEDA: moneda,
+            INVERSION: inversion,
+            USUARIO_REGISTRO: $("#Control").data("usuario"),
+        });
+    });
 
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -2884,6 +2905,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
         FECHA_AUDITORIA: medida == 4 ? $('#fch-fecha-auditoria').val() : '',
+        listaMonto: arrInversion,
     };
 
     var options = {
@@ -2907,6 +2929,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
+                arrAIV = [];
                 //CargarDetalleDatos();  
                 if (estado == 0 || estado == 6) CargarArchivosGuardados();
                 if (estado == 0 || estado == 6) CargarDatosGuardados();
@@ -3081,7 +3104,7 @@ $("#guardar-avance").on("hidden.bs.modal", function () {
 });
 
 function fn_guardarDetalleIndicador() {
-    
+
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_validarArchivo(url, 1);
@@ -3095,7 +3118,7 @@ function fn_guardarAvances() {
 }
 
 function fn_corregirDetalleIndicador() {
-    
+
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_validarArchivo(url, 5);
@@ -3262,7 +3285,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            
+
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoTablaIndicador").html("");
@@ -3275,6 +3298,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         var tr = "";
                         tr += '<tr id="detalles-tr-' + (i + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
+                        let fecha_actual = new Date().getFullYear();
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
                             if (data[j]["ID_TIPO_CONTROL"] == 1) {
@@ -3288,14 +3312,12 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
-                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            tr += `<option value="${listaD[m]["NOMBRE_DETALLE"]}" ${listaD[m]["NOMBRE_DETALLE"] < 2021 ? '' : 'hidden'}>${listaD[m]["NOMBRE_DETALLE"]}</option>`;
                                         }
                                         tr += '</select>';
                                     } else {
-                                        //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
-                                        //tr += '        <option value="0">Seleccionar</option>';
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
                                             tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
@@ -3305,8 +3327,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" >`;
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3369,7 +3392,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
 
                         tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + (i + 1) + '">';
                         tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (i + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
-                        tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        //tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        tr += `          <input class="d-none" type="file" id="fle-doc-${(i + 1)}" name="fledoc" onchange="handleFileSustento(this.files,${(i + 1)},1)">`;
                         tr += '           <input id="fle-nom-' + (i + 1) + '" type="text" data-nomarchivo="" hidden>';//
                         //tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>'; //add 18-04-2020
@@ -3377,7 +3401,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
 
                         //tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
-                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
+                            tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
                         //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN quitarBtn" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
@@ -3404,12 +3428,13 @@ function CargarCuerpoGuardado(filas, xIndicador) {
 
 
 function handleFileSustento(evt, idIndicador, accion) {
+
     console.log(evt);
 
     detalleFiles = []; // add 12-02-2020
     ////////////////////////77
     var files = evt; //evt.target.files; // FileList object
-    
+
     // files is a FileList of File objects. List some properties.
     var output = [];
     var extension = "fa-file-word";
@@ -3457,7 +3482,7 @@ function handleFileSustento(evt, idIndicador, accion) {
                             if (xref[0].href.lastIndexOf("FileDownloadDetalle") != -1) {
                                 xref[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=I";
                             }
-                            
+
                             $("#fle-dow-" + idIndicador).removeAttr('style');
                             $("#fle-nom-" + idIndicador).val(nom_archivo); //add 18-04-2020
                         } else {
@@ -3504,7 +3529,7 @@ function CargarNuevaFila(filas) {
     }
     var arregloIDs = [];
     var rows = $("#cuerpoTablaIndicador tr").length;
-    
+
     $.ajax({
         async: false,
         url: baseUrl + 'Gestion/ListarCuerpoIndicador',
@@ -3524,6 +3549,7 @@ function CargarNuevaFila(filas) {
                         var tr = "";
                         tr += '<tr id="detalles-tr-' + (rows + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (rows + 1) + '</th>';
+                        let fecha_actual = new Date().getFullYear();
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
                             if (data[j]["ID_TIPO_CONTROL"] == 1) {
@@ -3537,14 +3563,16 @@ function CargarNuevaFila(filas) {
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
-                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            //tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                            tr += `<option value="${listaD[m]["NOMBRE_DETALLE"]}" ${listaD[m]["NOMBRE_DETALLE"] < 2021 ? '' : 'hidden'}>${listaD[m]["NOMBRE_DETALLE"]}</option>`;
                                         }
                                         tr += '</select>';
                                     } else {
-                                        
+
                                         //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                        //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3554,9 +3582,10 @@ function CargarNuevaFila(filas) {
                                     }
                                 } else {
                                     lista++;
-                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
                                     //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3621,14 +3650,25 @@ function CargarNuevaFila(filas) {
                         tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (rows + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
-                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
+                            tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
                         //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
+                        //===================================================
+                        let cuerpo = ``;
+                        cuerpo += `<tr id="f-${(rows + 1)}">`;
+                        cuerpo += `<td class="text-center estrecho">${(rows + 1)}</td>`;
+                        for (var m = 2010; m <= 2030; m++) {
+                            cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${(rows + 1)}">0.00</td>`;
+                        }
+                        $("#cuerpo-acumulado-total").append(cuerpo);
+                        //====================================================================================================================
+
                     }
+                    if (medida == 4) agregarValorAIF("", {}, 0);
                     //console.log(arregloIDs);
                     asignarAfecto(arregloIDs);
                 }
@@ -3655,12 +3695,8 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        //type: 'POST',
-        //datatype: 'json',
-        //data: item,
 
         type: "POST",
-        //url: nurl,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         //async: false,
@@ -3671,6 +3707,8 @@ function CargarDatosGuardados() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
+                    let v = data[0]["listaInd"][0]["FLAG_REVISION"] == '1' ? true : false;
+                    if (v) $('#cbo-enfoque').prop('disabled', v);
                     CargarCuerpoGuardado(data.length, 1);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
@@ -3679,13 +3717,15 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
-                        let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
+                        let objAIV = data[i]["objAIV"];
+                        //let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
+                        let rev = medida == 4 ? entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"] : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
-                        if (rev == '1' || rol_usuario == 7) {
-                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} #sustento${(i + 1)} label`).prop('hidden', true);
-                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} .quitarBtn`).prop('hidden', true);
-                        } 
+                        //if (rev == '1' || rol_usuario == 7) {
+                        //    $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} #sustento${(i + 1)} label`).prop('hidden', true);
+                        //    $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} .quitarBtn`).prop('hidden', true);
+                        //} 
 
                         var tieneArchivo = data[i].ArchivoSustento;
 
@@ -3709,19 +3749,20 @@ function CargarDatosGuardados() {
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                 lista++;
                                 $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 if (entidad[m]["VERIFICABLE"] == 1) {
                                     $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
                                 }
+                                if (entidad[m]["ID_PARAMETRO"] == 91) validarOpcionesEstadoAuditoria(`#cbo-det-tbl-1-${lista}-${(i + 1)}`, entidad[m]["VALOR"]);
                             } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
                                 if (entidad[m]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
                                     //let fecha = formatearFecha(entidad[m]["VALOR"]);
                                     //$("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(fecha);
-                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);                                    
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
@@ -3745,8 +3786,8 @@ function CargarDatosGuardados() {
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
-                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    medida == 4 && entidad[m]["FLAG_VERIFICACION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : medida == 4 ? '' : entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 }
                             }
                             if (entidad[m]["ID_PARAMETRO"] == 11) {
@@ -3754,28 +3795,58 @@ function CargarDatosGuardados() {
                             }
                         }
                         //}
-                        
+
                         //add 17-05-2020
                         //cargarAcumulado(entidad, i + 1);
                         cargarAcumulado(entidad_a, i + 1); //add 29-09-20
-
+                        if (medida == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
                     }
                     //$("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", total);
 
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if (medida == 4) {
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += emision;
+                        //    resumen_energia_total += energia;
+                        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        //potencial
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+                        //auditada
+                        $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+                        $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+                        //verificada
+                        $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+                        $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -3794,6 +3865,17 @@ function CargarDatosGuardados() {
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+
+                //===================================================
+                let cuerpo = ``;
+                cuerpo += `<tr id="f-${1}">`;
+                cuerpo += `<td class="text-center estrecho">${1}</td>`;
+                for (var m = 2010; m <= 2030; m++) {
+                    cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${1}">0.00</td>`;
+                }
+                $("#cuerpo-acumulado-total").append(cuerpo);
+                if (medida == 4) agregarValorAIF("", {}, 0);
+                //====================================================================================================================
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
@@ -3822,7 +3904,7 @@ function CargarDatosGuardados() {
             $('#modal-carga div').addClass('modal-md');
             $('#cerrar-m').show();
             $('#titulo-modal').html('Datos cargados');
-            $("#block-page-carga").hide();                      
+            $("#block-page-carga").hide();
             $("#carga-preload-ini").html("");
             $("#titulo-carga-ini").addClass("d-none");
             //CierraPopup('#modal-carga');
@@ -4001,14 +4083,19 @@ $(document).on("change", "#cbo-enfoque", function () {
     //cargarCabeceraTabla($("#cbo-enfoque").val());
     //CargarDetalleDatos();    
     //cargarCuerpoTabla($("#cbo-enfoque").val());
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
+
     $('#cuerpo-acumulado-total').html('');
     $('[id^=acum-]').each((x, y) => {
         $(y).html('0.00');
     });
     CargarDatosCabecera();
     CargarDatosGuardados();
-
-
+    if ($('#cbo-enfoque').val() == 24 || $("#Control").data("mitigacion") == 1)
+        $('#msj-equipo').removeClass('d-none');
+    else
+        $('#msj-equipo').addClass('d-none');
 
 });
 
@@ -4049,28 +4136,33 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-0" data-valor="IDA.ID_INDICADOR" data-parametro="0"></i></span></th>`;
+                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    tr += `<th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">N°&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Número"></i></div></div></th>`;
+                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-0" data-order="ASC" data-valor="IDA.ID_INDICADOR" data-parametro="0"></i></span></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
-                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
-                            if (data[i]["PREFIJO"] != null) {
-                                descripcion += data[i]["PREFIJO"];
-                            }
-                            if (data[i]["UNIDAD"] != null) {
-                                descripcion += data[i]["UNIDAD"];
-                            }
-                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
-                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
-                            }
-                            if (descripcion == 0) {
-                                descripcion = "";
-                            } else {
-                                descripcion = "(" + descripcion + ")";
-                            }
-                        } else {
-                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                        }
+                        //if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                        //    if (data[i]["PREFIJO"] != null) {
+                        //        descripcion += data[i]["PREFIJO"];
+                        //    }
+                        //    if (data[i]["UNIDAD"] != null) {
+                        //        descripcion += data[i]["UNIDAD"];
+                        //    }
+                        //    if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                        //        descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                        //    }
+                        //    if (descripcion == 0) {
+                        //        descripcion = "";
+                        //    } else {
+                        //        descripcion = "(" + descripcion + ")";
+                        //    }
+                        //} else {
+                        //    descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        //}
+
+
+                        descripcion = data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null ? '' : data[i]["COMBINACION_UNIDAD"];
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
@@ -4089,16 +4181,23 @@ function CargarDatosCabecera() {
 
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
                         //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
-                        let filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}</th>`;
+                        let filtro = "";
+                        if (medida == 4)
+                            filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+                        //let filtro = '';
+                        //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}<span>${descripcion}</span></th>`;
+                        tr += `<th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">${data[i]["NOMBRE_PARAMETRO"]} &nbsp;${descripcion}${filtro}</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i></div></div></th>`;
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span><br/></th>';
+                    //tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span><br/></th>';
+                    tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sustento &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i></div></div></th>`;
                     //tr += '<th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
                     if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
-                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span>Quitar<br>fila</span></th>';
+                        //tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                        tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Ver &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></div></div></th>`;
+                    //tr += '<th class="text-center grupo-columna-03" scope="col"><span>Quitar<br>fila</span></th>';
+                    tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Quitar fila &nbsp;</div><div class="d-flex justify-content-center align-items-center"></div></div></th>`;
 
                     //tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
@@ -4307,7 +4406,7 @@ function fn_listarFactores() {
 
                     for (var i = 0; i < data.length; i++) {
 
-                        
+
                         var cabecera = data[i]["ListaFactorParametro"];
                         var tr = "";
                         tr += '<tr class="bg-primary text-white">';
@@ -4375,34 +4474,37 @@ $(document).ready(function () {
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
     //CargarSector();
-    if ($("#Control").data("mitigacion") == 4)
+
+    if ($("#Control").data("mitigacion") == 4) {
         armarTablaAuditor();
+        resumenAuditada();
+        resumenVerificada();
+        resumenPotencial();
+    }
 
     if ($("#revision").val() == 1) {
-
         fn_ListarGEI();
         CargarDatosAuditoria(); //add 03-11-20
         armarAcumulado(); //add 17-05-2020
-
     } else {
+        loadMoneda();
         CargarDatosCabecera();
         CargarDatosGuardados();
-
         CargarDatosIniciativa();
         fn_cargarUbicacion();
         fn_cargarEnergetico();
         fn_cargarGei();
-
-        //cargarCabeceraTabla($("#cbo-enfoque").val());
-        //CargarDetalleDatos();
-        //cargarCuerpoTabla($("#cbo-enfoque").val());
-        //CargarDetalleIndicador();        
+        $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());     
     }
-    
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
+
+    if ($("#Control").data("mitigacion") == 1 || $('#cbo-enfoque').val() == 24)
+        $('#msj-equipo').removeClass('d-none');
 
     var monto = $("#txt-monto-inversion").val();
     if (monto != '------')
-    $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
+        $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
 
     //CargarDatosIniciativa();
     //fn_cargarUbicacion();
@@ -4452,7 +4554,7 @@ $("#cbo-enfoque").change(function () {
     //} else if (enfoque == 3){
     //}    
     //CargarDatosCabecera();
-    CargarDatosGuardados();
+    //CargarDatosGuardados();
 });
 
 
@@ -4461,7 +4563,6 @@ function fn_calcularValor(e) {
     var dv = $(e).attr("data-validar");
     var row = $(e).parent().parent().parent().find('th:eq(0)').html();
     //var row = $("#tablaIndicador").data("fila");
-    //debugger;
     if (dv == undefined) { }
     else {
         id = e.id;
@@ -4485,7 +4586,7 @@ function fn_calcularValor(e) {
                 $(e).attr({ "data-validar": "0" });
             }
         }
-    }       
+    }
 
     var valor = 0;
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
@@ -4510,7 +4611,7 @@ function fn_calcularValor(e) {
             parametros += medida + ",";
             parametros += $(value).attr("data-param") + ",";
             //===============
-            
+
             var m = $(value).attr("id");
             m = m.substring(0, 3);
             if (m == "txt") {
@@ -4539,11 +4640,31 @@ function fn_enviarCalcularValor(item, f) {
     //if (respuesta.success) {
     //    alert("bien");
     //}
+    let md = $("#Control").data("mitigacion")
+
     $("[id^=txt-det-]").each((x, y) => {
-        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        if (md == 4) {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+            else if ($(y).parent().parent().parent().data('rev') == '1') {
+                if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                    $(y).prop('disabled', true);
+            }
+        } else {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        }
+        //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
     });
     $("[id^=cbo-det-]").each((x, y) => {
-        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        if (md == 4) {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+            else if ($(y).parent().parent().parent().data('rev') == '1') {
+                if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                    $(y).prop('disabled', true);
+            }
+        } else {
+            if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+        }
+        //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
     });
     $("#tbl-main-preload").append("<div class='d-flex align-items-center calculando-mrv'><i Class='fas fa-spinner fa-spin px-1'></i>Calculando..</div>");
     $('.agregarCamposPrc').addClass('d-none');
@@ -4559,7 +4680,7 @@ function fn_enviarCalcularValor(item, f) {
                     var index = 0;
                     var total = 0;
 
-                    
+
                     //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
@@ -4567,15 +4688,15 @@ function fn_enviarCalcularValor(item, f) {
                         if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
 
                         //===============================================================
-                        
+
                         var m = $(value).attr("id");
                         m = m.substring(0, 3);
                         if (m == "txt") {
-                            if ($(value).data("param") == 5) 
+                            if ($(value).data("param") == 5)
                                 $("#" + $(value).attr("id")).val(valor == "0" ? "" : valor);
                             else {
                                 if (!isNaN(valor)) {
-                                    if ($("#" + $(value).attr("id"))[0].className.indexOf("solo-numero") != -1) 
+                                    if ($("#" + $(value).attr("id"))[0].className.indexOf("solo-numero") != -1)
                                         $("#" + $(value).attr("id")).val(formatoMilesSoloNumero(valor));
                                     else if ($("#" + $(value).attr("id"))[0].className.indexOf("formato-num") != -1)
                                         $("#" + $(value).attr("id")).val(formatoMiles(valor));
@@ -4584,8 +4705,8 @@ function fn_enviarCalcularValor(item, f) {
                                 } else {
                                     $("#" + $(value).attr("id")).val(valor);
                                 }
-                            }                            
-                        } else {                 
+                            }
+                        } else {
                             $("#" + $(value).attr("id")).val(valor);
                         }
                         //=================================================================
@@ -4597,7 +4718,7 @@ function fn_enviarCalcularValor(item, f) {
 
                     var fila_total = $("#tablaIndicador").find("tbody").find("tr");
                     fila_total.each(function (index, value) {
-                        
+
                         var t = $(value).find(".campo-total").val().replace(/,/gi, '');
                         if (t != "")
                             total += parseFloat($(value).find(".campo-total").val().replace(/,/gi, ''));
@@ -4612,9 +4733,10 @@ function fn_enviarCalcularValor(item, f) {
                     //$("#cuerpoTablaIndicador").data("total", total);
 
                     //add
-                    agregarAcumulado(item, f);
+                    if ($("#Control").data("mitigacion") == 4) actualizarValorAIF(`#detalles-tr-${f}`);
+                    agregarAcumulado(item, f);                    
                 }
-                
+
             } else {
                 //////cargarCuerpoTabla($("#cbo-enfoque").val());
             }
@@ -4627,12 +4749,10 @@ function fn_validarCampoReg(f) {
     var v = true;
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
     campos.each(function (index, value) {
-        console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
+        //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
         if ($(value).attr("data-validar") == 0) {
             v = false;
         }
-
     });
     return v;
 }
@@ -4663,9 +4783,11 @@ function fn_eliminarRestarTotal() {
             console.log("Archivos borrados");
         }
 
-        eliminar_item.parent().parent().remove();
-        eliminarAcumulado(fila);        
+        eliminarAIV(`#detalles-tr-${fila}`);
+        eliminar_item.parent().parent().remove();        
+        eliminarAcumulado(fila);
         $('#modal-confirmacion').modal('hide');
+        ordenarTablaDatos(1); //add        
     }
 }
 
@@ -4737,7 +4859,7 @@ function fn_validarCampo(url, estado) {
     }
     var respuesta = MRV.Ajax(vurl, item, false);
     if (respuesta.success) {
-        
+
         var cantidad_bd = parseInt(respuesta.extra);
         if (cantidad_bd > 0) {
             if ($("#cuerpoTablaIndicador").data("delete") == "") {
@@ -5100,7 +5222,7 @@ function cargarVerificar(enfoque, tabla, fila) {
 
     var campo = $("#cuerpoTablaIndicador-" + tabla).find("#detalles-tr-" + fila);
     campo.each(function (index, value) {
-        
+
         var valor = $(value).find(".valor");
         valor.each(function (index, value) {
             //
@@ -5195,7 +5317,7 @@ function mostrarAcumulado() {
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
     campos.each(function (index, value) {
         console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-        
+
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
@@ -5216,7 +5338,7 @@ function mostrarAcumulado() {
             parametros += $(value).attr("data-param") + ",";
 
             //===============
-            
+
             var m = $(value).attr("id");
             m = m.substring(0, 3);
             if (m == "txt") {
@@ -5388,20 +5510,20 @@ function agregarAcumulado(item, f) {
 
                     var fila = $("#cuerpo-acumulado-total").find("tr");
                     fila.each(function (index, value) {
-                        
+
                         var id = $(value).attr("id");
 
                         if (id == "f-" + f) {
                             verf = 1;
                         }
                     });
-                                        
+
                     if (verf == 0) {
-                        cuerpo += '<tr id="f-' + f + '">';                        
+                        cuerpo += '<tr id="f-' + f + '">';
                         cuerpo += '<td class="text-center estrecho">' + num + '</td>';
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
-                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-'+ anio +'-'+ f +'">' + 0.00 + '</td>';
+                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
                                 anio += 1;
                             }
                         }
@@ -5411,7 +5533,7 @@ function agregarAcumulado(item, f) {
                             //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
                             valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
                             var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
-                            
+
 
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -5432,7 +5554,7 @@ function agregarAcumulado(item, f) {
 
                         cuerpo += '</tr>';
 
-                        
+
                         $("#cuerpo-acumulado-total").append(cuerpo);
                     } else {
                         var valor_acumulado = 0.0;
@@ -5451,9 +5573,8 @@ function agregarAcumulado(item, f) {
                                 anio += 1;
                             }
                         }
-                        //debugger;
                         for (var j = 0; j < data.length; j++) {
-                            var acumulado_col = 0.0;                            
+                            var acumulado_col = 0.0;
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
 
 
@@ -5487,23 +5608,52 @@ function agregarAcumulado(item, f) {
                             }
                         }
                     }
-                    
+
 
                 }
 
-                let resumen_total = 0.0, resumen_energia = 0.0;
+                let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                 if (medida == 4) {
-                    $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                        //debugger;
-                        let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                        let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                        resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                        resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                    });
+                    //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                    //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                    //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                    //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                    //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                    //    resumen_emisiones_potencial += emision;
+                    //    resumen_energia_total += energia;
+                    //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                    //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                    //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                    //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                    //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                    //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                    //});
+                    for (var i = 0; i < arrAIV.length; i++) {
+                        resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                        resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                        resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                        resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                        resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                        resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                        resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                        resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                    }
                     $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                    //potencial
+                    $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                    $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+                    //auditada
+                    $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+                    $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+                    //verificada
+                    $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+                    $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
                 } else {
                     $('[id^=acum-]').each((x, y) => {
                         resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -5524,12 +5674,40 @@ function agregarAcumulado(item, f) {
             } else {
             }
 
+            //$("[id^=txt-det-]").each((x, y) => {
+            //    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            //});
+            //$("[id^=cbo-det-]").each((x, y) => {
+            //    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            //});
+
+            let md = $("#Control").data("mitigacion")
+
             $("[id^=txt-det-]").each((x, y) => {
-                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                if (md == 4) {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                    else if ($(y).parent().parent().parent().data('rev') == '1') {
+                        if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                            $(y).prop('disabled', false);
+                    }
+                } else {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                }
+                //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
             });
             $("[id^=cbo-det-]").each((x, y) => {
-                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                if (md == 4) {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                    else if ($(y).parent().parent().parent().data('rev') == '1') {
+                        if ($(y).parent().parent().parent().find('[data-param="91"]').val() < 3)
+                            $(y).prop('disabled', false);
+                    }
+                } else {
+                    if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+                }
+                //if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
             });
+
             $("#tbl-main-preload").find('.calculando-mrv').remove();
             $('.agregarCamposPrc').removeClass('d-none', true);
 
@@ -5547,7 +5725,7 @@ function agregarAcumulado(item, f) {
 
 function eliminarAcumulado(f) {
     if ($(`#f-${f}`).length == 0) return;
-        var valor_descuento = 0.0;
+    var valor_descuento = 0.0;
 
     for (var anio = 2010; anio < 2031; anio++) {
         var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
@@ -5561,26 +5739,55 @@ function eliminarAcumulado(f) {
             acumulado_col = acumulado - valor_descuento;
             $("#a-" + anio + '-' + f).html(0);
             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-        }        
+        }
     }
 
-    
+
     $("#f-" + f).remove();
 
     ordenarTabla();
-
-    let resumen_total = 0.0, resumen_energia = 0.0;
+    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
-        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-        });
+        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+        //    resumen_emisiones_potencial += emision;
+        //    resumen_energia_total += energia;
+        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+        //});
+        for (var i = 0; i < arrAIV.length; i++) {
+            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+        }
         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+        //potencial
+        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+        //auditada
+        $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+        $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+        //verificada
+        $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+        $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
     } else {
         $('[id^=acum-]').each((x, y) => {
             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -5589,7 +5796,7 @@ function eliminarAcumulado(f) {
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(0.00));
         $("#cuerpoTablaIndicador").data("total", resumen_total);
-    }  
+    }
 
     //let resumen_total = 0.0;
     //$('[id^=acum-]').each((x, y) => {
@@ -5602,9 +5809,9 @@ function eliminarAcumulado(f) {
 
 function ordenarTabla() {
     var filas = $("#cuerpo-acumulado-total").find("tr").length;
-    
+
     for (var i = 0; i < filas; i++) {
-        
+
         indice = i + 1;
         var anio = 2010;
         var columna = $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").length;
@@ -5614,7 +5821,7 @@ function ordenarTabla() {
             else {
                 $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").eq(j).removeAttr('id').attr({ 'id': 'a-' + anio + '-' + indice });
                 anio += 1;
-            }            
+            }
         }
 
         $("#cuerpo-acumulado-total").find("tr").eq(i).removeAttr('id').attr({ 'id': 'f-' + indice });
@@ -5623,7 +5830,7 @@ function ordenarTabla() {
 
 //////////////////////////////////////////////
 
-function armarAcumulado(){
+function armarAcumulado() {
     //var ids = $("#id_indicadores").val();
     //var ids = $("#listaIndicador").val();
 
@@ -5672,21 +5879,47 @@ function generarAcumulado() {
                     for (var i = 0; i < data.length; i++) {
                         armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
-
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    arrAIV = arrRevisionAIV;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if ($("#Control").data("mitigacion") == 4) {
-                        debugger;
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            debugger;
-                            resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
-                            resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                        //    resumen_energia_total += $(y).val() == null ? 0 : energia;
+                        //    resumen_total_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 0 ? energia : 0;
+                        //    resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
+                        //    resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).data('valor') == null ? 0 : $(y).data('valor') > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        //potencial
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+                        //auditada
+                        $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+                        $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+                        //verificada
+                        $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+                        $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -5822,7 +6055,7 @@ function cargarAcumulado(data, f) {
     if (data != null && data != "") {
         let num = $('#cuerpo-acumulado-total').find('tr').length + 1
         if (data.length > 0) {
-            
+
 
             var verf = 0;
             var anio = 2010;
@@ -5933,14 +6166,14 @@ function cargarAcumulado(data, f) {
     //        if (data != null && data != "") {
     //            if (data.length > 0) {
 
-                    
+
     //                var verf = 0;
     //                var anio = 2010;
     //                var acumulado_ini = parseInt(data[0]["anio"]) - anio;
 
     //                var fila = $("#cuerpo-acumulado-total").find("tr");
     //                fila.each(function (index, value) {
-                        
+
     //                    var id = $(value).attr("id");
 
     //                    if (id == "f-" + f) {
@@ -5948,7 +6181,7 @@ function cargarAcumulado(data, f) {
     //                    }
     //                });
 
-                    
+
     //                if (verf == 0) {
     //                    cuerpo += '<tr id="f-' + f + '">';
 
@@ -6038,7 +6271,7 @@ function cargarAcumulado(data, f) {
     //        location.href = baseUrl + "Home/login";
     //    }
     //});
-    
+
 }
 
 //$(document).on("keydown", ".solo-numero", function (e) {
@@ -6058,12 +6291,12 @@ $(document).on("keyup", ".solo-numero", function (event) {
 
 /////////////
 $(document).on("keyup", ".formato-num", function (event) {
-    
-        //$(event.target).val(function (index, value) {
-        //    return value.replace(/\D/g, "")
-        //                .replace(/([0-9])([0-9]{2})$/, '$1.$2')
-        //                .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
-        //});
+
+    //$(event.target).val(function (index, value) {
+    //    return value.replace(/\D/g, "")
+    //                .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+    //                .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+    //});
 
     $(event.target).val(function (index, value) {
         if (value.length <= 2) {
@@ -6164,33 +6397,49 @@ $(document).on("click", ".quitarCamposN", function (e) {
 })
 
 $(document).on("change", ".validar-implementado", function (e) {
+    //let id_fila = `#${$(`#${e.currentTarget.id}`).parent().parent().parent()[0].id}`;
+    //actualizarValorAIF(id_fila);
     fn_calcularValor($(this));
 })
 
 var armarTablaAuditor = () => {
-    let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
-    let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
-    let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
-    let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
-    let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;                                                        
-    let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;                                                        
-    let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
-    $('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+    //let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
+    //let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
+    //let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
+    //let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
+    //let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;                                                        
+    //let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;                                                        
+    //let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    //$('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
 
-    let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled':''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
+    let head1 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sector&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head2 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Institución auditada&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head3 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3"></i></div></div></th>`;
+    let head4 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Descripción de tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i></div></div></th>`;
+    let head5 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Auditado por&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i></div></div></th>`;
+    let head6 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Nombre de institución / auditor&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría"></i></div></div></th>`;
+    let head7 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Fecha de auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría"></i></div></div></th>`;
+    $('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+    $("[data-toggle='tooltip']").tooltip();
+
+    let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
     let body2 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body3 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-tipo_auditoria" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Tipo 1</option><option value="2">Tipo 2</option><option value="3">Tipo 3</option></select></div></td>`;
-    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="500" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
-    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">EMSE</option><option value="2">Auditor acreditado</option></select></div></td>`;
+    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="800" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Empresa de servicio energético (EMSE)</option><option value="2">Auditor acreditado</option></select></div></td>`;
     let body6 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body7 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     $('#tablaAuditor').find('tbody').html(`<tr id="detalles-1" data-ind="1" data-rev="0">${body1}${body2}${body3}${body4}${body5}${body6}${body7}</tr>`);
-    
 }
+
 
 var verificarFecha = () => {
     let validar = false;
     $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        //if ($(y).val() != null && $(y).val() > 1) {
+        //    let energia = $(y).parent().parent().parent().find('.validar-fecha-imple').val();
+        //    if (energia == null || energia == '') validar = true;
+        //}
         if ($(y).val() != null && $(y).val() > 1) {
             let energia = $(y).parent().parent().parent().find('.validar-fecha-imple').val();
             if (energia == null || energia == '') validar = true;
@@ -6201,8 +6450,14 @@ var verificarFecha = () => {
 
 var verificarFechaVerificacion = () => {
     let validar = false;
-    $('#cuerpoTablaIndicador').find('.validar-verificado').each((x, y) => {
-        if ($(y).val() != null && $(y).val() == 1) {
+    //$('#cuerpoTablaIndicador').find('.validar-verificado').each((x, y) => {
+    //    if ($(y).val() != null && $(y).val() == 1) {
+    //        let energia = $(y).parent().parent().parent().find('.validar-fecha-verif').val();
+    //        if (energia == null || energia == '') validar = true;
+    //    }
+    //});
+    $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        if ($(y).val() != null && $(y).val() > 2) {
             let energia = $(y).parent().parent().parent().find('.validar-fecha-verif').val();
             if (energia == null || energia == '') validar = true;
         }
@@ -6219,7 +6474,7 @@ var mensajeError = (mensaje, id) => {
 }
 
 
-$(document).on("click",".miColumna",function (event) {
+$(document).on("click", ".miColumna", function (event) {
     var id = "";
     if (event.target.nodeName == "SPAN") {
         id = event.target.firstElementChild.id;
@@ -6234,31 +6489,45 @@ $(document).on("click",".miColumna",function (event) {
 
 
     //if ($("#columna").val() == id) {
-    if ($("#columna").val() == $(`#${id}`).data('valor')) {
-        if ($("#orden").val() == "ASC") {
-            $("#orden").val("DESC")
-            $("#" + id).removeClass("fa-sort-up");
-            $("#" + id).addClass("fa-sort-down");
-        }
-        else {
-            $("#orden").val("ASC")
-            $("#" + id).removeClass("fa-sort-down");
-            $("#" + id).addClass("fa-sort-up");
-        }
-        $("#" + id).css("color", "white");
-    }
-    else {
-        //$("#columna").val(id);
-        $("#columna").val($(`#${id}`).data('valor'));
-        $("#orden").val("ASC")
-        $("#" + id).removeClass("fa-sort");
-        $("#" + id).addClass("fa-sort-up");
-        $("#" + id).css("color", "white");
-    }
-    //debugger;
-    $("#parametro").val($(`#${id}`).data('parametro'));
+    //if ($("#columna").val() == $(`#${id}`).data('valor')) {
+    //    if ($("#orden").val() == "ASC") {
+    //        $("#orden").val("DESC")
+    //        $("#" + id).removeClass("fa-sort-up");
+    //        $("#" + id).addClass("fa-sort-down");
+    //    }
+    //    else {
+    //        $("#orden").val("ASC")
+    //        $("#" + id).removeClass("fa-sort-down");
+    //        $("#" + id).addClass("fa-sort-up");
+    //    }
+    //    $("#" + id).css("color", "white");
+    //}
+    //else {
+    //    //$("#columna").val(id);
+    //    $("#columna").val($(`#${id}`).data('valor'));
+    //    $("#orden").val("ASC")
+    //    $("#" + id).removeClass("fa-sort");
+    //    $("#" + id).addClass("fa-sort-up");
+    //    $("#" + id).css("color", "white");
+    //}
 
-    CargarDatosGuardados();
+    //$("#parametro").val($(`#${id}`).data('parametro'));
+
+    //CargarDatosGuardados();
+    //===========
+    let order = $(`#${id}`).data('order');
+    if (order == "ASC") {
+        $(`#${id}`).data('order', "DESC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-down");
+    }
+    else if (order == "DESC") {
+        $(`#${id}`).data('order', "ASC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-up");
+    }
+    let param = $(`#${id}`).data('parametro');
+    ordenarFiltro(order, param);
 });
 
 function CierraPopup(id) {
@@ -6268,3 +6537,506 @@ function CierraPopup(id) {
     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
 }
+
+var ordenarFiltro = (order, parametro) => {
+    let arrValores = [], arrInd = [];
+    $('#cuerpoTablaIndicador').find('tr').each((x, y) => {
+        let arr = [];
+        $(y).find('td').each((w, z) => {
+            //let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            let v = $(z).data('encabezado') != "Acciones" ? true : false;
+            if (v) {
+                let id = '';
+                if ($(z).data('encabezado') == "Sustento") {
+                    id = `#${$(z).find('label').find('input')[0].id}`;
+                } else {
+                    id = `#${$(z).find('div')[0].firstChild.id}`;
+                }
+
+                if ($(z).data('encabezado') == "Sustento") {
+                    //arr.push([id, $(id)[0].files[0]]);
+                    arr.push([id, $(id)[0].files]);
+                } else {
+                    arr.push([id, $(id).val()]);
+                }
+                //arr.push([id, $(id).val()]);
+            }
+        });
+        arrInd.push([`#${$(y).attr('id')}`,
+                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')),
+                      $(y)[0].outerHTML, arr]);
+        // arrValores.push($(y).find('[data-param=11]').val());
+        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')), `#${$(y).attr('id')}`]);
+    });
+    //if (order == "ASC") arrValores.sort(function (a, b) { return a - b; }); //ASCENDENTE
+    //else arrValores.sort(function (a, b) { return b - a; }); //DESCENDENTE
+
+    if (order == "ASC") arrValores = ordenarAscendente(arrValores); //ASCENDENTE
+    else arrValores = ordenarDescendente(arrValores); //DESCENDENTE
+
+    $('#cuerpoTablaIndicador').html('');
+    $.each(arrValores, (x, y) => {
+        //v = arrInd.find(w => { return w[1] == y; });
+        v = arrInd.find(w => { return w[1] == y[0] && w[0] == y[1]; });
+        $('#cuerpoTablaIndicador').append(v[2]);
+        $.each(v[3], (x, y) => {
+            if (y[0].indexOf('fle-doc-') !== -1) $(y[0])[0].files = y[1];
+            else $(y[0]).val(y[1]);
+        });
+    });
+    ordenarTablaDatos(0);
+}
+
+var ordenarDescendente = (arr) => {
+    arr.sort(function (a, b) {
+        if (a[0] < b[0]) {
+            return 1;
+        }
+        if (a[0] > b[0]) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+
+    return arr;
+}
+
+var ordenarAscendente = (arr) => {
+    //arr.sort(function (a, b) {
+    //    if (a[0] > b[0]) {
+    //        return 1;
+    //    }
+    //    if (a[0] < b[0]) {
+    //        return -1;
+    //    }
+    //    // a must be equal to b
+    //    return 0;
+    //});
+
+    let t, id;
+    for (let a = 1; a < arr.length; a++) {
+        for (let b = arr.length - 1; b >= a; b--) {
+            if (arr[b - 1][0] > arr[b][0]) {
+                t = arr[b - 1][0];
+                id = arr[b - 1][1];
+                arr[b - 1][0] = arr[b][0];
+                arr[b - 1][1] = arr[b][1];
+                arr[b][0] = t;
+                arr[b][1] = id;
+            }
+        }
+    }
+
+    return arr;
+}
+
+function ordenarTablaDatos(accion_eliminar) {
+    let iniciativa = $("#Control").data("iniciativa");
+    let o = $("#tablaIndicador");
+    if ($("#Control").data("mitigacion") == 4 && accion_eliminar == 0) { ordenarAcumulado(o.find("tbody").find("th")); ordenarArrAIF(o.find("tbody").find("th")); }
+    for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
+        var s = a + 1;
+        o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
+            id: "detalles-tr-" + s
+        }), o.find("tbody").find("tr").eq(a).find("select").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "cbo-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='text']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "txt-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='date']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "fch-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        })
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("onchange").attr({
+            onchange: `handleFileSustento(this.files,${s},1)`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("id").attr({
+            id: "fle-doc-" + s
+        });
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
+            id: "fle-nom-" + s
+        });
+
+        let cargado = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').attr('style');
+        let rel = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).attr('href');
+        let ind = rel.split('&')[1].split('=')[1].trim();
+        if (rel.split('&')[2].split('=')[1].trim() == 'I') {
+            cargado == '' || cargado == undefined ? ActualizarFile(iniciativa, ind, s) : ''; //add
+            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("href").attr({
+                href: `/Gestion/FileDownload?IdIniciativa=${iniciativa}&IdIndicador=${s}&accion=I`
+            });
+        }
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("id").attr({
+            id: `fle-dow-${s}`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').eq(0).removeAttr("for").attr({
+            for: "fle-doc-" + s
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").eq(0).removeAttr("id").attr({
+            id: "sustento" + s
+        });
+    }
+    ordenarIndicadorFile(iniciativa);
+}
+
+var ordenarAcumulado = (inp) => {
+    let arr = [], html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+    
+    $.each(arr, (x, y) => {
+        html += $(`#f-${y}`)[0].outerHTML;
+    });
+
+    $('#cuerpo-acumulado-total').html(html);
+    ordenarTabla();
+}
+
+
+function ActualizarFile(idIniciativa, idIndicador, nuevoindicador) {
+
+    var url = baseUrl + 'Gestion/ActualizarFile?IdIniciativa=' + idIniciativa + '&IdIndicador=' + idIndicador + '&idnuevo=' + nuevoindicador;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+var ordenarIndicadorFile = (idIniciativa) => {
+    var url = baseUrl + 'Gestion/OrdenarFile?IdIniciativa=' + idIniciativa;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+$(document).on('change', '.filtrar-opcion', function (e) {
+    let id = `#${e.target.id}`;
+    let v = $(id).val() == null ? true : $(id).val() == 0 ? true : false;
+    if (v) return;
+    let param = $(id).data('param');
+
+    let item = {
+        ID_PARAMETRO: param,
+        ID_DETALLE: $(id).val(),
+        ID_ENFOQUE: $("#cbo-enfoque").val(),
+    }
+    var url = baseUrl + 'Gestion/FiltrarOpcion';
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        data: item,
+        success: function (result) {
+            if (result != null && result != "") {
+                //let valor = result.PARAMETROS == null ? '0' : result.PARAMETROS == '' ? '0' : result.DETALLES;
+                //if (valor > 0)
+                //    $(id).parent().parent().parent().find(`[data-param=${result.PARAMETROS}]`).val(valor);
+                for (var i = 0; i < result.length; i++) {
+                    $(id).parent().parent().parent().find(`[data-param=${result[i].PARAMETROS}]`).val(result[i].PARAMETROS == null ? '0' : result[i].PARAMETROS == '' ? '0' : result[i].PARAMETROS == '6' ? result[i].DETALLES == '0' ? 0 : 2009 + parseInt(result[i].DETALLES) : result[i].DETALLES);
+                    let idfiltro = $(id).parent().parent().parent().find(`[data-param=${result[i].PARAMETROS}]`).attr({ "data-validar": "1" });
+                    //$(`#${idfiltro}`).attr({ "data-validar": "1" });
+                }
+            }
+        }
+    });
+});
+
+var resumenAuditada = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-auditada">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-auditada">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Por las mejoras auditadas</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenauditada').html(row);
+}
+
+var resumenVerificada = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-verificada">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-verificada">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Por las mejoras verificadas</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenverificada').html(row);
+}
+
+
+var resumenPotencial = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-2">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Resumen potencial de las mejoras</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenpotencial').html(row);
+}
+
+var loadMoneda = () => {
+    var anio = (new Date).getFullYear();
+    deshabilitarMontos(anio);
+    let opciones = '';
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMoneda",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    opciones += '<option value="' + data[i]["ID_MONEDA"] + '">' + data[i]["DESCRIPCION"] + '</option>';
+                }
+                $('[id*=ms-]').each((x, y) => {
+                    $(y).append(opciones);
+                });
+                asignarMontos();
+            }
+        }
+    });
+}
+
+var asignarMontos = () => {
+    let opciones = '';
+    var Item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMontos",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    let anio = data[i]["ANIO"];
+                    $(`#ms-${anio}`).val(data[i]["MONEDA"]);
+                    $(`#m-${anio}`).val(formatoMiles(data[i]["INVERSION"]));
+                }
+            }
+        }
+    });
+}
+
+var deshabilitarMontos = (anio) => {
+    for (var i = anio; i <= 2030; i++) {
+        $(`#ms-${i}`).parent().parent().addClass('d-none');
+    }
+}
+
+var cambiarTipo = () => {
+    if ($('#cbo-tipo_auditoria').val() == 0) { $('#txt-descripcion-tipo-auditoria').val(""); return; }
+    var Item = {
+        TIPO_AUDITORIA: $('#cbo-tipo_auditoria').val(),
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/DescripcionTipoAuditoria",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                $('#txt-descripcion-tipo-auditoria').val(data);
+            } else {
+                $('#txt-descripcion-tipo-auditoria').val("");
+            }
+        } else {
+            $('#txt-descripcion-tipo-auditoria').val("");
+        }
+    });
+}
+
+var nombreresumen = (medida, enfoque) => {
+    if (medida == 12 || medida == 4 || enfoque == 6 || enfoque == 9)
+        $('#nombre-resumen').html("Emisiones de GEI reducidas");
+    else
+        $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
+}
+
+var agregarValorAIF = (e, obj, ind) => {
+    let iniciativa = $("#Control").data("iniciativa");
+    if (e == "") {
+        arrAIV.push({
+            ID_INICIATIVA: iniciativa,
+            ID_INDICADOR: 0,
+            ID_ESTADO: 0,
+            AUDITADO: 0,
+            IMPLEMENTADO: 0,
+            VERIFICADO: 0,
+            ENERGIA_AUDITADO: 0,
+            ENERGIA_IMPLEMENTADO: 0,
+            ENERGIA_VERIFICADO: 0,
+        });
+    } else {
+        if (obj == null) {
+            arrAIV.push({
+                ID_INICIATIVA: iniciativa,
+                ID_INDICADOR: ind,
+                ID_ESTADO: 0,
+                AUDITADO: 0,
+                IMPLEMENTADO: 0,
+                VERIFICADO: 0,
+                ENERGIA_AUDITADO: 0,
+                ENERGIA_IMPLEMENTADO: 0,
+                ENERGIA_VERIFICADO: 0,
+            });
+        } else {
+            arrAIV.push({
+                ID_INICIATIVA: obj.ID_INICIATIVA,
+                ID_INDICADOR: obj.ID_INDICADOR,
+                ID_ESTADO: obj.ID_ESTADO,
+                AUDITADO: obj.AUDITADO,
+                IMPLEMENTADO: obj.IMPLEMENTADO,
+                VERIFICADO: obj.VERIFICADO,
+                ENERGIA_AUDITADO: obj.ENERGIA_AUDITADO,
+                ENERGIA_IMPLEMENTADO: obj.ENERGIA_IMPLEMENTADO,
+                ENERGIA_VERIFICADO: obj.ENERGIA_VERIFICADO,
+            });
+        }        
+    }
+}
+
+var actualizarValorAIF = (e) => {
+    //let row = $(`#${e.currentTarget.id}`).parent().parent().parent().find('th:eq(0)').html();
+    //let ind = $(`#${e.currentTarget.id}`).parent().parent().parent()[0].dataset.ind;
+    //let valorAIF = $(`#${e.currentTarget.id}`).val();
+    //let emisiones = $(`#${e.currentTarget.id}`).parent().parent().parent().find('[data-param = 11]').val();
+    //emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+    let row = $(e).find('th:eq(0)').html();
+    let ind = $(e)[0].dataset.ind;
+    let valorAIF = $(e).find('[data-param = 91]').val();
+    valorAIF = valorAIF == null ? 0 : valorAIF == "" ? 0 : valorAIF;
+    let emisiones = $(e).find('[data-param = 11]').val();
+    emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+    let energia = $(e).find('[data-param = 90]').val();
+    energia = energia == null ? 0 : energia == "" ? 0 : parseFloat(energia.replace(/,/gi, ''));
+    let i = row - 1;
+    if (valorAIF > 0) {
+        if (ind == 0) {
+            if (valorAIF == 1) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = 0;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 2) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 3) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = emisiones;
+                arrAIV[i].ENERGIA_VERIFICADO = energia;
+            }
+            arrAIV[i].ID_ESTADO = valorAIF;
+        } else {
+            if (valorAIF == 1) {
+                arrAIV[i].AUDITADO = emisiones;
+                arrAIV[i].ENERGIA_AUDITADO = energia;
+                arrAIV[i].IMPLEMENTADO = 0;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 2) {
+                arrAIV[i].AUDITADO = arrAIV[i].AUDITADO <= 0 ? emisiones : arrAIV[i].AUDITADO;
+                arrAIV[i].ENERGIA_AUDITADO = arrAIV[i].ENERGIA_AUDITADO <= 0 ? energia : arrAIV[i].ENERGIA_AUDITADO;
+                arrAIV[i].IMPLEMENTADO = emisiones;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = energia;
+                arrAIV[i].VERIFICADO = 0;
+                arrAIV[i].ENERGIA_VERIFICADO = 0;
+            } else if (valorAIF == 3) {
+                arrAIV[i].AUDITADO = arrAIV[i].AUDITADO <= 0 ? emisiones : arrAIV[i].AUDITADO;
+                arrAIV[i].ENERGIA_AUDITADO = arrAIV[i].ENERGIA_AUDITADO <= 0 ? energia : arrAIV[i].ENERGIA_AUDITADO;
+                arrAIV[i].IMPLEMENTADO = arrAIV[i].IMPLEMENTADO <= 0 ? emisiones : arrAIV[i].IMPLEMENTADO;
+                arrAIV[i].ENERGIA_IMPLEMENTADO = arrAIV[i].ENERGIA_IMPLEMENTADO <= 0 ? energia : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                arrAIV[i].VERIFICADO = emisiones;
+                arrAIV[i].ENERGIA_VERIFICADO = energia;
+            }
+            arrAIV[i].ID_ESTADO = valorAIF;
+        }
+    } else {
+        arrAIV[i].ID_ESTADO = 0;
+        arrAIV[i].AUDITADO = 0;
+        arrAIV[i].IMPLEMENTADO = 0;
+        arrAIV[i].VERIFICADO = 0;
+        arrAIV[i].ENERGIA_AUDITADO = 0;
+        arrAIV[i].ENERGIA_IMPLEMENTADO = 0;
+        arrAIV[i].ENERGIA_VERIFICADO = 0;
+    }    
+}
+
+var eliminarAIV = (e) => {
+    let row = $(e).find('th:eq(0)').html();
+    let i = row - 1;
+    arrAIV.splice(i, 1);
+}
+
+var ordenarArrAIF = (inp) => {
+    let arr = [], arrTemp = arrAIV, html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+
+    arrAIV = [];
+    for (var i = 0; i < arrTemp.length; i++) {
+        let j = arr[i] - 1;
+        arrAIV.push(arrTemp[j]);
+    }
+}
+
+var validarOpcionesEstadoAuditoria = (id, valor) => {
+    let v = valor == null ? 0 : valor == "" ? 0 : valor;
+    if (v > 2) {
+        $(`${id} option[value="0"]`).attr("hidden", true);
+        $(`${id} option[value="1"]`).attr("hidden", true);
+        $(`${id} option[value="2"]`).attr("hidden", true);
+    } else if (v > 1) {
+        $(`${id} option[value="0"]`).attr("hidden", true);
+        $(`${id} option[value="1"]`).attr("hidden", true);
+    } else if (v > 0) {
+        $(`${id} option[value="0"]`).attr("hidden", true);        
+    }
+}
+
+$(document).on('change', '[id*=ms-20]', (e) => {
+    let moneda = $(`#${e.target.id}`).val()
+    $('[id*=ms-20]').val(moneda)
+})

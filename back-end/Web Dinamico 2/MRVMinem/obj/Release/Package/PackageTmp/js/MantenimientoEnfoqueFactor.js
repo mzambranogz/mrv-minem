@@ -119,6 +119,9 @@ function CargarCuerpoGuardado(filas, factor) {
                                 if (data[j]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
                                     tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                } else if (data[j]["ID_TIPO_DATO"] == 3) {
+                                    texto++;
+                                    tr += `<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"] == '0' ? -1 : 0}">`;
                                 } else {
                                     texto++;
                                     tr += '<input class="form-control form-control-sm text-center validar" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
@@ -188,6 +191,8 @@ function CargarDatosGuardados(factor) {
                         //}
                         texto++;
                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(data[i]["FACTOR"]);
+                        texto++;
+                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(data[i]["UNIDAD"] == null ? '' : data[i]["UNIDAD"]);
                     }
                 }
             } else {
@@ -213,11 +218,12 @@ function fn_validarCampoReg(f) {
     var campos = $("#tablaFactor").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
     campos.each(function (index, value) {
         //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
-        if ($(value).val() == 0) {
-            v = false;
+        debugger;
+        if ($(value).data('param') != -1) {
+            if ($(value).val() == 0) {
+                v = false;
+            }
         }
-
     });
     return v;
 }
@@ -227,21 +233,22 @@ function fn_guardarFactor() {
     var factor = $("#tablaCabeceraFactor").data("idfactor");
     var n = $("#tablaFactor").find("tbody").find("th").length + 1;
     for (var fila = 1 ; fila < n; fila++) {
-        //debugger;
         var valor_factor = 0;
+        let unidad = '';
         var parametros = "";
         var valores = "";
         var ind = $("#cuerpoTablaFactor #detalles-tr-" + fila).data("ind");
         var column = $("#tablaFactor").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         if (fn_validarCampoReg(fila)) {
             column.each(function (index, value) {
-                //debugger;
                 if ($(value).attr("data-param") == 0) {
                     valor_factor = $("#" + $(value).attr("id")).val();
+                } else if ($(value).attr("data-param") == -1) {
+                    unidad = $("#" + $(value).attr("id")).val(); //add
                 } else {
                     parametros += $(value).attr("data-param") + "|";
-                    valores += $("#" + $(value).attr("id")).val() + "|";
-                }
+                valores += $("#" + $(value).attr("id")).val() + "|";
+            }
             });
         }
         if (parametros.length > 0) {
@@ -252,7 +259,8 @@ function fn_guardarFactor() {
                 ID_DETALLE: ind,
                 ID_PARAMETRO: parametros,
                 VALOR: valores,
-                FACTOR: valor_factor
+                FACTOR: valor_factor,
+                UNIDAD: unidad,
             }
             factores.push(itemF);
         }
@@ -317,7 +325,7 @@ function limpiar() {
 function validarFactor() {
     var v = true;
     var factor = $("#cbo-factores").val();
-    if (factor > 0){
+    if (factor > 0) {
         var componentes = $("#filas-factor").find(".factor-div");
         componentes.each(function (index, value) {
             if ($(value).find(".valor").val() == factor) {
@@ -331,7 +339,7 @@ function validarFactor() {
             $("#cbo-factores").val(0);
         }
     }
-    
+
 }
 
 function agregarFactor() {
@@ -531,7 +539,7 @@ function cargarTablaMedidaFactor() {
                             tr += '            </div>';
                             tr += '        </td>';
                             tr += '    </tr>';
-                            $("#cuerpoMedidaFactor").append(tr);                            
+                            $("#cuerpoMedidaFactor").append(tr);
                         }
                         pagina = Number(data[i]["pagina"]);
                         total_paginas = Number(data[i]["total_paginas"]);
@@ -542,7 +550,7 @@ function cargarTablaMedidaFactor() {
                             if (fin > total_registros)
                                 fin = total_registros
                         }
-                        resultado = inicio + " de " + fin;                        
+                        resultado = inicio + " de " + fin;
                     }
                     $("#resultado").html(resultado);
                     $("#total-registros").html(total_registros);
@@ -720,4 +728,176 @@ var estiloblockpage = () => {
 
 $(document).ready(function () {
     estiloblockpage();
+    $('#cbo-enfoque-asignar').on('change', (e) => cambiarEnfoque());
+    $('#cbo-parametro-asignar').on('change', (e) => cambiarParametroBase());
+    $('#cbo-parametro-filtro').on('change', (e) => armarTablaFiltro());
 });
+
+var cambiarEnfoque = () => {
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+    };
+    $('#cbo-parametro-asignar').html('');
+    $('#cbo-parametro-asignar').prop('disabled', true);
+    $('#cbo-parametro-filtro').html('');
+    $('#cbo-parametro-filtro').prop('disabled', true);
+    $('#cuerpoAsignar').html('');
+    if ($('#cbo-enfoque-asignar').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/EnfoquePorParametro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                $('#cbo-parametro-asignar').html('<option value="0">-seleccione un parámetro-</option>');
+                for (var i = 0; i < data.length; i++) {
+                    $('#cbo-parametro-asignar').append(`<option value="${data[i]["ID_PARAMETRO"]}">[P${data[i]["ID_PARAMETRO"]}] ${data[i]["NOMBRE_PARAMETRO"]}</option>`);
+                }
+                $('#cbo-parametro-asignar').prop('disabled', false);
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var cambiarParametroBase = () => {
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+        ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+    };
+    $('#cbo-parametro-filtro').html('');
+    $('#cbo-parametro-filtro').prop('disabled', true);
+    if ($('#cbo-parametro-asignar').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ParametroFiltro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                $('#cbo-parametro-filtro').html('<option value="0">-seleccione un parámetro-</option>');
+                for (var i = 0; i < data.length; i++) {
+                    $('#cbo-parametro-filtro').append(`<option value="${data[i]["ID_PARAMETRO"]}">[P${data[i]["ID_PARAMETRO"]}] ${data[i]["NOMBRE_PARAMETRO"]}</option>`);
+                }
+                $('#cbo-parametro-filtro').prop('disabled', false);
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var armarTablaFiltro = () => {
+
+    var item = {
+        ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+        ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+        INS: $('#cbo-parametro-filtro').val(),
+    };
+    $('#cuerpoAsignar').html('');
+    if ($('#cbo-parametro-filtro').val() == 0) return;
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ArmarTablaFiltro',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                let dataP = data.ParametroDetalles;
+                let fila = ``;
+                for (var i = 0; i < dataP.length; i++) {
+                    fila += `<tr class="detalle-filtro">`;
+                    fila += `<td class="cod-detalle text-center" id="filtro-${dataP[i]["ParamDetalle"].ID_DETALLE}">${dataP[i]["ParamDetalle"].NOMBRE_DETALLE}</td>`;
+                    fila += `<td><select class="form-control form-control-sm valor-filtro" id="det-${dataP[i]["ParamDetalle"].ID_DETALLE}"><option value="0">Seleccionar</option>`;
+                    let detalle = dataP[i]["listaDetalle"];
+                    for (var j = 0; j < detalle.length; j++) {
+                        fila += '<option value="' + detalle[j]["ID_DETALLE"] + '">' + detalle[j]["NOMBRE_DETALLE"] + '</option>';
+                    }
+                    fila += '</select></td></tr>';
+                }
+                $('#cuerpoAsignar').html(fila);
+
+                let dataRelacion = data.ParametroRelacion;
+                if (dataRelacion != null) {
+                    for (var m = 0; m < dataRelacion.length; m++) {
+                        $(`#det-${dataRelacion[m]["ID_DETALLE"]}`).val(dataRelacion[m]["DETALLES"]);
+                    }
+                }
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}
+
+var guardarRelacionParametro = () => {
+    let item = [];
+    $('.detalle-filtro').each((x, y) => {
+        let id_detalle = $(y).find('.cod-detalle').attr('id').replace('filtro-', '');
+        let detalles = $(`#${$(y).find('.valor-filtro').attr('id')}`).val();
+        let r = {
+            ID_ENFOQUE: $('#cbo-enfoque-asignar').val(),
+            ID_PARAMETRO: $('#cbo-parametro-asignar').val(),
+            ID_DETALLE: id_detalle,
+            PARAMETROS: $('#cbo-parametro-filtro').val(),
+            DETALLES: detalles,
+        }
+        item.push(r);
+    });
+
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/GuardarParametroRelacion',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data) alert('correcto');
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+        },
+        complete: function () {
+        }
+    });
+}

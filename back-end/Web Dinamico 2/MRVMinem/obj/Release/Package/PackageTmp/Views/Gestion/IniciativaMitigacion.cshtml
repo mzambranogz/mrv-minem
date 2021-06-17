@@ -1,7 +1,7 @@
 ﻿@model MRVMinem.Models.ListaObjeto
 @{
     ViewBag.Title = "Iniciativa Mitigacion";
-    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";    
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.iniciativa_mit.ID_MEDMIT)
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row d-none">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
                                         <label for="cbo-tipo-iniciativa-mitigacion">Tipo de acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de acción de mitigación para clasificar su registro"></i></label>
@@ -157,9 +157,19 @@
                                                         <option value="@item.ID_TIPO_INICIATIVA">@item.TIPO_INICIATIVA</option>
                                                     }
                                                 }
-                                                @*<option>Contribuirá con los compromisos internacionales (NDC)</option>
-                                                <option>Comercializará las emisiones reducidas nacionales</option>
-                                                <option>Comercializará las emisiones reducidas internacionalmente</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="cbo-tipo-iniciativa-mitigacion">Acción de Mitigación asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione de la lista. El primer código generado es el que pertenece a su primer registro"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup300"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <select class="form-control" id="cbo-accion-asociado" aria-describedby="inputGroup300">
+                                                <option value="0">-Seleccione la acción de mitigación-</option>
                                             </select>
                                         </div>
                                     </div>
@@ -179,6 +189,12 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                             <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" maxlength="500" required placeholder="Ingrese una descripción para su acción de mitigación" maxlength="300"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group d-none">
+                                        <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="chk-ndc">
+                                            <label class="custom-control-label" for="chk-ndc">Deseo que mi esfuerzo contribuya con los compromisos nacionales (NDC) para mitigar el cambio climático<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Es obligatorio este requerimiento"></i></label>
                                         </div>
                                     </div>
                                 </div>
@@ -702,7 +718,7 @@
 <script src="~/js/IniciativaMitigacion.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        fn_actualizaCampana();
-        enLinea();
+        //fn_actualizaCampana();
+        //enLinea();
     });
 </script>

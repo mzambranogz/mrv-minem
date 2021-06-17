@@ -2118,7 +2118,7 @@ namespace datos.minem.gob.pe
 
         public IniciativaBE VerificarIniciativaMitigacion(IniciativaBE entidad)
         {
-            int num = 0;
+            //int num = 0;
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))

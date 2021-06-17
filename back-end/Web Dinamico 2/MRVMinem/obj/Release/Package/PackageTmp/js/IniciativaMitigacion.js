@@ -1,4 +1,6 @@
-﻿function fn_cargarUbicacion() {
+﻿var accion_asociado = 0;
+var moneda_actual = 0
+function fn_cargarUbicacion() {
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -108,7 +110,7 @@ function fn_cargarEnergetico() {
 }
 
 function fn_cargarIniciativa() {
-     
+    accion_asociado = 0;
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -122,6 +124,7 @@ function fn_cargarIniciativa() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
+                        accion_asociado = data[i]["ASOCIADO_ACCION"];
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
                         $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);    
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
@@ -137,6 +140,7 @@ function fn_cargarIniciativa() {
                         }
                          
                         if ($("#Control").data("revision") == 0) {
+                            moneda_actual = data[i]["ID_MONEDA"]
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
                             $("#cbo-tipo-iniciativa-mitigacion").val(data[i]["ID_TIPO_INICIATIVA"]); // add 16-03-20
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -147,6 +151,7 @@ function fn_cargarIniciativa() {
                                 $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
                             }
                         } else {
+                            $("#txt-id-asociado").val(`COD: ${data[i]["ASOCIADO_ACCION"]}`)
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"] == null ? '------' : data[i]["MONEDA"] == "" ? '------' : data[i]["MONEDA"]);
@@ -164,6 +169,9 @@ function fn_cargarIniciativa() {
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
+
+                        //$('#chk-ndc').prop('checked', data[i]["NDC"] == '1' ? true : false);
+                        
                         validarmodal();
                     }
                 }
@@ -187,15 +195,20 @@ function validarCampo() {
     if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
         return false;
     }
-    if ($("#cbo-tipo-iniciativa-mitigacion").val() == 0) {
-        return false;
-    }
+    //if ($("#cbo-tipo-iniciativa-mitigacion").val() == 0) {
+    //    return false;
+    //}
     if ($("#txa-nombre-iniciativa").val().trim() === ""){
         return false;
     }
     if ($("#txa-descripcion-medida").val().trim() === ""){
         return false;
     }
+
+    /*if (!($('#chk-ndc').prop('checked'))) {
+        return false;
+    }*/
+
     //if ($("#cbo-moneda").val() == 0){
     //    return false;
     //}
@@ -440,8 +453,11 @@ function fn_procesoIniciativa(url, estado) {
             ENERGETICO: energetico,
             GEI: gei,
             UBICACION: ubicacion,
-            ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val()
+            ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val(),
+            NDC: $('#chk-ndc').prop('checked') ? '1' : '0',
+            ASOCIADO_ACCION: $("#cbo-accion-asociado").val(),
         };
+        
         var mensaje = "";
         var respuesta = MRV.Ajax(url, item, false);
         if (respuesta.success) {
@@ -627,7 +643,6 @@ function fn_GuardarIniciativaMitigacion() {
 }
 
 function fn_guardarAvances() {
-    debugger;
     if ($("#Control").data("iniciativa") == 0) {
         fn_registrarAvance();
     } else {
@@ -670,6 +685,8 @@ function fn_ObtenerMedidaMitigacion(id) {
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         $("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span>' + data[i]["NOMBRE_MEDMIT"] + '</span>');
+                        if ($("#Control").data("revision") == 0) $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_MEDMIT"]); //add
+                        listaAccion();
                     }
                 }
             }
@@ -710,13 +727,16 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
+                        accion_asociado = 0;
                         //$("#nombreMedida span").remove();
                         $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         //$("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span id="medida">' + data[i]["NOMBRE_MEDMIT"] + '</span>');
-                        $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val())
+                        $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val());
+                        $('#txa-nombre-iniciativa').val(data[i]["NOMBRE_MEDMIT"]); //add 03-12-20
+                        listaAccion();
                     }
                 }
             }
@@ -977,7 +997,7 @@ function fn_revisarIniciativaMitigacion() {
         ENERGETICO: energetico, //add
         GEI: gei, //add
         DESCRIPCION_GEI: descripcion_gei,
-        DESCRIPCION_ENERG: descripcion_energ
+        DESCRIPCION_ENERG: descripcion_energ,        
     }
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1044,7 +1064,6 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 });
 
 function fn_observacionIniciativaMitigacion() {
-    debugger;
     var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
@@ -1179,6 +1198,7 @@ $(document).ready(function () {
     
     $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
     $('.solicita').parent().parent().removeAttr('data-toggle');
+    //$('#chk-ndc').on('change', (e) => validarmodal());
     $('#listaUbicacion').on('change', (e) => validarmodal());
     $('#txt-fecha-inicio').on('blur', (e) => validarmodal());
     $('#cbo-tipo-iniciativa-mitigacion').on('change', (e) => validarmodal());
@@ -1197,7 +1217,7 @@ $(document).ready(function () {
     } else {
         $("#Control").data("mitigacion", $("#identificador").val());
     }    
-    $("#Control").data("revision", $("#revision").val());
+    $("#Control").data("revision", $("#revision").val());    
     fn_ListarMedidaMitigacion();
     CorreoAdmin();    
 });
@@ -1310,7 +1330,6 @@ function fn_habilitarTodo() {
     } else {
         $('#chk-send-im').prop("checked", false);
     }
-    debugger;
 
     for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
 
@@ -1350,9 +1369,117 @@ var validarmodal = () => {
     });
     if (!verif) return;
     if ($('#txt-fecha-inicio').val() == "") return;
-    if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
+    //if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
     if ($('#txa-nombre-iniciativa').val().trim() == "") return;
     if ($('#txa-descripcion-medida').val().trim() == "") return;
+    //if (!($('#chk-ndc').prop('checked'))) return;
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
     $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
+}
+
+$(document).on('click', '[data-target="#solicitar-revision"]', function () {
+    let i = 0, verif = false;
+    $('[id^=U]').each((x, y) => {
+        i++;
+        if ($(y).prop('checked')) verif = true;
+    });
+    if (!verif) { alert("Por favor, seleccione una ubicación"); return; }
+    if ($('#txt-fecha-inicio').val() == "") { alert("Por favor, ingresar la fecha de inicio de operaciones"); return; }
+    if ($('#txa-nombre-iniciativa').val().trim() == "") { alert("Por favor, ingresar el nombre de la acción de mitigación"); return; }
+    if ($('#txa-descripcion-medida').val().trim() == "") { alert("Por favor, ingresar la descripción de la acción de mitigación"); return; }
+    
+})
+
+var listaAccion = () => {
+    $('#cbo-accion-asociado').html('<option value="0">-Seleccione la acción de mitigación-</option>');
+    var item = {
+        ID_USUARIO: $("#Control").data("usuario"),
+        ID_MEDMIT: $("#Control").data("mitigacion"),
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+    };
+    vurl = baseUrl + "Gestion/ListarAcciones";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $('#cbo-accion-asociado').parent().parent().parent().parent().removeClass('d-none');
+                        $('#cbo-accion-asociado').append(`<option value="${data[i]['ID_INICIATIVA']}">COD: ${data[i]['ID_INICIATIVA']} - ${data[i]['NOMBRE_INICIATIVA']}</option>`);
+                    }
+                } else {
+                    $('#cbo-accion-asociado').parent().parent().parent().parent().addClass('d-none');
+                }
+            } else {
+                $('#cbo-accion-asociado').parent().parent().parent().parent().addClass('d-none');
+            }
+            //
+            if ($("#Control").data("iniciativa") > 0)
+                $('#cbo-accion-asociado').val(accion_asociado);
+            VerificarMonedaIniciativa()
+        }
+    });
+}
+
+var arrMoneda = []
+$(document).on('change', '#cbo-accion-asociado', () => {
+    VerificarMonedaIniciativa()
+})
+
+var VerificarMonedaIniciativa = () => {
+    let asociado = $('#cbo-accion-asociado').val()
+    if (asociado == 0) {
+        $('#cbo-moneda').val(0)
+        $("#cbo-moneda").prop('disabled', false)
+        return
+    } else {
+        let v = arrMoneda.findIndex(x => { return x.ID_INICIATIVA == asociado })
+        if (v != -1) {
+            let obj = arrMoneda.find(x => { return x.ID_INICIATIVA == asociado })
+            let moneda = obj.ID_MONEDA
+            if (moneda > 0) {
+                $("#cbo-moneda").val(moneda)
+                $("#cbo-moneda").prop('disabled', true)
+            } else {
+                $("#cbo-moneda").val(moneda)
+                $("#cbo-moneda").prop('disabled', false)
+            }
+        } else {
+            var Item =
+            {
+                ID_INICIATIVA: asociado
+            };
+            $.ajax({
+                url: baseUrl + "Gestion/CargarSeleccionIniciativa",
+                type: 'POST',
+                datatype: 'json',
+                data: Item,
+                success: function (data) {
+                    if (data != null && data != "") {
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
+                                let moneda = data[i]["ID_MONEDA"]
+                                if (moneda > 0) {
+                                    $("#cbo-moneda").val(moneda)
+                                    $("#cbo-moneda").prop('disabled', true)
+                                } else {
+                                    if (moneda_actual == 0 && moneda == 0) {
+                                        $("#cbo-moneda").val(moneda)
+                                    }                                    
+                                    $("#cbo-moneda").prop('disabled', false)
+                                }
+                                arrMoneda.push({
+                                    ID_INICIATIVA: asociado,
+                                    ID_MONEDA: moneda
+                                })
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
 }

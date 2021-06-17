@@ -1,7 +1,6 @@
 ﻿
 
 function fn_CargaIniciativas() {
-    debugger;
     if ($("#Control").data("usuario") > 0) {
         if ($("#estadoIniciativa").data("estado") == 1) {
             if ($("#Control").data("rol") == 2) {
@@ -141,6 +140,7 @@ function fn_verMasPrivadoIniciativaDetalleP(ini) {
 
 // ADD 14-10-20
 function fn_mostrarDetalleIndicadorNuevo(ini) {
+    //location.href = baseUrl + "Gestion/DetalleIndicador/" + ini + "/" + Math.round(Math.random() * 100);
     location.href = baseUrl + "Gestion/DetalleIndicador/" + ini + "/" + Math.round(Math.random() * 100);
 }
 
@@ -447,9 +447,6 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
 
                         var tr = '<tr>';
-                        //debugger;
-                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
-                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
                         tr = tr + '<th class="text-center fila-inicio" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         if ($('#Control').data('rol') == 3 && ((data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 8) && data[i]["ID_ESTADO"] == 3) && $("#estadoIniciativa").data("estado") == 4) {
                             $("#ocultar-enviado").show();
@@ -555,15 +552,6 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             }
                         }
 
-
-
-                        //if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
-                        //    tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        //} else {
-                        //    tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        //}
-
-
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
                             tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
@@ -579,7 +567,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         if ($('#Control').data('rol') == 7)
                             tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Auditar</a>';
-
+                        
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
@@ -591,7 +579,13 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                            } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1) {
+                            } else if (data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1 && data[i]["ID_MEDMIT"] != 4) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1 && data[i]["ID_MEDMIT"] == 4) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 6 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 7 && data[i]["ID_ESTADO"] == 3 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
                             }
                         }
@@ -608,7 +602,13 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 2) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                            } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3) {
+                            } else if (data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3 && data[i]["ID_MEDMIT"] != 4) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 5 && data[i]["ID_ESTADO"] == 3 && data[i]["ID_MEDMIT"] == 4) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 6 && data[i]["ID_ESTADO"] == 3) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 7 && data[i]["ID_ESTADO"] == 3) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicadorNuevo(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
                             }
                         }
@@ -1960,12 +1960,12 @@ function fn_enviarPaquete() {
         //if (cont > 0) {
         if ($("#cbo-actor-paquete").val() == 4) {
             if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-                fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán la iniciativa.</small>');
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán las acciones de mitigación.</small>');
             } else {
                 if (cont > 0) {
                     fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
                 } else {
-                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Evaluador.</small>');
+                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más acciones de mitigación para enviar al Evaluador.</small>');
                 }
             }
             //} else if ($("#cbo-actor-paquete").val() == 5 && cont == 1) {                
@@ -1974,7 +1974,7 @@ function fn_enviarPaquete() {
             if (cont > 0) {
                 fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
             } else {
-                fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Verificador.</small>');
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más acciones de mitigación para enviar al Verificador.</small>');
             }
             //} else if ($("#cbo-actor-paquete").val() == 5 && cont > 0) {
             //fn_msjError('<hr><small class="mb-0">Por favor, seleccione solo una iniciativa para el envío de la iniciativa al Verificador.</small>');
@@ -1982,7 +1982,7 @@ function fn_enviarPaquete() {
             //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la iniciativa que se enviará al Verificador.</small>');
         }
     } else {
-        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) iniciativa(s).</small>');
+        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) acción(es) de mitigación.</small>');
     }
 }
 
@@ -2177,7 +2177,7 @@ function fn_aprobarPaquete() {
     //debugger;
     $("#seccionMensaje3 #errorRegistro").remove(); //add
     if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-        fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las iniciativas.</small>');
+        fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las acciones de mitigación.</small>');
     } else {
         if (cont > 0) {
             fn_aprobarPaqueteIniciativa(id_iniciativa);

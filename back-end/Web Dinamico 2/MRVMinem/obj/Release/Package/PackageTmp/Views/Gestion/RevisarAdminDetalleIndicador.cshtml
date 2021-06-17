@@ -1,8 +1,11 @@
 ﻿@model MRVMinem.Models.ListaObjeto
+@using entidad.minem.gob.pe;
+
 @{
     ViewBag.Title = "Revisar Admin Detalle Indicador";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
     string color = Model.medida.ID_MEDMIT == 4 ? "grupo-columna-02" : "";
+    List<AudImpVerfBE> lista = new List<AudImpVerfBE>();
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.revision)
@@ -120,7 +123,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-12">
+                        <div class="col-sm-12-col-md-12 col-lg-12 d-none">
                             <div class="form-group">
                                 <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de acción de mitigación</label>
                                 <div class="input-group">
@@ -129,6 +132,18 @@
                                 </div>
                             </div>
                         </div>
+                        @if (@Model.iniciativa_mit.ASOCIADO_ACCION > 0)
+                        {
+                            <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="txt-id-asociado">Código de la acción de mitigación asociada</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                        <input class="form-control-plaintext" id="txt-id-asociado" aria-describedby="inputGroup9" value="COD: @Model.iniciativa_mit.ASOCIADO_ACCION" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        }    
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;</span></label>
@@ -455,28 +470,32 @@
                                                     {
                                                         var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
                                                         var descripcion = "";
-                                                        if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //{
+                                                        //    descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                        //    if (string.IsNullOrEmpty(descripcion))
+                                                        //    {
+                                                        //        descripcion = "";
+                                                        //    }
+                                                        //    else
+                                                        //    {
+                                                        //        descripcion = "(" + descripcion + ")";
+                                                        //    }
+                                                        //}
+                                                        //else
+                                                        //{
+                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //}
+                                                        //if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
+                                                        //{
+                                                        //    if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //    {
+                                                        //        descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //    }
+                                                        //}
+                                                        if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
                                                         {
-                                                            descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
-                                                            if (string.IsNullOrEmpty(descripcion))
-                                                            {
-                                                                descripcion = "";
-                                                            }
-                                                            else
-                                                            {
-                                                                descripcion = "(" + descripcion + ")";
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        }
-                                                        if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
-                                                        {
-                                                            if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
-                                                            {
-                                                                descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                            }
+                                                            descripcion = "" + itemCab.COMBINACION_UNIDAD;
                                                         }
                                                         <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
@@ -493,6 +512,7 @@
                                                 @foreach (var itemDatos in itemD.listaInd)
                                                 {
                                                     fila += 1;
+                                                    lista.Add(itemDatos.objAIV);
                                                     <tr id="detalles-tr-1" data-ind="@itemDatos.ID_INDICADOR">
                                                         <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                         @foreach (var itemDet in itemDatos.listaInd)
@@ -577,6 +597,11 @@
                             </div>
                         </div>
 
+                        if (Model.medida.ID_MEDMIT == 4)
+                        {
+                            <div class="container py-4" id="resumenauditada"></div>
+                        }
+
                         <div class="container py-4">
                             <div class="row">
                                 <div class="col-12">
@@ -593,7 +618,7 @@
                                                 <tr>
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                                     @*<td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>*@
-                                                    <td data-encabezado="Resumen">Emisiones de GEI reducidas</td>
+                                                    <td id="nombre-resumen" data-encabezado="Resumen">Emisiones de GEI reducidas</td>
                                                     <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                 </tr>
                                                 @if (Model.medida.ID_MEDMIT == 4)
@@ -637,6 +662,14 @@
                         </div>*@
                     }
                 }
+
+                @if (Model.medida.ID_MEDMIT == 4)
+                {
+                    <div class="container py-4" id="resumenverificada"></div>
+                    <div class="container py-4" id="resumenpotencial"></div>
+                }
+
+                
 
                 <div class="dropdown-divider"></div>
 
@@ -1035,4 +1068,7 @@
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
+<script type="text/javascript">
+            var arrRevisionAIV = @Html.Raw(Json.Encode(lista));
+</script>
 <script src="~/js/DetalleIndicador.js"></script>

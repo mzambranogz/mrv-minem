@@ -9,6 +9,7 @@ namespace entidad.minem.gob.pe
     public class MontoInversionBE : BaseBE
     {
         public int ID_INICIATIVA { get; set; }
+  
         public int ANIO { get; set; }
         public int MONEDA { get; set; }
         public decimal INVERSION { get; set; }

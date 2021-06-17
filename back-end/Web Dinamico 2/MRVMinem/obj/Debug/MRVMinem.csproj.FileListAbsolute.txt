@@ -2530,6 +2530,7 @@ D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\utilitario.minem.gob.
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\datos.minem.gob.pe.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Dapper.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Oracle.DataAccess.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.SqlServer.Types.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\entidad.minem.gob.pe.pdb
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\logica.minem.gob.pe.pdb
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\utilitario.minem.gob.pe.pdb
@@ -2553,12 +2554,6 @@ D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Webpage
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Helpers.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Mvc.resources.dll
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.cache
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
-D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.SqlServer.Types.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
@@ -2569,3 +2564,8 @@ D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\pt\Microsoft.SqlServe
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.cache
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
+D:\ESCRITORIO\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb

@@ -1,10 +1,13 @@
 ﻿@model MRVMinem.Models.ListaObjeto
+@using entidad.minem.gob.pe;
 @{
     ViewBag.Title = "Ver Mas Iniciativa y Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
     string color = Model.medida.ID_MEDMIT == 4 ? "grupo-columna-02" : "";
+    List<AudImpVerfBE> lista = new List<AudImpVerfBE>();
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT);
 
 @{
     var total_reducido = 0.0;
@@ -79,7 +82,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-12">
+                        <div class="col-sm-12-col-md-12 col-lg-12 d-none">
                             <div class="form-group">
                                 <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de acción de mitigación</label>
                                 <div class="input-group">
@@ -88,6 +91,18 @@
                                 </div>
                             </div>
                         </div>
+                        @if (@Model.iniciativa_mit.ASOCIADO_ACCION > 0)
+                        {
+                            <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="txt-id-asociado">Código de la acción de mitigación asociada</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                        <input class="form-control-plaintext" id="txt-id-asociado" aria-describedby="inputGroup9" value="COD: @Model.iniciativa_mit.ASOCIADO_ACCION" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        }    
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label class="font-weight-bold" for="txa-nombre-iniciativa">Nombre de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;</span></label>
@@ -276,7 +291,7 @@
                         <div class="container pt-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Detalle de la iniciativa de mitigación</div>
+                                    <div class="h5 pb-5 text-primary">Detalle de la acción de mitigación</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -285,7 +300,7 @@
                                         <label for="txt-enfoque" class="font-weight-bold">Equipo(s)</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@itemD.DESCRIPCION" readonly>
+                                            <input class="form-control-plaintext" id="txt-enfoque" data-enfoque="@itemD.ID_ENFOQUE" aria-describedby="inputGroup20" value="@itemD.DESCRIPCION" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -311,63 +326,8 @@
                                         <div class="table-responsive tabla-principal">
                                             <table class="table table-hover" id="tablaAuditor">
                                                 <thead id="cabeceraAuditor">
-                                                    <tr class="bg-primary text-white">
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Sector</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Institución auditada</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Tipo auditoría</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Auditado por:</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Nombre de institución del auditor</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Fecha de auditoría</span></th>
-                                                    </tr>
                                                 </thead>
                                                 <tbody id="cuerpoAuditor">
-                                                    <tr id="detalles-tr-1" data-ind="1" data-rev="0">
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="cbo-sector" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">Administrativo</option>
-                                                                    <option value="2">Público</option>
-                                                                    <option value="3">Educación</option>
-                                                                    <option value="4">Salud</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" readonly>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="cbo-tipo_auditoria" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">Tipo 1</option>
-                                                                    <option value="2">Tipo 2</option>
-                                                                    <option value="3">Tipo 3</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="txt-auditor" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">EMSE</option>
-                                                                    <option value="2">Auditor acreditado</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" readonly>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" readonly>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -380,35 +340,39 @@
                                     <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
 
                                         <table class="table table-hover" data-fila="0">
-                                            <thead @*id="cabeceraTablaIndicador"*@>
+                                            <thead @*id="cabeceraTablaIndicador"*@ id="tablaIndicador">
                                                 <tr class="bg-primary text-white">
                                                     <th class="text-center @color" scope="col"><span>N°</span></th>
                                                     @foreach (var itemCab in itemD.listaParam)
                                                     {
                                                         var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
                                                         var descripcion = "";
-                                                        if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //{
+                                                        //    descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                        //    if (string.IsNullOrEmpty(descripcion))
+                                                        //    {
+                                                        //        descripcion = "";
+                                                        //    }
+                                                        //    else
+                                                        //    {
+                                                        //        descripcion = "(" + descripcion + ")";
+                                                        //    }
+                                                        //}
+                                                        //else
+                                                        //{
+                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //}
+                                                        //if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
+                                                        //{
+                                                        //    if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //    {
+                                                        //        descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //    }
+                                                        //}
+                                                        if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
                                                         {
-                                                            descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
-                                                            if (string.IsNullOrEmpty(descripcion))
-                                                            {
-                                                                descripcion = "";
-                                                            }
-                                                            else
-                                                            {
-                                                                descripcion = "(" + descripcion + ")";
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        }
-                                                        if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
-                                                        {
-                                                            if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
-                                                            {
-                                                                descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                            }
+                                                            descripcion = "" + itemCab.COMBINACION_UNIDAD;
                                                         }
                                                         <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
@@ -416,10 +380,11 @@
                                                     @*<th class="text-center" scope="col">Más</th>*@
                                                 </tr>
                                             </thead>
-                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="">
                                                 @foreach (var itemDatos in itemD.listaInd)
                                                 {
                                                     fila += 1;
+                                                    lista.Add(itemDatos.objAIV);
                                                     <tr id="detalles-tr-1" data-ind="0">
                                                         <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                         @foreach (var itemDet in itemDatos.listaInd)
@@ -435,7 +400,7 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                            <input class="form-control form-control-sm text-center @(itemDet.VALIDAR_IMPLEMENTADO == "1" ? "validar-implementado" : "" )" data-valor="@itemDet.VALOR" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
                                                                         }
                                                                     }
                                                                     else
@@ -451,7 +416,7 @@
                                                                             if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
                                                                             {
                                                                                 string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
+                                                                                <input class="form-control form-control-sm text-center valor @(itemDet.ENERGIA_TOTAL == "1" ? "energia-total" : "" )" data-param="@itemDet.ID_PARAMETRO" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
                                                                             }
                                                                             else
                                                                             {
@@ -485,7 +450,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container py-4">
+                        @*<div class="container py-4">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive tabla-principal mt-3">
@@ -508,8 +473,53 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>*@
+
+                        if (Model.medida.ID_MEDMIT == 4)
+                        {
+                            <div class="container py-4" id="resumenauditada"></div>
+                        }
+
+                        <div class="container py-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>@(Model.medida.ID_MEDMIT == 4 ? "Por las mejoras implementadas" : "Resumen")</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    @*<td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>*@
+                                                    <td id="nombre-resumen" data-encabezado="Resumen">Emisiones de GEI reducidas</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                                @if (Model.medida.ID_MEDMIT == 4)
+                                                {
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                                        <td data-encabezado="Resumen">Energía total reducida</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle-energia">0.00</strong><strong>&nbsp;MJ</strong></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     }
+                }
+
+                @if (Model.medida.ID_MEDMIT == 4)
+                {
+                    <div class="container py-4" id="resumenverificada"></div>
+                    <div class="container py-4" id="resumenpotencial"></div>
                 }
                 @*<div class="dropdown-divider"></div>
                 <div class="container py-5">
@@ -738,4 +748,8 @@
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
+<script type="text/javascript">
+    var sindetalle = 0;
+    var arrRevisionAIV = @Html.Raw(Json.Encode(lista));
+</script>
 <script src="~/js/VerMas.js"></script>

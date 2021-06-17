@@ -1,5 +1,7 @@
 var indicadores = new Array();
 var documentos = new Array();
+var arrAIV = [];
+var validar_error = 0;
 
 function fn_crearLinea(fila) {
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
@@ -281,7 +283,13 @@ function CargarDatosIniciativa() {
                             $("#txt-monto-inversion").val("------");//add 030620
                         }
 
+                        if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                        }
 
+                        if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
+                        }
 
                         if ($("#Control").data("revision") == 0) {
                             //$("#cbo-moneda").val(data[i]["ID_MONEDA"]);
@@ -292,13 +300,13 @@ function CargarDatosIniciativa() {
                                 $("#txt-moneda").val("------");
                             }
 
-                            if (data[i]["FECHA"].toString() != "01/01/0001") {
-                                $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
-                                //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
-                            }
-                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
-                                $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
-                            }
+                            //if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
+                            //    //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
+                            //}
+                            //if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
+                            //}
                         } else {
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             //$("#txt-moneda").val(data[i]["MONEDA"]);
@@ -309,12 +317,12 @@ function CargarDatosIniciativa() {
                                 $("#txt-moneda").val("------");
                             }
 
-                            if (data[i]["FECHA"].toString() != "01/01/0001") {
-                                $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
-                            }
-                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
-                                $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
-                            }
+                            //if (data[i]["FECHA"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            //}
+                            //if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                            //    $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
+                            //}
                         }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
                             $("#chk-publicar").prop("checked", true);
@@ -333,6 +341,12 @@ function CargarDatosIniciativa() {
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
                                 $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
                             }
+                        }
+
+                        let moneda = data[i]["ID_MONEDA"]
+                        if (moneda > 0) {
+                            $('[id*="ms-20"]').val(moneda)
+                            $('[id*="ms-20"]').prop('disabled', true)
                         }
 
                         //if (data[i]["ListaSustentos"] != null) {
@@ -1836,28 +1850,31 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    tr += `<th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">N°&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Número"></i></div></div></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
-                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
-                            if (data[i]["PREFIJO"] != null) {
-                                descripcion += data[i]["PREFIJO"];
-                            }
-                            if (data[i]["UNIDAD"] != null) {
-                                descripcion += data[i]["UNIDAD"];
-                            }
-                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
-                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
-                            }
-                            if (descripcion == 0) {
-                                descripcion = "";
-                            } else {
-                                descripcion = "(" + descripcion + ")";
-                            }
-                        } else {
-                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                        }
+                        //if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                        //    if (data[i]["PREFIJO"] != null) {
+                        //        descripcion += data[i]["PREFIJO"];
+                        //    }
+                        //    if (data[i]["UNIDAD"] != null) {
+                        //        descripcion += data[i]["UNIDAD"];
+                        //    }
+                        //    if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                        //        descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                        //    }
+                        //    if (descripcion == 0) {
+                        //        descripcion = "";
+                        //    } else {
+                        //        descripcion = "(" + descripcion + ")";
+                        //    }
+                        //} else {
+                        //    descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        //}
+
+                        descripcion = data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null ? '' : data[i]["COMBINACION_UNIDAD"];
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
@@ -1877,14 +1894,21 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
+                        let filtro = "";
+                        if (medida == 4)
+                            filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+
+                        //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span></th>`;
+                        tr += `<th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">${data[i]["NOMBRE_PARAMETRO"]} &nbsp;${descripcion}${filtro}</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i></div></div></th>`;
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
 
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
+                    //tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
+                    tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sustento &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i></div></div></th>`;
                     if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
-                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                        //tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                        tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Ver &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></div></div></th>`;
 
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
@@ -1949,7 +1973,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     } else {
                                         //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
                                         tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
-                                        tr += '        <option value="0">Seleccionar</option>';
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
+                                        //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
                                             tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
@@ -1960,7 +1985,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     lista++;
                                     //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
                                     tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -1975,7 +2001,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 if (data[j]["EDITABLE"] == 1) {
                                     if (data[j]["ID_TIPO_DATO"] == 1) {
                                         fecha++;
-                                        tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        //tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        tr += `<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-${fecha}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" ${data[j]["ID_PARAMETRO"] == 92 || data[j]["ID_PARAMETRO"] == 94 ? '' : 'readonly'}>`;
                                     } else {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
@@ -1987,7 +2014,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     texto++;
                                     //tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
-                                    tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
+                                    tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" ${data[j]["ID_PARAMETRO"] == 92 || data[j]["ID_PARAMETRO"] == 94 ? '' : 'readonly'}>`;
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
@@ -2108,7 +2135,9 @@ function progressHandlingFunction(e) {
 function CargarDatosExcel(data) {
     CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
-    let validar_error = 0; //ad 08-09-20
+    //let validar_error = 0; //ad 08-09-20
+    validar_error = 0;
+    arrAIV = [];
     //for (var i = 0; i < data.length; i++) {
     for (var i = 0; i < data.length; i++) {
         var validar = 0;
@@ -2116,7 +2145,7 @@ function CargarDatosExcel(data) {
         var texto = 0;
         var fecha = 0;
         var entidad = data[i]["listaInd"];
-        var entidad_a = data[i]["listaAcumulado"];
+        var entidad_a = data[i]["listaAcumulado"];        
         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
 
         var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("[data-param]");
@@ -2162,23 +2191,54 @@ function CargarDatosExcel(data) {
         //$("#cuerpoTablaIndicador").data("total", total);
 
         // add 17-05-2018
-        if (validar_error != 1) //add 08-09-20
+        if (validar_error != 1) {
             armarAcumulado(entidad_a, i + 1);
-
+            if ($("#Control").data("mitigacion") == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`);
+        } //add 08-09-20
     }
 
-    let resumen_total = 0.0, resumen_energia = 0.0;
+    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
-        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-        });
+        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+        //    resumen_emisiones_potencial += emision;
+        //    resumen_energia_total += energia;
+        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+        //});
+        for (var i = 0; i < arrAIV.length; i++) {
+            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+        }
         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+        //potencial
+        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+        //auditada
+        $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+        $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+        //verificada
+        $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+        $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
     } else {
         $('[id^=acum-]').each((x, y) => {
             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -2247,16 +2307,25 @@ $(document).ready(function () {
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
-    armarTablaAuditor();
+    if ($("#Control").data("mitigacion") == 4) {
+        armarTablaAuditor();
+        resumenAuditada();
+        resumenVerificada();
+        resumenPotencial();
+    }
     //CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
-    } else {        
+    } else {
+        loadMoneda();
+
         CargarDatosCabecera();
         CargarDatosGuardados();
 
         GuardarIdDetalle();
     }
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
 
     asignarRuta($("#cbo-enfoque").val());
     $('[data-toggle="tooltip"]').tooltip();
@@ -2264,6 +2333,7 @@ $(document).ready(function () {
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();
+    $('#cbo-tipo_auditoria').on('change', (e) => cambiarTipo());
 
     $(document).on("mouseover", "#cuerpoTablaIndicador tr", function () {
 
@@ -2288,7 +2358,7 @@ $(document).on("change", "#cbo-enfoque", function () {
     $("#cuerpoTablaIndicador").data("total", 0);
     $("#cuerpoTablaIndicador").data("delete", "");
     var enfoque = $("#cbo-enfoque").val();
-    if (enfoque == 1) {
+    /*if (enfoque == 1) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 2) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
@@ -2331,14 +2401,69 @@ $(document).on("change", "#cbo-enfoque", function () {
     } else if (enfoque == 21) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 22) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_electrico.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_GLP.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 23) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 24) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 25) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    }*/
+
+    if (enfoque == 1) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 2) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 3) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 4) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 5) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/3.2 Plantilla_Generacion_Distribuida.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 6) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/3.1 Plantilla_RER_Conectado.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 7) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/2.2 Plantilla_Electrificacion_Rural.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 8) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/2.1 Plantilla_Coccion_Lena.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 9) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/2.1 Plantilla Coccion limpia_vales_fise.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 10) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.7 Plantilla_Lamparas_de_alumbrado_publico.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 11) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 12) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.5 Plantilla_Iluminacion_residencial.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 13) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.3 Plantilla_Eficiencia_energetica_comercial.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 14) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_industrial_caldera (retrofit).xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 15) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_industrial_caldera (cambio de combustible).xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 16) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 17) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 18) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 19) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 20) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Aire acondicionado.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 21) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_eléctricos.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 22) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 23) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_GLP.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 24) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 25) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
+
+    nombreresumen($("#Control").data("mitigacion"), $('#cbo-enfoque').val());
+
     $('[data-toggle="tooltip"]').tooltip();
     $("#cuerpoTablaIndicador").html("");
     $('#cuerpo-acumulado-total').html('');
@@ -2490,6 +2615,16 @@ function fn_procesoDetalleIndicador(url, estado) {
         return false;
     }
 
+    if (validar_error == 1) {
+        if (estado == 1 || estado == 5) {
+            $('#mensajeModalRegistrar').append(mensajeError("mensajeDangerRegistro", "Error", "Los datos cargados no coinciden con el formato establecido"));
+        } else if (estado == 6 || estado == 0) {
+            $('#mensajeModalAvance').append(mensajeError("mensajeDangerAvance", "Error", "Los datos cargados no coinciden con el formato establecido"));
+        }        
+        return
+    }
+
+
     indicadores = [];
     documentos = [];
     var medida = $("#Control").data("mitigacion");
@@ -2535,7 +2670,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             arrValores.push({
                 ID_INDICADOR: ind,
                 ADJUNTO: nom_t,
-                listaInd: ListaValores
+                listaInd: ListaValores,
+                objAIV: arrAIV[fila - 1],
             });
         }
         //if (fn_validarCampoReg(fila)) {
@@ -2618,6 +2754,20 @@ function fn_procesoDetalleIndicador(url, estado) {
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
     }
 
+    let arrInversion = [];
+    $('.anio').each((x, y) => {
+        let anio = $(y).data('valor');
+        let moneda = $(`#ms-${anio}`).val();
+        let inversion = $(`#m-${anio}`).val() == '' ? 0 : $(`#m-${anio}`).val().replace(/,/gi, '');
+        arrInversion.push({
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANIO: anio,
+            MONEDA: moneda,
+            INVERSION: inversion,
+            USUARIO_REGISTRO: $("#Control").data("usuario"),
+        });
+    });
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -2640,9 +2790,11 @@ function fn_procesoDetalleIndicador(url, estado) {
         SECTOR_INST: medida == 4 ? $('#cbo-sector').val() : '',
         INSTITUCION_AUDITADA: medida == 4 ? $('#txt-institucion').val() : '',
         TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
+        DESCRIPCION_TIPO_AUDITORIA: medida == 4 ? $('#txt-descripcion-tipo-auditoria').val() : '',
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
         FECHA_AUDITORIA: medida == 4 ? $('#fch-fecha-auditoria').val() : '',
+        listaMonto: arrInversion,
     };
 
     var options = {
@@ -2839,13 +2991,17 @@ $("#guardar-avance").on("hidden.bs.modal", function () {
 
 
 function CargarDatosGuardados() {
+    arrAIV = [];
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var iniciativa = $("#Control").data("iniciativa");
     var item = {
         ID_INICIATIVA: iniciativa,
         ID_MEDMIT: medida,
-        ID_ENFOQUE: enfoque
+        ID_ENFOQUE: enfoque,
+        ID_PARAMETRO: $("#parametro").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
     }
     //$('#modal-acumulado').modal('show');//add 28-09-20
 
@@ -2874,6 +3030,7 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"];
+                        let objAIV = data[i]["objAIV"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         var tieneArchivo = data[i].ArchivoSustento;
                         if (tieneArchivo != undefined && tieneArchivo != null) {
@@ -2936,6 +3093,7 @@ function CargarDatosGuardados() {
                         //add 17-05-2020
                         //armarAcumulado(entidad, i + 1);
                         armarAcumulado(entidad_a, i + 1);
+                        if (medida == 4) agregarValorAIF(`#detalles-tr-${(i + 1)}`, objAIV, data[i]["ID_INDICADOR"]);
                     }
                     //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
@@ -2949,18 +3107,48 @@ function CargarDatosGuardados() {
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", resumen_total);
 
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0, resumen_total_auditada = 0.0, resumen_energia_auditada = 0.0, resumen_total_verificada = 0.0, resumen_energia_verificada = 0.0;
                     if (medida == 4) {
-                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
-                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
-                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
-                        });
+                        //$('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //    let emision = $(y).parent().parent().parent().find('[data-param = 11]').val();
+                        //    let energia = $(y).parent().parent().parent().find('.energia-total').val();
+                        //    emision = emision == "" ? 0 : parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        //    energia = energia == "" ? 0 : parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        //    resumen_emisiones_potencial += emision;
+                        //    resumen_energia_total += energia;
+                        //    resumen_total_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? emision : 0;
+                        //    resumen_energia_auditada += $(y).val() == null ? 0 : $(y).val() > 0 ? energia : 0;
+                        //    resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                        //    resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        //    resumen_total_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? emision : 0;
+                        //    resumen_energia_verificada += $(y).val() == null ? 0 : $(y).val() > 2 ? energia : 0;
+                        //});
+                        for (var i = 0; i < arrAIV.length; i++) {
+                            resumen_emisiones_potencial += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_total += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total_auditada += arrAIV[i].AUDITADO == null ? 0 : arrAIV[i].AUDITADO;
+                            resumen_energia_auditada += arrAIV[i].ENERGIA_AUDITADO == null ? 0 : arrAIV[i].ENERGIA_AUDITADO;
+                            resumen_total += arrAIV[i].IMPLEMENTADO == null ? 0 : arrAIV[i].IMPLEMENTADO;
+                            resumen_energia += arrAIV[i].ENERGIA_IMPLEMENTADO == null ? 0 : arrAIV[i].ENERGIA_IMPLEMENTADO;
+                            resumen_total_verificada += arrAIV[i].VERIFICADO == null ? 0 : arrAIV[i].VERIFICADO;
+                            resumen_energia_verificada += arrAIV[i].ENERGIA_VERIFICADO == null ? 0 : arrAIV[i].ENERGIA_VERIFICADO;
+                        }
                         $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        //potencial
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+
+                        //auditada
+                        $("#total-detalle-emisiones-auditada").html("").append(formatoMiles(resumen_total_auditada));
+                        $("#total-detalle-energia-auditada").html("").append(formatoMiles(resumen_energia_auditada));
+
+                        //verificada
+                        $("#total-detalle-emisiones-verificada").html("").append(formatoMiles(resumen_total_verificada));
+                        $("#total-detalle-energia-verificada").html("").append(formatoMiles(resumen_energia_verificada));
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -3026,7 +3214,6 @@ function fn_validarCampoReg(f) {
 }
 
 function asignarRuta(enfoque) {
-
     if (enfoque == 1) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 2) {
@@ -3054,9 +3241,9 @@ function asignarRuta(enfoque) {
     } else if (enfoque == 13) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.3 Plantilla_Eficiencia_energetica_comercial.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 14) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_industrial_caldera (retrofit).xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 15) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_industrial_caldera (cambio de combustible).xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 16) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 17) {
@@ -3066,15 +3253,15 @@ function asignarRuta(enfoque) {
     } else if (enfoque == 19) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 20) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Aire acondicionado.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 21) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_eléctricos.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 22) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_electrico.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 23) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_Calentadores_agua_GLP.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 24) {
-        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 25) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
@@ -3218,7 +3405,7 @@ function mensajeCorrecto(id, titulo, mensaje) {
 
 function mensajeError(id, titulo, mensaje) {
     var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
-    msj = msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+    msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
     msj = msj + '                            <div class="alert-wrap mr-3">';
     msj = msj + '                                <div class="sa">';
     msj = msj + '                                    <div class="sa-error">';
@@ -3595,22 +3782,430 @@ function CargarSector() {
 }
 
 var armarTablaAuditor = () => {
-    let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
-    let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
-    let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
-    let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
-    let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;
-    let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;
-    let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    //let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
+    //let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
+    //let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
+    //let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
+    //let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;
+    //let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;
+    //let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    //$('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+
+    let head1 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sector&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head2 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Institución auditada&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head3 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3"></i></div></div></th>`;
+    let head4 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Descripción de tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i></div></div></th>`;
+    let head5 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Auditado por&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i></div></div></th>`;
+    let head6 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Nombre de institución / auditor&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría"></i></div></div></th>`;
+    let head7 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Fecha de auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría"></i></div></div></th>`;
     $('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+    $("[data-toggle='tooltip']").tooltip();
 
     let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
     let body2 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body3 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-tipo_auditoria" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Tipo 1</option><option value="2">Tipo 2</option><option value="3">Tipo 3</option></select></div></td>`;
-    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="500" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
-    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">EMSE</option><option value="2">Auditor acreditado</option></select></div></td>`;
+    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="800" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Empresa de servicio energético (EMSE)</option><option value="2">Auditor acreditado</option></select></div></td>`;
     let body6 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     let body7 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     $('#tablaAuditor').find('tbody').html(`<tr id="detalles-1" data-ind="1" data-rev="0">${body1}${body2}${body3}${body4}${body5}${body6}${body7}</tr>`);
 
 }
+
+var resumenAuditada = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-auditada">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-auditada">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Por las mejoras auditadas</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenauditada').html(row);
+}
+
+var resumenVerificada = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-verificada">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-verificada">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Por las mejoras verificadas</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenverificada').html(row);
+}
+
+var resumenPotencial = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-2">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Resumen potencial de las mejoras</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenpotencial').html(row);
+}
+
+//========================
+
+$(document).on("click", ".miColumna", function (event) {
+    var id = "";
+    if (event.target.nodeName == "SPAN") {
+        id = event.target.firstElementChild.id;
+    } else {
+        id = event.target.id;
+    }
+
+    $(".miColumna > i").removeClass("fa-sort-up");
+    $(".miColumna > i").removeClass("fa-sort-down");
+    $(".miColumna > i").addClass("fa-sort");
+    $(".miColumna > i").css("color", "lightgray");
+    //===========
+    let order = $(`#${id}`).data('order');
+    if (order == "ASC") {
+        $(`#${id}`).data('order', "DESC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-down");
+    }
+    else if (order == "DESC") {
+        $(`#${id}`).data('order', "ASC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-up");
+    }
+    let param = $(`#${id}`).data('parametro');
+    ordenarFiltro(order, param);
+});
+
+function CierraPopup(id) {
+    $(id).modal('hide');//ocultamos el modal
+    $(id).removeClass('show');
+    $(id).prop('aria-hidden', true);
+    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+}
+
+var ordenarFiltro = (order, parametro) => {
+    let arrValores = [], arrInd = [];
+    $('#cuerpoTablaIndicador').find('tr').each((x, y) => {
+        let arr = [];
+        $(y).find('td').each((w, z) => {
+            //let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            let v = $(z).data('encabezado') != "Acciones" ? true : false;
+            if (v) {
+                let id = '';
+                if ($(z).data('encabezado') == "Sustento") {
+                    id = `#${$(z).find('label').find('input')[0].id}`;
+                } else {
+                    id = `#${$(z).find('div')[0].firstChild.id}`;
+                }
+
+                if ($(z).data('encabezado') == "Sustento") {
+                    //arr.push([id, $(id)[0].files[0]]);
+                    arr.push([id, $(id)[0].files]);
+                } else {
+                    arr.push([id, $(id).val()]);
+                }
+                //arr.push([id, $(id).val()]);
+            }
+        });
+        arrInd.push([`#${$(y).attr('id')}`,
+                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')),
+                      $(y)[0].outerHTML, arr]);
+        // arrValores.push($(y).find('[data-param=11]').val());
+        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')), `#${$(y).attr('id')}`]);
+    });
+    //if (order == "ASC") arrValores.sort(function (a, b) { return a - b; }); //ASCENDENTE
+    //else arrValores.sort(function (a, b) { return b - a; }); //DESCENDENTE
+
+    if (order == "ASC") arrValores = ordenarAscendente(arrValores); //ASCENDENTE
+    else arrValores = ordenarDescendente(arrValores); //DESCENDENTE
+
+    $('#cuerpoTablaIndicador').html('');
+    $.each(arrValores, (x, y) => {
+        //v = arrInd.find(w => { return w[1] == y; });
+        v = arrInd.find(w => { return w[1] == y[0] && w[0] == y[1]; });
+        $('#cuerpoTablaIndicador').append(v[2]);
+        $.each(v[3], (x, y) => {
+            if (y[0].indexOf('fle-doc-') !== -1) $(y[0])[0].files = y[1];
+            else $(y[0]).val(y[1]);
+        });
+    });
+    ordenarTablaDatos();
+}
+
+var ordenarDescendente = (arr) => {
+    arr.sort(function (a, b) {
+        if (a[0] < b[0]) {
+            return 1;
+        }
+        if (a[0] > b[0]) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+
+    return arr;
+}
+
+var ordenarAscendente = (arr) => {
+
+    let t, id;
+    for (let a = 1; a < arr.length; a++) {
+        for (let b = arr.length - 1; b >= a; b--) {
+            if (arr[b - 1][0] > arr[b][0]) {
+                t = arr[b - 1][0];
+                id = arr[b - 1][1];
+                arr[b - 1][0] = arr[b][0];
+                arr[b - 1][1] = arr[b][1];
+                arr[b][0] = t;
+                arr[b][1] = id;
+            }
+        }
+    }
+
+    return arr;
+}
+
+function ordenarTablaDatos() {
+    let iniciativa = $("#Control").data("iniciativa");
+    let o = $("#tablaIndicador");
+    if ($("#Control").data("mitigacion") == 4) ordenarAcumulado(o.find("tbody").find("th"));
+    for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
+        var s = a + 1;
+        o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
+            id: "detalles-tr-" + s
+        }), o.find("tbody").find("tr").eq(a).find("select").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "cbo-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='text']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "txt-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='date']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "fch-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        })
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("onchange").attr({
+            onchange: `handleFileSustento(this.files,${s},1)`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("id").attr({
+            id: "fle-doc-" + s
+        });
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
+            id: "fle-nom-" + s
+        });
+
+        let cargado = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').attr('style');
+        let rel = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).attr('href');
+        let ind = rel.split('&')[1].split('=')[1].trim();
+        if (rel.split('&')[2].split('=')[1].trim() == 'I') {
+            cargado == '' || cargado == undefined ? ActualizarFile(iniciativa, ind, s) : ''; //add
+            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("href").attr({
+                href: `/Gestion/FileDownload?IdIniciativa=${iniciativa}&IdIndicador=${s}&accion=I`
+            });
+        }
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("id").attr({
+            id: `fle-dow-${s}`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').eq(0).removeAttr("for").attr({
+            for: "fle-doc-" + s
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").eq(0).removeAttr("id").attr({
+            id: "sustento" + s
+        });
+    }
+    ordenarIndicadorFile(iniciativa);
+}
+
+var ordenarAcumulado = (inp) => {
+    let arr = [], html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+
+    $.each(arr, (x, y) => {
+        html += $(`#f-${y}`)[0].outerHTML;
+    });
+
+    $('#cuerpo-acumulado-total').html(html);
+    ordenarTabla();
+}
+
+function ActualizarFile(idIniciativa, idIndicador, nuevoindicador) {
+
+    var url = baseUrl + 'Gestion/ActualizarFile?IdIniciativa=' + idIniciativa + '&IdIndicador=' + idIndicador + '&idnuevo=' + nuevoindicador;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+var ordenarIndicadorFile = (idIniciativa) => {
+    var url = baseUrl + 'Gestion/OrdenarFile?IdIniciativa=' + idIniciativa;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+var loadMoneda = () => {
+    var anio = (new Date).getFullYear();
+    deshabilitarMontos(anio);
+    let opciones = '';
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMoneda",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    opciones += '<option value="' + data[i]["ID_MONEDA"] + '">' + data[i]["DESCRIPCION"] + '</option>';
+                }
+                $('[id*=ms-]').each((x, y) => {
+                    $(y).append(opciones);
+                });
+                asignarMontos();
+            }
+        }
+    });
+}
+
+var asignarMontos = () => {
+    let opciones = '';
+    var Item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMontos",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    let anio = data[i]["ANIO"];
+                    $(`#ms-${anio}`).val(data[i]["MONEDA"]);
+                    $(`#m-${anio}`).val(formatoMiles(data[i]["INVERSION"]));
+                }
+            }
+        }
+    });
+}
+
+$(document).on("keyup", ".formato-num", function (event) {
+
+    $(event.target).val(function (index, value) {
+        if (value.length <= 2) {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{1})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        } else {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        }
+    });
+});
+
+var deshabilitarMontos = (anio) => {
+    for (var i = anio; i <= 2030; i++) {
+        $(`#ms-${i}`).parent().parent().addClass('d-none');
+    }
+}
+
+var cambiarTipo = () => {
+    if ($('#cbo-tipo_auditoria').val() == 0) { $('#txt-descripcion-tipo-auditoria').val(""); return; }
+    var Item = {
+        TIPO_AUDITORIA: $('#cbo-tipo_auditoria').val(),
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/DescripcionTipoAuditoria",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                $('#txt-descripcion-tipo-auditoria').val(data);
+            } else {
+                $('#txt-descripcion-tipo-auditoria').val("");
+            }
+        } else {
+            $('#txt-descripcion-tipo-auditoria').val("");
+        }
+    });
+}
+
+var nombreresumen = (medida, enfoque) => {
+    if (medida == 12 || medida == 4 || enfoque == 6 || enfoque == 9)
+        $('#nombre-resumen').html("Emisiones de GEI reducidas");
+    else
+        $('#nombre-resumen').html("Emisiones de GEI reducidas de forma acumulada");
+}
+
+var agregarValorAIF = (e, obj, ind) => {
+    let iniciativa = $("#Control").data("iniciativa");
+    if (obj == undefined) {
+        let row = $(e).find('th:eq(0)').html();
+        let ind = $(e)[0].dataset.ind;
+        let valorAIF = $(e).find('[data-param = 91]').val();
+        valorAIF = valorAIF == null ? 0 : valorAIF == "" ? 0 : valorAIF;
+        let emisiones = $(e).find('[data-param = 11]').val();
+        emisiones = emisiones == null ? 0 : emisiones == "" ? 0 : parseFloat(emisiones.replace(/,/gi, ''));
+        let energia = $(e).find('[data-param = 90]').val();
+        energia = energia == null ? 0 : energia == "" ? 0 : parseFloat(energia.replace(/,/gi, ''));
+        arrAIV.push({
+            ID_INICIATIVA: iniciativa,
+            ID_INDICADOR: 0,
+            ID_ESTADO: valorAIF,
+            AUDITADO: valorAIF > 0 ? emisiones : 0,
+            IMPLEMENTADO: valorAIF > 1 ? emisiones : 0,
+            VERIFICADO: valorAIF > 2 ? emisiones : 0,
+            ENERGIA_AUDITADO: valorAIF > 0 ? energia : 0,
+            ENERGIA_IMPLEMENTADO: valorAIF > 1 ? energia : 0,
+            ENERGIA_VERIFICADO: valorAIF > 2 ? energia : 0,
+        });
+    } else {
+        arrAIV.push({
+            ID_INICIATIVA: obj.ID_INICIATIVA,
+            ID_INDICADOR: obj.ID_INDICADOR,
+            ID_ESTADO: obj.ID_ESTADO,
+            AUDITADO: obj.AUDITADO,
+            IMPLEMENTADO: obj.IMPLEMENTADO,
+            VERIFICADO: obj.VERIFICADO,
+            ENERGIA_AUDITADO: obj.ENERGIA_AUDITADO,
+            ENERGIA_IMPLEMENTADO: obj.ENERGIA_IMPLEMENTADO,
+            ENERGIA_VERIFICADO: obj.ENERGIA_VERIFICADO,
+        });
+    }
+}
+
+$(document).on('change', '[id*=ms-20]', (e) => {
+    let moneda = $(`#${e.target.id}`).val()
+    $('[id*=ms-20]').val(moneda)
+})
